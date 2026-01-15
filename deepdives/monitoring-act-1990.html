@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Verdieping: De wet achter de piramide</title>
+  <style>
+    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:#0b0c10; color:#e9eef7; line-height:1.65; }
+    header{ padding:20px; background:#111; position:sticky; top:0; z-index:10; text-align:center; border-bottom:1px solid rgba(255,255,255,0.08); }
+    header h1{ margin:0 0 8px 0; font-size:20px; font-weight:700; }
+    nav{ font-size:14px; }
+    nav a{ color:#9bbcff; text-decoration:none; font-weight:600; }
+    main{ max-width:900px; margin:30px auto; padding:0 20px 60px; }
+    h2{ margin-top:34px; font-size:18px; color:#e9eef7; }
+    p{ margin:12px 0; color:#cfd6e6; }
+    .kader{ margin-top:18px; padding:14px 16px; background:#14161c; border-left:4px solid #6aa6ff; }
+    footer{ margin-top:28px; font-size:14px; text-align:center; }
+    footer a{ color:#9bbcff; text-decoration:none; font-weight:600; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>De Monitoring Act van 1990: Voeding als Overheidstaak</h1>
+  <nav><a href="#" onclick="return goBackOrHome(event)">← Terug</a></nav>
+</header>
+<main>
+  <p>
+    De <em>National Nutrition Monitoring and Related Research Act</em> van 1990 was de juridische basis die de USDA en de HHS dwong om samen te werken. Hoewel het doel was om "de wetenschap beter te monitoren", creëerde het in feite een systeem waarin de overheid de enige bron van waarheid werd over voeding.
+  </p>
+
+  <div class="kader">
+    <p style="margin:0;">
+      <strong>De "Preponderance of Evidence" valkuil:</strong><br/>
+      De wet stelde dat richtlijnen gebaseerd moesten zijn op het "overwicht van wetenschappelijk bewijs". Dit klinkt goed, maar het betekent in de praktijk dat men kijkt naar de *hoeveelheid* studies, niet naar de *kwaliteit*. Omdat de industrie duizenden kleine studies financierde die gunstig waren voor koolhydraten en plantaardige oliën, bleven de richtlijnen decennialang dezelfde kant op wijzen.
+    </p>
+  </div>
+
+  <h2>Dwang in de praktijk</h2>
+  <p>
+    Vóór 1990 kon een school of een ziekenhuis nog enigszins eigen keuzes maken in het menu. Na de wet van 1990 werd de financiering vanuit de overheid direct gekoppeld aan het volgen van de richtlijnen. Dit betekende dat miljoenen kinderen elke dag een ontbijt en lunch kregen die gebaseerd was op de "vet-is-fout" filosofie: veel ontbijtgranen, magere melk (met extra suiker voor de smaak) en witte broodjes.
+  </p>
+
+  <h2>De institutionalisering van de fout</h2>
+  <p>
+    Het grootste gevaar van de wet van 1990 was dat het bijsturen van de koers een juridisch en politiek mijnenveld werd. Het toegeven van een fout zou betekenen dat de wet niet goed was uitgevoerd. Dit creëerde een cultuur van "vastbijten in het gelijk", zelfs toen de bewijzen voor de schadelijke effecten van suiker en de voordelen van gezonde vetten zich opstapelden.
+  </p>
+
+  <div class="kader">
+    <p style="margin:0;">
+      <strong>Metabole impact:</strong><br/>
+      De starheid van dit wettelijke systeem heeft ervoor gezorgd dat twee generaties zijn opgegroeid met een dieet dat insulineresistentie bevordert. De wet die ons moest beschermen, heeft ons in feite gevangen gezet in een verouderd biologisch model.
+    </p>
+  </div>
+
+  <footer><p><a href="#" onclick="return goBackOrHome(event)">← Terug</a></p></footer>
+</main>
+
+<script>
+  function goBackOrHome(e) {
+    if (e) e.preventDefault();
+    const params = new URLSearchParams(window.location.search);
+    const from = params.get("from");
+    const origin = params.get("origin");
+    if (from && from !== "") { window.location.href = from; return false; }
+    if (origin && origin !== "") { window.location.href = origin; return false; }
+    window.location.href = "../index.html"; return false;
+  }
+</script>
+</body>
+</html>

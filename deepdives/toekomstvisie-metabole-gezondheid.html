@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Toekomstvisie: De weg naar een metabool gezond België</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:#0b0c10;
+      color:#e9eef7;
+      line-height:1.65;
+    }
+
+    header{
+      padding:20px;
+      background:#111;
+      position:sticky;
+      top:0;
+      z-index:10;
+      text-align:center;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+    header h1{
+      margin:0 0 8px 0;
+      font-size:20px;
+      font-weight:700;
+    }
+
+    nav{ font-size:14px; }
+    nav a{
+      color:#9bbcff;
+      text-decoration:none;
+      font-weight:600;
+    }
+    nav a:hover{ text-decoration:underline; }
+
+    main{
+      max-width:900px;
+      margin:30px auto;
+      padding:0 20px 60px;
+    }
+
+    h2{
+      margin-top:34px;
+      font-size:18px;
+      color:#e9eef7;
+    }
+
+    p{
+      margin:12px 0;
+      color:#cfd6e6;
+    }
+
+    .kader{
+      margin-top:18px;
+      padding:14px 16px;
+      background:#14161c;
+      border-left:4px solid #62d6a7;
+    }
+    .kader strong{ color:#e9eef7; }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 25px;
+    }
+    .v-card {
+      background: rgba(255,255,255,0.03);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .v-card h3 { margin-top: 0; color: #62d6a7; font-size: 18px; }
+
+    footer{
+      margin-top:28px;
+      font-size:14px;
+      text-align:center;
+    }
+    footer a{
+      color:#9bbcff;
+      text-decoration:none;
+      font-weight:600;
+    }
+    footer a:hover{ text-decoration:underline; }
+
+    @media (max-width: 600px) {
+      .vision-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <h1>Toekomstvisie: Herstel van Gezondheid</h1>
+  <nav>
+    <a href="#" onclick="return goBackOrHome(event)">← Terug naar tijdlijn</a>
+  </nav>
+</header>
+
+<main>
+
+  <p>
+    De ommekeer van 2025 is niet het einde van een verhaal, maar het begin van een nieuwe manier van leven. Nu we de fouten van de afgelopen 70 jaar hebben erkend, kunnen we bouwen aan een toekomst waarin metabole gezondheid de norm is, en niet de uitzondering.
+  </p>
+
+  <div class="kader">
+    <strong>Onze Missie:</strong><br/>
+    Diabetes type 2 niet langer zien als een onvermijdelijke "ouderdomsziekte", maar als een omkeerbare metabole ontregeling die we aanpakken bij de wortel: ons voedsel.
+  </div>
+
+  <div class="vision-grid">
+    <div class="v-card">
+      <h3>1. Voeding als Medicijn</h3>
+      <p>In de toekomst zal de eerste vraag bij de dokter niet zijn "welke pil?", maar "hoe ziet je bord eruit?". De focus verschuift naar het herstellen van de insuline-gevoeligheid door echte, onbewerkte voeding.</p>
+    </div>
+    <div class="v-card">
+      <h3>2. Bescherming van de Jeugd</h3>
+      <p>We bouwen aan een omgeving waarin kinderen opgroeien zonder de constante verleiding van ultra-bewerkte suikers. De 0%-norm voor baby's wordt de standaard voor een gezonde start.</p>
+    </div>
+    <div class="v-card">
+      <h3>3. Transparante Industrie</h3>
+      <p>De macht van "Big Food" wordt ingeperkt. Marketing voor ongezonde producten wordt gereguleerd zoals tabak, en echte voeding wordt financieel aantrekkelijker gemaakt dan bewerkte rommel.</p>
+    </div>
+    <div class="v-card">
+      <h3>4. Empowered Burgers</h3>
+      <p>Dankzij de toegang tot eerlijke informatie (zoals deze tijdlijn) laten burgers zich niet langer misleiden door vage marketingclaims. We kiezen bewust voor lokale, echte producten.</p>
+    </div>
+  </div>
+
+  <h2>Waarom dit in België zal lukken</h2>
+  <p>
+    België heeft alles in huis om een wereldleider te worden in deze ommekeer. We hebben de medische expertise, we hebben een sterke landbouw, en we hebben een bevolking die houdt van goed en eerlijk eten. De ommekeer van 2025 is de kans om onze gezondheidszorg te ontlasten en onze levenskwaliteit drastisch te verhogen.
+  </p>
+
+  <div class="kader" style="border-left-color: #9bbcff;">
+    <strong>Een Laatste Gedachte:</strong><br/>
+    De geschiedenis van voedingsadvies was er een van vallen en opstaan. Maar vanaf 2025 staan we weer met beide benen op de grond. De weg naar herstel begint bij de volgende hap die u neemt. Kies voor <strong>Echt</strong>.
+  </div>
+
+  <footer>
+    <p><a href="../index.html">← Terug naar de hoofdpagina</a></p>
+  </footer>
+
+</main>
+
+<script>
+  // Slimme terugknop + doorgeven van herkomst (origin) en vorige pagina (from)
+  function goBackOrHome(e) {
+    if (e) e.preventDefault();
+
+    const params = new URLSearchParams(window.location.search);
+    const from = params.get("from");
+    const origin = params.get("origin");
+
+    if (from && from !== "") {
+      window.location.href = from;
+      return false;
+    }
+
+    if (origin && origin !== "") {
+      window.location.href = origin;
+      return false;
+    }
+
+    window.location.href = "../index.html";
+    return false;
+  }
+
+  // Zorgt ervoor dat doorklikken naar andere .html pagina's de herkomst bewaart:
+  // - origin: de eerste pagina (meestal timeline-jaartal)
+  // - from: de vorige pagina (zodat je stap-voor-stap kunt teruggaan zonder lus)
+  document.addEventListener("DOMContentLoaded", function() {
+    const params = new URLSearchParams(window.location.search);
+
+    // Als origin nog niet bestaat, neem dan de eerste from als origin (typisch: jaartalpagina).
+    const origin = params.get("origin") || params.get("from") || "";
+
+    // Relative "current page" (bestandsnaam + query) werkt het best voor statische site (ook via Verkenner).
+    const currentFile = (window.location.pathname.split("/").pop() || "index.html");
+    const currentRel = currentFile + window.location.search;
+
+    const links = document.querySelectorAll("main a[href]");
+    links.forEach(function(link) {
+      const href = link.getAttribute("href");
+      if (!href) return;
+
+      // Alleen interne html-links aanpassen (geen #, mailto, tel, http(s), javascript)
+      const lower = href.toLowerCase();
+      if (lower.startsWith("#") || lower.startsWith("mailto:") || lower.startsWith("tel:") ||
+          lower.startsWith("http://") || lower.startsWith("https://") || lower.startsWith("javascript:")) {
+        return;
+      }
+      if (!lower.includes(".html")) return;
+
+      try {
+        const url = new URL(href, window.location.href);
+
+        // Bewaar/zet origin (als die er is)
+        if (origin) {
+          url.searchParams.set("origin", origin);
+        }
+
+        // Zet from altijd op de huidige pagina (stap-voor-stap terug)
+        url.searchParams.set("from", currentRel);
+
+        // Zet aangepaste href terug als relatieve URL waar mogelijk
+        link.setAttribute("href", url.toString());
+      } catch (err) {
+        // Do nothing: bij vreemde paden liever niet breken
+      }
+    });
+  });
+</script>
+</body>
+</html>

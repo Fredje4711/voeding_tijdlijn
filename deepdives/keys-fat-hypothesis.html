@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ancel Keys: De man die de wetenschap stuurde</title>
+  <style>
+    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:#0b0c10; color:#e9eef7; line-height:1.65; }
+    header{ padding:20px; background:#111; position:sticky; top:0; z-index:10; text-align:center; border-bottom:1px solid rgba(255,255,255,0.08); }
+    header h1{ margin:0 0 8px 0; font-size:20px; font-weight:700; }
+    nav{ font-size:14px; }
+    nav a{ color:#9bbcff; text-decoration:none; font-weight:600; }
+    main{ max-width:900px; margin:30px auto; padding:0 20px 60px; }
+    h2{ margin-top:34px; font-size:18px; color:#e9eef7; }
+    p{ margin:12px 0; color:#cfd6e6; }
+    .kader{ margin-top:18px; padding:14px 16px; background:#14161c; border-left:4px solid #6aa6ff; }
+    footer{ margin-top:28px; font-size:14px; text-align:center; }
+    footer a{ color:#9bbcff; text-decoration:none; font-weight:600; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Ancel Keys: Architect van de vethypothese</h1>
+  <nav><a href="#" onclick="return goBackOrHome(event)">← Terug</a></nav>
+</header>
+<main>
+  <p>
+    Ancel Keys was een briljante, maar zeer dominante wetenschapper. Hij was ervan overtuigd dat verzadigd vet de enige oorzaak was van de stijgende hartziekten. Om dit te bewijzen, startte hij de beroemde <strong>Zeven Landen Studie</strong>.
+  </p>
+
+  <div class="kader">
+    <p style="margin:0;">
+      <strong>De zwakte van de studie:</strong><br/>
+      Keys had data van 22 landen tot zijn beschikking. Hij koos er echter slechts 7 uit die perfect pasten bij zijn theorie (zoals de VS en Griekenland). Landen waar men veel vet at maar weinig hartziekten had (zoals Frankrijk), liet hij simpelweg weg.
+    </p>
+  </div>
+
+  <h2>De strijd tegen John Yudkin</h2>
+  <p>
+    Keys had een grote rivaal: de Britse professor John Yudkin. Yudkin waarschuwde destijds al dat niet vet, maar <strong>suiker</strong> de echte oorzaak was van metabole schade en hartziekten. Keys gebruikte zijn macht en invloed om Yudkin te diskrediteren. Yudkin werd weggezet als een kwakzalver en zijn onderzoek naar suiker werd decennialang genegeerd.
+  </p>
+
+  <h2>De erfenis van Keys</h2>
+  <p>
+    Door het succes van Keys werd "vetarm" het nationale beleid. Dit leidde tot de massale introductie van geraffineerde koolhydraten en plantaardige oliën in ons dieet. Vandaag de dag zien we de resultaten: de oorlog tegen vet is gewonnen, maar de oorlog tegen diabetes en obesitas is verloren.
+  </p>
+
+  <div class="kader">
+    <p style="margin:0;">
+      <strong>Metabole les:</strong><br/>
+      Keys focuste op één cijfer: cholesterol. Hij hield geen rekening met insuline, bloedsuiker of de mate van bewerking van voedsel. Dit reductionistische denken vormt nog steeds de kern van veel verouderde voedingsadviezen.
+    </p>
+  </div>
+
+  <footer><p><a href="#" onclick="return goBackOrHome(event)">← Terug</a></p></footer>
+</main>
+
+<script>
+  function goBackOrHome(e) {
+    if (e) e.preventDefault();
+    const params = new URLSearchParams(window.location.search);
+    const from = params.get("from");
+    const origin = params.get("origin");
+    if (from && from !== "") { window.location.href = from; return false; }
+    if (origin && origin !== "") { window.location.href = origin; return false; }
+    window.location.href = "../index.html"; return false;
+  }
+</script>
+</body>
+</html>

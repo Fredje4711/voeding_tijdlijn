@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AHA 1961 — Van vermoeden naar voedingswet</title>
+  <style>
+    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:#0b0c10; color:#e9eef7; line-height:1.65; }
+    header{ padding:20px; background:#111; position:sticky; top:0; z-index:10; text-align:center; border-bottom:1px solid rgba(255,255,255,0.08); }
+    header h1{ margin:0 0 8px 0; font-size:20px; font-weight:700; }
+    nav{ font-size:14px; }
+    nav a{ color:#9bbcff; text-decoration:none; font-weight:600; }
+    main{ max-width:900px; margin:30px auto; padding:0 20px 60px; }
+    h2{ margin-top:34px; font-size:18px; color:#e9eef7; }
+    p{ margin:12px 0; color:#cfd6e6; }
+    .kader{ margin-top:18px; padding:14px 16px; background:#14161c; border-left:4px solid #6aa6ff; }
+    footer{ margin-top:28px; font-size:14px; text-align:center; }
+    footer a{ color:#9bbcff; text-decoration:none; font-weight:600; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>AHA 1961: Het rapport dat alles veranderde</h1>
+  <nav><a href="#" onclick="return goBackOrHome(event)">← Terug</a></nav>
+</header>
+<main>
+  <p>
+    In januari 1961 publiceerde de American Heart Association (AHA) haar allereerste formele advies over voeding. Dit rapport legde de basis voor wat we nu kennen als de "vet-angst". 
+  </p>
+
+  <div class="kader">
+    <p style="margin:0;">
+      <strong>De centrale boodschap:</strong><br/>
+      Vervang dierlijk vet (boter, reuzel, eieren) door plantaardige oliën (maïsolie, sojaolie) en margarines. Dit zou het cholesterol verlagen en zo hartziekten voorkomen.
+    </p>
+  </div>
+
+  <h2>Waarom dit rapport zo krachtig was</h2>
+  <p>
+    Het rapport was revolutionair omdat het voor het eerst een duidelijke "vijand" aanwees op het bord. De AHA was (en is) een zeer gerespecteerde instantie. Zodra zij dit advies gaven, volgden artsen over de hele wereld. 
+  </p>
+  <p>
+    Wat echter vaak vergeten wordt, is dat de commissie in het rapport zelf toegaf dat het bewijs nog <em>niet</em> definitief was. Toch werd het in de media gepresenteerd als een absolute waarheid.
+  </p>
+
+  <h2>De rol van de industrie</h2>
+  <p>
+    Fabrikanten van plantaardige oliën en margarines zagen een enorme kans. Zij begonnen het AHA-zegel te gebruiken op hun producten. Margarine werd gepresenteerd als "hartgezond", terwijl boter werd weggezet als dodelijk. Dat margarine destijds vol zat met transvetten (die we nu als zeer schadelijk kennen), werd toen niet vermeld.
+  </p>
+
+  <div class="kader">
+    <p style="margin:0;">
+      <strong>De impact op diabetes:</strong><br/>
+      Toen verzadigd vet uit de voeding verdween, moesten de calorieën ergens anders vandaan komen. De industrie vulde dit gat met zetmeel, suiker en bewerkte granen. De AHA-richtlijn van 1961 zette onbedoeld de deur open voor de suikerepidemie.
+    </p>
+  </div>
+
+  <footer><p><a href="#" onclick="return goBackOrHome(event)">← Terug</a></p></footer>
+</main>
+
+<script>
+  function goBackOrHome(e) {
+    if (e) e.preventDefault();
+    const params = new URLSearchParams(window.location.search);
+    const from = params.get("from");
+    const origin = params.get("origin");
+    if (from && from !== "") { window.location.href = from; return false; }
+    if (origin && origin !== "") { window.location.href = origin; return false; }
+    window.location.href = "../index.html"; return false;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Belangenverstrengeling in voedingsadvies</title>
+  <style>
+    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:#0b0c10; color:#e9eef7; line-height:1.65; }
+    header{ padding:20px; background:#111; position:sticky; top:0; z-index:10; text-align:center; border-bottom:1px solid rgba(255,255,255,0.08); }
+    header h1{ margin:0 0 8px 0; font-size:20px; font-weight:700; }
+    nav{ font-size:14px; }
+    nav a{ color:#9bbcff; text-decoration:none; font-weight:600; }
+    main{ max-width:900px; margin:30px auto; padding:0 20px 60px; }
+    h2{ margin-top:34px; font-size:18px; color:#e9eef7; }
+    p{ margin:12px 0; color:#cfd6e6; }
+    .kader{ margin-top:18px; padding:14px 16px; background:#14161c; border-left:4px solid #6aa6ff; }
+    footer{ margin-top:28px; font-size:14px; text-align:center; }
+    footer a{ color:#9bbcff; text-decoration:none; font-weight:600; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Wie bepaalt het advies? Belangen en Bias</h1>
+  <nav><a href="#" onclick="return goBackOrHome(event)">← Terug</a></nav>
+</header>
+<main>
+  <p>
+    Het idee dat voedingsrichtlijnen puur op objectieve wetenschap zijn gebaseerd, is een mythe. Al sinds de vroege dagen spelen geld, reputatie en politieke macht een doorslaggevende rol. 
+  </p>
+
+  <div class="kader">
+    <p style="margin:0;">
+      <strong>Gefinancierde wetenschap:</strong><br/>
+      Veel van de fundamentele studies uit de jaren 60 en 70 werden gefinancierd door sectoren zoals de suikerindustrie of de fabrikanten van plantaardige oliën. Dit stuurde het onderzoek subtiel weg van suiker en richting vet als de grote boosdoener.
+    </p>
+  </div>
+
+  <h2>De draaideur tussen overheid en industrie</h2>
+  <p>
+    Veel experts die zitting hebben in commissies die de richtlijnen opstellen, hebben nauwe banden met de voedingsindustrie. Ze ontvangen beurzen voor onderzoek of werken als adviseur voor grote multinationals. Dit betekent niet altijd dat ze "liegen", maar het zorgt wel voor een <em>bevestigingsbias</em>: men zoekt bewijs dat past bij de bestaande economische belangen.
+  </p>
+
+  <h2>Inertie van de richtlijnen</h2>
+  <p>
+    Zodra een richtlijn officieel is, is deze extreem moeilijk te veranderen. Overheden en grote gezondheidsinstanties geven niet graag toe dat ze het decennialang bij het verkeerde eind hadden. Dit verklaart waarom we zelfs nu nog, met de huidige kennis over insulineresistentie, vaak nog adviezen zien die de kernproblemen (bewerking en suiker) niet krachtig genoeg aanpakken.
+  </p>
+
+  <div class="kader">
+    <p style="margin:0;">
+      <strong>Kritische reflectie:</strong><br/>
+      Begrijpen wie de rekening betaalt voor voedingswetenschap is essentieel om het advies op je bord te begrijpen. De ommekeer van 2025 is mede mogelijk gemaakt door onafhankelijke onderzoekers die deze belangenverstrengelingen eindelijk aan het licht hebben gebracht.
+    </p>
+  </div>
+
+  <footer><p><a href="#" onclick="return goBackOrHome(event)">← Terug</a></p></footer>
+</main>
+
+<script>
+  function goBackOrHome(e) {
+    if (e) e.preventDefault();
+    const params = new URLSearchParams(window.location.search);
+    const from = params.get("from");
+    const origin = params.get("origin");
+    if (from && from !== "") { window.location.href = from; return false; }
+    if (origin && origin !== "") { window.location.href = origin; return false; }
+    window.location.href = "../index.html"; return false;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Verdieping: De impact van Eisenhowers hartaanval</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:#0b0c10;
+      color:#e9eef7;
+      line-height:1.65;
+    }
+    header{
+      padding:20px;
+      background:#111;
+      position:sticky;
+      top:0;
+      z-index:10;
+      text-align:center;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+    header h1{
+      margin:0 0 8px 0;
+      font-size:20px;
+      font-weight:700;
+    }
+    nav{ font-size:14px; }
+    nav a{
+      color:#9bbcff;
+      text-decoration:none;
+      font-weight:600;
+    }
+    main{
+      max-width:900px;
+      margin:30px auto;
+      padding:0 20px 60px;
+    }
+    h2{
+      margin-top:34px;
+      font-size:18px;
+      color:#e9eef7;
+    }
+    p{
+      margin:12px 0;
+      color:#cfd6e6;
+    }
+    .kader{
+      margin-top:18px;
+      padding:14px 16px;
+      background:#14161c;
+      border-left:4px solid #6aa6ff;
+    }
+    footer{
+      margin-top:28px;
+      font-size:14px;
+      text-align:center;
+    }
+    footer a{
+      color:#9bbcff;
+      text-decoration:none;
+      font-weight:600;
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <h1>Eisenhower 1955: De geboorte van de vet-angst</h1>
+  <nav>
+    <a href="#" onclick="return goBackOrHome(event)">← Terug</a>
+  </nav>
+</header>
+
+<main>
+  <p>
+    De hartaanval van president Eisenhower was niet zomaar een medisch incident; het was een media-evenement dat de koers van de volksgezondheid voor de komende zeventig jaar zou bepalen. 
+  </p>
+
+  <div class="kader">
+    <p style="margin:0;">
+      <strong>In gewone mensentaal:</strong><br/>
+      Omdat de president ziek werd, raakte heel Amerika (en daarna Europa) in paniek. Men zocht een simpele verklaring voor een complex probleem. Die verklaring werd: "Vet verstopt je aders zoals vet een gootsteen verstopt."
+    </p>
+  </div>
+
+  <h2>Van symptoom naar risicomodel</h2>
+  <p>
+    Na 1955 verschoof de aandacht van artsen. Men begon te praten over "risicofactoren". Gezondheid werd uitgedrukt in cijfers: cholesterolwaarden, bloeddruk en lichaamsgewicht. Hoewel dit nuttig lijkt, zorgde het ook voor een enorme versimpeling. 
+  </p>
+  <p>
+    Men dacht: als we het cholesterol in de voeding verlagen, dan daalt het cholesterol in het bloed, en dan stoppen de hartaanvallen. Dit "loodgietersmodel" bleek later veel te simpel, maar het zat toen al muurvast in het beleid.
+  </p>
+
+  <h2>De vergeten rol van suiker en roken</h2>
+  <p>
+    Wat destijds nauwelijks werd besproken, was dat Eisenhower zelf een kettingroker was en dat de consumptie van bewerkte suikers en frisdranken in diezelfde periode explosief steeg. Omdat de "vet-theorie" zo krachtig en makkelijk uit te leggen was, werden suiker en bewerking over het hoofd gezien. 
+  </p>
+
+  <div class="kader">
+    <p style="margin:0;">
+      <strong>De link naar nu:</strong><br/>
+      Het onterecht aanwijzen van vet als de enige schuldige in 1955, leidde ertoe dat mensen vet gingen vervangen door koolhydraten en suiker. Dit is precies de kettingreactie die uiteindelijk leidde tot de huidige epidemie van insulineresistentie en diabetes type 2.
+    </p>
+  </div>
+
+  <footer>
+    <p><a href="#" onclick="return goBackOrHome(event)">← Terug</a></p>
+  </footer>
+</main>
+
+<script>
+  // Hier staat uw werkende script (Stap 2 en 3) dat ik ongewijzigd heb gelaten.
+  function goBackOrHome(e) {
+    if (e) e.preventDefault();
+    const params = new URLSearchParams(window.location.search);
+    const from = params.get("from");
+    const origin = params.get("origin");
+    if (from && from !== "") { window.location.href = from; return false; }
+    if (origin && origin !== "") { window.location.href = origin; return false; }
+    window.location.href = "../index.html"; return false;
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const params = new URLSearchParams(window.location.search);
+    const origin = params.get("origin") || params.get("from") || "";
+    const currentFile = (window.location.pathname.split("/").pop() || "index.html");
+    const currentRel = currentFile + window.location.search;
+    const links = document.querySelectorAll("main a[href]");
+    links.forEach(function(link) {
+      const href = link.getAttribute("href");
+      if (!href || href.startsWith("#") || href.includes("://")) return;
+      try {
+        const url = new URL(href, window.location.href);
+        if (origin) url.searchParams.set("origin", origin);
+        url.searchParams.set("from", currentRel);
+        link.setAttribute("href", url.toString());
+      } catch (err) {}
+    });
+  });
+</script>
+</body>
+</html>

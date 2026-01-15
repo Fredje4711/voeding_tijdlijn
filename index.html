@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voeding & Gezondheid — Tijdlijn</title>
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --card: #12141a;
+      --text: #e9eef7;
+      --muted: #b7c0d1;
+      --line: #273043;
+      --accent: #6aa6ff;
+      --accent2: #8ee6c5;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --max: 980px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 20% 10%, rgba(106,166,255,.18), transparent 60%),
+                  radial-gradient(900px 600px at 80% 20%, rgba(142,230,197,.12), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    header {
+      padding: 28px 18px 10px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      background: rgba(0,0,0,.25);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .wrap { max-width: var(--max); margin: 0 auto; }
+
+    .topbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* centreert de titel als “middenanker” */
+  position: relative;
+  min-height: 28px;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 0;
+  letter-spacing: .2px;
+  text-align: center;
+}
+
+nav {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 12px;
+  font-size: 14px;
+}
+
+    nav a:hover { color: var(--text); }
+
+    main { padding: 22px 18px 5px; }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .intro h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+    .intro p { margin: 0 0 10px; color: var(--muted); }
+
+    .notice {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(106,166,255,.28);
+      background: rgba(106,166,255,.08);
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .section-title {
+      margin: 22px 2px 10px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--muted);
+    }
+
+    .timeline {
+  display: grid;
+  gap: 12px;
+  padding-bottom: 0px; /* nieuw: vangt de eindruimte netjes op */
+}
+
+
+    .tl-item a {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 14px;
+      padding: 14px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(18,20,26,.6);
+      text-decoration: none;
+      color: var(--text);
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+
+    .tl-item a:hover {
+      transform: translateY(-1px);
+      border-color: rgba(106,166,255,.45);
+      background: rgba(18,20,26,.9);
+    }
+
+    .year {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+
+    .tl-title {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .tl-desc {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+  padding: 18px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+
+    @media (max-width: 520px) {
+      .tl-item a { grid-template-columns: 72px 1fr; }
+      .year { font-size: 16px; }
+    }
+	
+	.context-link{
+  color:#9bbcff;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.context-link:hover{
+  text-decoration:underline;
+}
+
+	
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap topbar">
+      <h1>De Grote Voedselommekeer — Een Tijdlijn van ons Metabolisme</h1>
+      
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card intro">
+      <h2>Wat u hier kunt verwachten</h2>
+      <p>
+  Welkom bij een kritische reis door 70 jaar voedingsgeschiedenis. Deze presentatie toont hoe internationale richtlijnen, politieke compromissen en de macht van de voedingsindustrie ons bord fundamenteel hebben veranderd — met de wereldwijde explosie van diabetes type 2 en metabole aandoeningen als gevolg.
+</p><p>We vertrekken bij de eerste vet-angst in 1955, trekken door de margarine-revolutie en de broodcultuur in België, om uiteindelijk aan te komen bij de Grote Reset van 2025. Elk tijdlijnpunt is een "stopmoment": een korte pagina met context en nuance die blootlegt waar het misging, maar vooral toont hoe we via "Echt Eten" weer kunnen herstellen.</p>
+
+<p>
+  Elk tijdlijnpunt is een “stopmoment”: een korte, begrijpelijke pagina met context, nuance en bronnen.
+  U kunt de tijdlijn chronologisch volgen, of gericht klikken op een onderwerp dat u interesseert.
+</p>
+
+<div class="notice">
+  <strong>Let op:</strong> Dit is informatieve duiding op basis van publieke bronnen.
+  Het is geen medisch advies en vervangt geen consultatie bij arts of diëtist.
+</div>
+
+<div class="notice" style="margin-top:12px;">
+  <strong>Context Europa & België:</strong><br>
+  Deze tijdlijn vertrekt vanuit de Verenigde Staten.
+  Wie wil begrijpen hoe dit voedingsverhaal zich vertaalt naar Europa en België,
+  vindt hier de nodige context.
+  <br><br>
+  <a class="context-link" href="europa-belgie-voedingsbeleid.html?from=index.html">
+  → Hoe Amerikaans voedingsbeleid doorwerkt in Europa en België
+</a>
+
+
+</div>
+
+
+    </section>
+
+    <div class="section-title">Tijdlijn (start)</div>
+
+    <section class="timeline" aria-label="Tijdlijn">
+  <div class="tl-item">
+    <a href="timeline/1955-eisenhower.html">
+      <div class="year">1955</div>
+      <div>
+        <p class="tl-title">Eisenhower’s hartaanval en de publieke doorbraak van “hartziekte”</p>
+        <p class="tl-desc">
+          Een vroeg kantelpunt in hoe media, geneeskunde en beleid naar voeding en hartgezondheid keken.
+        </p>
+      </div>
+    </a>
+  </div>
+
+  <div class="tl-item">
+    <a href="timeline/1961-aha.html">
+      <div class="year">1961</div>
+      <div>
+        <p class="tl-title">Hartziekte wordt vertaald naar voedingsadvies</p>
+        <p class="tl-desc">
+          Professionele aanbevelingen koppelen cholesterol en vetinname aan hart- en vaatziekten.
+          Het begin van institutioneel voedingsadvies.
+        </p>
+      </div>
+    </a>
+  </div>
+  
+    <div class="tl-item">
+    <a href="timeline/1977-mcgovern.html">
+      <div class="year">1977</div>
+      <div>
+        <p class="tl-title">Voedingsadvies wordt nationaal beleid</p>
+        <p class="tl-desc">
+          De “Dietary Goals for the United States” vertalen voedingshypothesen
+          naar officiële richtlijnen. Een cruciaal politiek kantelpunt.
+        </p>
+      </div>
+    </a>
+  </div>
+
+  <div class="tl-item">
+    <a href="timeline/1980-dga.html">
+      <div class="year">1980</div>
+      <div>
+        <p class="tl-title">Eerste “Dietary Guidelines for Americans”</p>
+        <p class="tl-desc">
+          Voedingsadvies wordt een herhaalbaar overheidsinstrument (USDA + HHS),
+          met grote impact op federale programma’s en publieke communicatie.
+        </p>
+      </div>
+    </a>
+  </div>
+  
+    <div class="tl-item">
+    <a href="timeline/1990-monitoring-act.html">
+      <div class="year">1990</div>
+      <div>
+        <p class="tl-title">Monitoring Act: 5-jaarlijkse richtlijnen worden wet</p>
+        <p class="tl-desc">
+          De Dietary Guidelines worden wettelijk verplicht en moeten door federale programma’s worden toegepast en gepromoot.
+        </p>
+      </div>
+    </a>
+  </div>
+
+  <div class="tl-item">
+    <a href="timeline/1992-pyramid.html">
+      <div class="year">1992</div>
+      <div>
+        <p class="tl-title">Food Guide Pyramid</p>
+        <p class="tl-desc">
+          Het beleid krijgt een krachtig visueel model voor het brede publiek:
+          granen als basis, vetten/zoet “spaarzaam”.
+        </p>
+      </div>
+    </a>
+  </div>
+  
+  <div class="tl-item">
+  <a href="timeline/2005-mypyramid.html">
+    <div class="year">2005</div>
+    <div>
+      <p class="tl-title">MyPyramid</p>
+      <p class="tl-desc">
+        Herontwerp van de voedselpiramide met nadruk op beweging en personalisatie,
+        maar zonder fundamentele koerswijziging.
+      </p>
+    </div>
+  </a>
+</div>
+
+<div class="tl-item">
+  <a href="timeline/2011-myplate.html">
+    <div class="year">2011</div>
+    <div>
+      <p class="tl-title">MyPlate</p>
+      <p class="tl-desc">
+        De piramide verdwijnt als publieksicoon en wordt vervangen door een bordmodel:
+        eenvoud, porties en maaltijdcontext.
+      </p>
+    </div>
+  </a>
+</div>
+
+<div class="tl-item">
+  <a href="timeline/2015-dga.html">
+    <div class="year">2015</div>
+    <div>
+      <p class="tl-title">DGA 2015–2020: meetbare limieten en “eetpatronen”</p>
+      <p class="tl-desc">
+        Toegevoegde suikers &lt;10% kcal, verzadigd vet &lt;10% kcal, natrium &lt;2300 mg.
+        Het beleid verschuift naar “eetpatronen”, met belangrijke nuances rond vervanging.
+      </p>
+    </div>
+  </a>
+</div>
+
+<div class="tl-item">
+  <a href="timeline/2020-dga.html">
+    <div class="year">2020</div>
+    <div>
+      <p class="tl-title">DGA 2020–2025: levensfasen centraal, met strengere regels voor jonge kinderen</p>
+<p class="tl-desc">
+  Voeding wordt bekeken over de hele levensloop: van baby’s en peuters tot ouderen.
+  Opvallend is het expliciete advies om toegevoegde suikers te vermijden bij kinderen jonger dan 2 jaar,
+  naast blijvende grenzen voor suiker, vet en zout.
+</p>
+
+    </div>
+  </a>
+</div>
+
+<div class="tl-item">
+  <a href="timeline/2025-dga.html">
+    <div class="year">2025</div>
+    <div>
+      <p class="tl-title">DGA 2025–2030: “Eat Real Food” en reset</p>
+      <p class="tl-desc">
+        Nieuwe framing richting whole/real food, meer nadruk op eiwit en minder ultra-bewerkt.
+        Alcoholadvies zonder vaste 1–2 limieten (communicatief opvallend).
+      </p>
+    </div>
+  </a>
+</div>
+
+<div class="tl-item">
+  <a href="timeline/2024-dgac-report.html">
+    <div class="year">2025</div>
+    <div>
+      <p class="tl-title">DGAC Scientific Report (basis voor 2025–2030)</p>
+      <p class="tl-desc">
+        Wetenschappelijke advieslaag: DGAC-rapport (dec 2024) met publieke commentaarperiode
+        (11 dec 2024 t/m 10 feb 2025). Brug tussen wetenschap en beleid.
+      </p>
+    </div>
+  </a>
+</div>
+
+<!-- VOEG DIT TOE ONDER DE TIMELINE SECTIE IN index.html -->
+
+<section class="card intro" style="margin-top: 30px; border-left: 4px solid #62d6a7;">
+  <h2>Besluit: De Cirkel is Rond</h2>
+  <p>
+    Na 70 jaar van experimenteren met vetarme dogma's en de opkomst van ultra-bewerkte voeding, staan we in 2025 op een historisch kruispunt. De wetenschap keert terug naar de basis: <strong>Real Food</strong>. 
+  </p>
+  <p>
+    Hoewel de VS het epicentrum was van de voedingscrisis, zien we nu dat de ommekeer daar de weg vrijmaakt voor de rest van de wereld. Ook voor ons in België en Europa is dit het moment om onze eetcultuur te herwaarderen en de strijd tegen diabetes type 2 echt aan te gaan.
+  </p>
+  
+  <div style="margin-top: 20px;">
+    <a class="context-link" href="deepdives/global-impact-europe-belgium.html" style="color: #62d6a7; font-size: 16px;">
+      → De impact op België en Europa: Waarom wij een voorsprong hebben
+    </a>
+    <br><br>
+    <a class="context-link" href="deepdives/toekomstvisie-metabole-gezondheid.html" style="color: #62d6a7; font-size: 16px;">
+      → Toekomstvisie: Hoe we diabetes type 2 definitief kunnen keren
+    </a>
+  </div>
+</section>
+
+
+
+  
+</section>
+
+  </main>
+
+  <footer>
+  <div class="wrap">
+    Disclaimer: deze website is bedoeld voor algemene informatie en educatie.
+    Bij gezondheidsvragen: bespreek persoonlijke keuzes steeds met uw arts of diëtist.
+  </div>
+</footer>
+
+</body>
+</html>

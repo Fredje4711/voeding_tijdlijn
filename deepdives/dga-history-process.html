@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Verdieping: De Richtlijnenmachine</title>
+  <style>
+    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:#0b0c10; color:#e9eef7; line-height:1.65; }
+    header{ padding:20px; background:#111; position:sticky; top:0; z-index:10; text-align:center; border-bottom:1px solid rgba(255,255,255,0.08); }
+    header h1{ margin:0 0 8px 0; font-size:20px; font-weight:700; }
+    nav{ font-size:14px; }
+    nav a{ color:#9bbcff; text-decoration:none; font-weight:600; }
+    main{ max-width:900px; margin:30px auto; padding:0 20px 60px; }
+    h2{ margin-top:34px; font-size:18px; color:#e9eef7; }
+    p{ margin:12px 0; color:#cfd6e6; }
+    .kader{ margin-top:18px; padding:14px 16px; background:#14161c; border-left:4px solid #6aa6ff; }
+    footer{ margin-top:28px; font-size:14px; text-align:center; }
+    footer a{ color:#9bbcff; text-decoration:none; font-weight:600; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Hoe de richtlijnen een "machine" werden</h1>
+  <nav><a href="#" onclick="return goBackOrHome(event)">← Terug</a></nav>
+</header>
+<main>
+  <p>
+    Vanaf 1980 werd voedingsadvies een vast onderdeel van de overheid. Er ontstond een systeem dat elke vijf jaar opnieuw in beweging komt. Dit proces lijkt wetenschappelijk, maar het is ook een log apparaat dat zeer moeilijk van koers kan veranderen.
+  </p>
+
+  <div class="kader">
+    <p style="margin:0;">
+      <strong>De cyclus van de richtlijnen:</strong><br/>
+      Elke vijf jaar stelt de overheid een nieuwe commissie aan. Deze commissie bekijkt de wetenschap en geeft een advies. Maar omdat de richtlijnen van de vorige keer al overal in zijn verwerkt (van schoolkantines tot medische handboeken), is er een enorme weerstand om grote fouten uit het verleden toe te geven.
+    </p>
+  </div>
+
+  <h2>Inertie: Waarom verandering decennia duurt</h2>
+  <p>
+    Wanneer een richtlijn eenmaal is vastgesteld (zoals "vet is slecht"), bouwen hele industrieën daarop voort. De farmaceutische industrie ontwikkelt medicijnen (zoals statines) en de voedingsindustrie ontwikkelt miljoenen producten. Als de overheid na vijf jaar zou zeggen: "Sorry, we zaten fout met vet", zou dat enorme economische en politieke schade aanrichten. Daarom zien we dat richtlijnen vaak 15 tot 20 jaar achterlopen op de actuele wetenschap.
+  </p>
+
+  <h2>De rol van consensus boven waarheid</h2>
+  <p>
+    De commissies streven naar "consensus". Dat betekent dat ze liever een veilig, gemiddeld advies geven dan een radicaal nieuw inzicht promoten, zelfs als dat inzicht levens zou kunnen redden. Voor mensen met diabetes type 2 is dit systeem rampzalig, omdat het decennialang bleef vasthouden aan koolhydraatrijke adviezen terwijl de praktijk allang liet zien dat dit niet werkte.
+  </p>
+
+  <div class="kader">
+    <p style="margin:0;">
+      <strong>De ommekeer van 2025:</strong><br/>
+      De reden waarom 2025 zo'n groot stopmoment is in deze tijdlijn, is omdat de "machine" voor het eerst in 45 jaar echt lijkt te haperen onder de druk van de overweldigende bewijslast tegen ultra-bewerkte voeding en insulineresistentie.
+    </p>
+  </div>
+
+  <footer><p><a href="#" onclick="return goBackOrHome(event)">← Terug</a></p></footer>
+</main>
+
+<script>
+  function goBackOrHome(e) {
+    if (e) e.preventDefault();
+    const params = new URLSearchParams(window.location.search);
+    const from = params.get("from");
+    const origin = params.get("origin");
+    if (from && from !== "") { window.location.href = from; return false; }
+    if (origin && origin !== "") { window.location.href = origin; return false; }
+    window.location.href = "../index.html"; return false;
+  }
+</script>
+</body>
+</html>

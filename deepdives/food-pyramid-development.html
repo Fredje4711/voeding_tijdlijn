@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Verdieping: Het ontwerp van de piramide</title>
+  <style>
+    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:#0b0c10; color:#e9eef7; line-height:1.65; }
+    header{ padding:20px; background:#111; position:sticky; top:0; z-index:10; text-align:center; border-bottom:1px solid rgba(255,255,255,0.08); }
+    header h1{ margin:0 0 8px 0; font-size:20px; font-weight:700; }
+    nav{ font-size:14px; }
+    nav a{ color:#9bbcff; text-decoration:none; font-weight:600; }
+    main{ max-width:900px; margin:30px auto; padding:0 20px 60px; }
+    h2{ margin-top:34px; font-size:18px; color:#e9eef7; }
+    p{ margin:12px 0; color:#cfd6e6; }
+    .kader{ margin-top:18px; padding:14px 16px; background:#14161c; border-left:4px solid #6aa6ff; }
+    footer{ margin-top:28px; font-size:14px; text-align:center; }
+    footer a{ color:#9bbcff; text-decoration:none; font-weight:600; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Het ontwerp van 1992: Marketing boven Biologie</h1>
+  <nav><a href="#" onclick="return goBackOrHome(event)">← Terug</a></nav>
+</header>
+<main>
+  <p>
+    De Voedselpiramide uit 1992 was bedoeld als een educatief hulpmiddel, maar het bleek een van de meest succesvolle en schadelijke marketingcampagnes uit de geschiedenis te zijn. 
+  </p>
+
+  <div class="kader">
+    <p style="margin:0;">
+      <strong>De lobby achter de schermen:</strong><br/>
+      Toen de USDA (het ministerie van Landbouw) de piramide ontwierp, adviseerden hun eigen voedingsdeskundigen oorspronkelijk om groenten en fruit aan de basis te zetten. De graanlobby greep echter in en eiste de ereplaats onderaan de piramide op. De overheid gaf toe, met als resultaat het advies om dagelijks bergen zetmeel te eten.
+    </p>
+  </div>
+
+  <h2>Geen onderscheid in kwaliteit</h2>
+  <p>
+    Het grootste probleem van het 1992-model was de extreme versimpeling. Voor de piramide was "koolhydraat = koolhydraat". Er werd geen onderscheid gemaakt tussen een vezelrijke linze en een geraffineerde witte boterham. Beiden vielen in de grote onderste laag. Voor vet gold hetzelfde: de gezonde vetten in noten en vis werden op één hoop gegooid met de transvetten in snoep en gebak in de "spaarzame" top.
+  </p>
+
+  <h2>De gevolgen voor ons bloedsuiker</h2>
+  <p>
+    Door vet te demoniseren en koolhydraten te verheerlijken, dwong de piramide de consument in een metabole val. Omdat vet zorgt voor verzadiging, zorgde het vetarme dieet van de piramide ervoor dat mensen constant honger hadden. Die honger werd gestild met nog meer granen en suikers, wat leidde tot een vicieuze cirkel van insulinepieken en vetopslag.
+  </p>
+
+  <div class="kader">
+    <p style="margin:0;">
+      <strong>De conclusie van 2025:</strong><br/>
+      Vandaag de dag kijken we met verbijstering terug op de piramide van 1992. Het was een model dat de industrie diende, niet de mens. De ommekeer van 2025 is in feite het definitief afbreken van de piramide en het terugkeren naar een model dat gebaseerd is op onbewerkte voeding en metabole stabiliteit.
+    </p>
+  </div>
+
+  <footer><p><a href="#" onclick="return goBackOrHome(event)">← Terug</a></p></footer>
+</main>
+
+<script>
+  function goBackOrHome(e) {
+    if (e) e.preventDefault();
+    const params = new URLSearchParams(window.location.search);
+    const from = params.get("from");
+    const origin = params.get("origin");
+    if (from && from !== "") { window.location.href = from; return false; }
+    if (origin && origin !== "") { window.location.href = origin; return false; }
+    window.location.href = "../index.html"; return false;
+  }
+</script>
+</body>
+</html>

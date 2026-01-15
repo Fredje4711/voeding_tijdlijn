@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hoe Amerikaans voedingsbeleid doorwerkte in Europa en België</title>
+  <style>
+    /* ... (CSS blijft hetzelfde zoals in uw bestand) ... */
+    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:#0b0c10; color:#e9eef7; line-height:1.65; }
+    header{ padding:20px; background:#111; position:sticky; top:0; z-index:10; text-align:center; border-bottom:1px solid rgba(255,255,255,0.08); }
+    header h1{ margin:0 0 8px 0; font-size:20px; font-weight:700; }
+    nav{ font-size:14px; }
+    nav a{ color:#9bbcff; text-decoration:none; font-weight:600; }
+    main{ max-width:900px; margin:30px auto; padding:0 20px 60px; }
+    h2{ margin-top:34px; font-size:18px; color:#e9eef7; }
+    p{ margin:12px 0; color:#cfd6e6; }
+    .kader{ margin-top:18px; padding:14px 16px; background:#14161c; border-left:4px solid #6aa6ff; }
+    .kader strong{ color:#e9eef7; }
+    .accent-kader{ margin-top:18px; padding:14px 16px; background:#1a1d24; border-left:4px solid #62d6a7; }
+    .accent-kader strong{ color:#62d6a7; }
+    .leesmeer{ margin-top:26px; padding:15px; background:#14161c; border-left:4px solid #6aa6ff; }
+    .leesmeer h3{ margin:0 0 8px 0; font-size:16px; color:#e9eef7; }
+    .leesmeer a{ color:#6aa6ff; text-decoration:none; }
+    footer{ margin-top:28px; font-size:14px; text-align:center; }
+    footer a{ color:#9bbcff; text-decoration:none; font-weight:600; }
+    ul { color: #cfd6e6; }
+    li { margin-bottom: 8px; }
+  </style>
+</head>
+
+<body>
+<header>
+  <h1>De Amerikaanse schaduw over het Belgische bord</h1>
+  <nav><a href="index.html">← Terug naar tijdlijn</a></nav>
+</header>
+
+<main>
+  <!-- ... (Inhoud blijft hetzelfde) ... -->
+  <p>Voor veel Belgen en Vlamingen roept deze tijdlijn een vraag op...</p>
+
+  <div class="leesmeer">
+    <h3>Verdiepende thema's voor België & Europa</h3>
+    <ul>
+      <!-- De paden zijn nu direct, zonder 'deepdives/' -->
+      <li><a href="belgische-broodcultuur-margarine.html">De Margarine-revolutie en de impact op de Belgische broodmaaltijd</a></li>
+      <li><a href="vlaamse-voedingsdriehoek-evolutie.html">Van de "Schijf van Vijf" naar de omgekeerde Driehoek van 2017</a></li>
+      <li><a href="medicatie-symptoombestrijding-vs-oorzaak.html">Medicatie-cultuur in de Belgische huisartsenpraktijk</a></li>
+    </ul>
+  </div>
+
+  <footer>
+    <p><a href="index.html">← Terug naar de hoofdpagina</a></p>
+  </footer>
+</main>
+
+<script>
+  function goBackOrHome(e) {
+    if (e) e.preventDefault();
+    const params = new URLSearchParams(window.location.search);
+    const from = params.get("from");
+    if (from && from !== "") {
+      window.location.href = from;
+      return false;
+    }
+    window.location.href = "index.html";
+    return false;
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    // We geven nu simpelweg de naam van dit bestand door als terug-adres
+    const backLink = "from=europa-belgie-voedingsbeleid.html";
+    const links = document.querySelectorAll(".leesmeer a");
+    
+    links.forEach(function(link) {
+      const currentHref = link.getAttribute("href");
+      if (currentHref.includes("?")) {
+        link.setAttribute("href", currentHref + "&" + backLink);
+      } else {
+        link.setAttribute("href", currentHref + "?" + backLink);
+      }
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Waarom officiële voedingsrichtlijnen achterlopen op praktijkervaring</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:#0b0c10;
+      color:#e9eef7;
+      line-height:1.65;
+    }
+
+    header{
+      padding:20px;
+      background:#111;
+      position:sticky;
+      top:0;
+      z-index:10;
+      text-align:center;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    header h1{
+      margin:0 0 8px 0;
+      font-size:20px;
+      font-weight:700;
+    }
+
+    nav a{
+      color:#9bbcff;
+      text-decoration:none;
+      font-size:14px;
+    }
+
+    main{
+      max-width:900px;
+      margin:30px auto;
+      padding:0 20px 60px;
+    }
+
+    h2{ margin-top:34px; font-size:18px; }
+    p{ margin:12px 0; color:#cfd6e6; }
+    ul{ margin:10px 0 10px 20px; }
+
+    .kader{
+      margin-top:18px;
+      padding:14px 16px;
+      background:#14161c;
+      border-left:4px solid #6aa6ff;
+    }
+
+    footer{
+      margin-top:30px;
+      text-align:center;
+      font-size:14px;
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <h1>Waarom officiële voedingsrichtlijnen achterlopen op praktijkervaring</h1>
+  <nav>
+    <a href="#" data-back-link="1" onclick="return goBackOrHome(event)">← Terug</a>
+  </nav>
+
+</header>
+
+<main>
+
+  <h2>Een terugkerend patroon in de voedingsgeschiedenis</h2>
+  <p>
+    Wie de geschiedenis van voedingsadvies bekijkt,
+    ziet een terugkerend patroon:
+    officiële richtlijnen lopen vaak jaren tot decennia achter
+    op wat artsen en patiënten in de praktijk ervaren.
+  </p>
+
+  <p>
+  Dit is geen complot, maar een terugkerend patroon
+  in hoe voedingsadvies tot stand komt en jarenlang hetzelfde blijft.
+  Nieuwe inzichten hebben vaak veel tijd nodig
+  voor ze als “officieel” worden aanvaard.
+</p>
+
+
+  <h2>Waarom richtlijnen zo traag veranderen</h2>
+  <ul>
+  <li>ze zijn bedoeld voor de hele bevolking en moeten dus voorzichtig zijn</li>
+  <li>ze veranderen pas wanneer nieuw bewijs niet meer te negeren is</li>
+  <li>ze herhalen vaak jaren dezelfde eenvoudige boodschappen of slogans</li>
+  <li>ze houden rekening met bestaande systemen, opleidingen en industrie</li>
+</ul>
+
+
+  <div class="kader">
+  <p style="margin:0;">
+    <strong>Gevolg:</strong><br/>
+    Richtlijnen zijn vaak veilig en voorzichtig,
+    maar blijven soms jarenlang dezelfde.
+    Intussen passen industrie en farmaceutische sector
+    zich aan die vaste boodschappen aan,
+    wat verandering nog trager maakt.
+  </p>
+</div>
+
+
+  <h2>Wat praktijkervaring wél sneller oppikt</h2>
+  <p>
+    Artsen, diëtisten en onderzoekers die dagelijks met patiënten werken,
+    zien patronen vaak vroeger:
+  </p>
+
+  <ul>
+    <li>welke voedingsadviezen effectief werken</li>
+    <li>welke patiënten verbeteren ondanks afwijking van richtlijnen</li>
+    <li>waar metabole problemen blijven toenemen</li>
+  </ul>
+
+  <p>
+  Wanneer deze ervaringen botsen met het officiële advies,
+  gaan zorgverleners en patiënten zelf op zoek naar andere uitleg.
+  Zo ontstaat kennisdeling buiten de klassieke kanalen.
+</p>
+
+
+  <h2>Waarom dit debat zich buiten officiële kanalen afspeelt</h2>
+
+  <p>
+    Digitale media bieden ruimte voor:
+  </p>
+
+  <ul>
+    <li>snellere kennisdeling</li>
+    <li>klinische observatie</li>
+    <li>kritiek op bestaande modellen</li>
+    <li>open debat buiten institutionele structuren</li>
+  </ul>
+
+  <p>
+    Dat verklaart waarom thema’s zoals zaadoliën,
+    ultrabewerkte voeding en metabole gezondheid
+    vandaag vooral daar besproken worden.
+  </p>
+
+  <h2>Waarom dit geen afwijzing van wetenschap is</h2>
+  <p>
+    Kritiek op richtlijnen is geen afwijzing van wetenschap.
+    Het is een vraag naar betere aansluiting tussen:
+    onderzoek, praktijk en volksgezondheid.
+  </p>
+
+  <div class="kader">
+  <p style="margin:0;">
+    <strong>Historische les:</strong><br/>
+    Grote veranderingen in voedingsadvies beginnen vaak buiten de officiële richtlijnen.
+    Ze groeien vanuit praktijkervaring
+    en worden pas later, soms na jaren,
+    voorzichtig in beleid opgenomen.
+  </p>
+</div>
+
+
+  <<footer>
+    <p><a href="#" data-back-link="1" onclick="return goBackOrHome(event)">← Terug</a></p>
+  </footer>
+  
+  <script>
+  // Slimme terugknop + doorgeven van herkomst (origin) en vorige pagina (from)
+  function goBackOrHome(e) {
+    if (e) e.preventDefault();
+
+    const params = new URLSearchParams(window.location.search);
+    const from = params.get("from");
+    const origin = params.get("origin");
+
+    if (from && from !== "") {
+      window.location.href = from;
+      return false;
+    }
+
+    if (origin && origin !== "") {
+      window.location.href = origin;
+      return false;
+    }
+
+    window.location.href = "../index.html";
+    return false;
+  }
+
+  // Zorgt ervoor dat doorklikken naar andere .html pagina's de herkomst bewaart:
+  // - origin: de eerste pagina (meestal timeline-jaartal)
+  // - from: de vorige pagina (zodat je stap-voor-stap kunt teruggaan zonder lus)
+  document.addEventListener("DOMContentLoaded", function() {
+    const params = new URLSearchParams(window.location.search);
+
+    // Als origin nog niet bestaat, neem dan de eerste from als origin (typisch: jaartalpagina).
+    const origin = params.get("origin") || params.get("from") || "";
+
+    // Relative "current page" (bestandsnaam + query) werkt het best voor statische site (ook via Verkenner).
+    const currentFile = (window.location.pathname.split("/").pop() || "index.html");
+    const currentRel = currentFile + window.location.search;
+
+    const links = document.querySelectorAll("main a[href]");
+    links.forEach(function(link) {
+      const href = link.getAttribute("href");
+      if (!href) return;
+
+      // Alleen interne html-links aanpassen (geen #, mailto, tel, http(s), javascript)
+      const lower = href.toLowerCase();
+      if (lower.startsWith("#") || lower.startsWith("mailto:") || lower.startsWith("tel:") ||
+          lower.startsWith("http://") || lower.startsWith("https://") || lower.startsWith("javascript:")) {
+        return;
+      }
+      if (!lower.includes(".html")) return;
+
+      try {
+        const url = new URL(href, window.location.href);
+
+        // Bewaar/zet origin (als die er is)
+        if (origin) {
+          url.searchParams.set("origin", origin);
+        }
+
+        // Zet from altijd op de huidige pagina (stap-voor-stap terug)
+        url.searchParams.set("from", currentRel);
+
+        // Zet aangepaste href terug als relatieve URL waar mogelijk
+        link.setAttribute("href", url.toString());
+      } catch (err) {
+        // Do nothing: bij vreemde paden liever niet breken
+      }
+    });
+  });
+</script>
+</main>
+</body>
+</html>

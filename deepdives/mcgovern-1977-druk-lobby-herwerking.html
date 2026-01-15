@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Verdieping: De strijd om het McGovern-rapport</title>
+  <style>
+    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:#0b0c10; color:#e9eef7; line-height:1.65; }
+    header{ padding:20px; background:#111; position:sticky; top:0; z-index:10; text-align:center; border-bottom:1px solid rgba(255,255,255,0.08); }
+    header h1{ margin:0 0 8px 0; font-size:20px; font-weight:700; }
+    nav{ font-size:14px; }
+    nav a{ color:#9bbcff; text-decoration:none; font-weight:600; }
+    main{ max-width:900px; margin:30px auto; padding:0 20px 60px; }
+    h2{ margin-top:34px; font-size:18px; color:#e9eef7; }
+    p{ margin:12px 0; color:#cfd6e6; }
+    .kader{ margin-top:18px; padding:14px 16px; background:#14161c; border-left:4px solid #6aa6ff; }
+    footer{ margin-top:28px; font-size:14px; text-align:center; }
+    footer a{ color:#9bbcff; text-decoration:none; font-weight:600; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>McGovern 1977: Wetenschap vs. Lobbykracht</h1>
+  <nav><a href="#" onclick="return goBackOrHome(event)">← Terug</a></nav>
+</header>
+<main>
+  <p>
+    Toen het eerste ontwerp van de <em>Dietary Goals</em> verscheen, brak er een storm van kritiek uit. Niet alleen bij wetenschappers, maar vooral bij de machtige Amerikaanse voedingsindustrie. 
+  </p>
+
+  <div class="kader">
+    <p style="margin:0;">
+      <strong>De woede van de vleeslobby:</strong><br/>
+      Het oorspronkelijke rapport zei simpelweg: "Eet minder vlees". De vleesindustrie was woedend en eiste een aanpassing. Senator McGovern, die veel boeren in zijn kiesdistrict had, boog voor de druk. De zin werd veranderd in: "Kies vleessoorten die minder verzadigd vet bevatten". 
+    </p>
+  </div>
+
+  <h2>Het verzwakken van het suiker-doel</h2>
+  <p>
+    In de eerste versie van het rapport stond ook dat de suikerconsumptie met 40% omlaag moest. De suikerlobby sloeg direct terug met eigen "onderzoeken". In de uiteindelijke versie werd de waarschuwing tegen suiker veel minder scherp geformuleerd. Vet bleef de grote zondebok, terwijl suiker stilletjes de kans kreeg om in duizenden nieuwe "vetarme" producten terecht te komen.
+  </p>
+
+  <h2>Politiek boven Wetenschap</h2>
+  <p>
+    Het rapport van 1977 liet zien dat voedingsadvies in de praktijk vaak een compromis is. Er werd niet gekeken naar wat mensen echt nodig hadden voor een gezond metabolisme, maar naar wat politiek haalbaar was en wat de economie niet te veel zou schaden. 
+  </p>
+
+  <div class="kader">
+    <p style="margin:0;">
+      <strong>Waarom dit ertoe doet:</strong><br/>
+      Door deze politieke compromissen kregen we richtlijnen die mensen aanmoedigden om meer bewerkte granen en minder voedzame dierlijke vetten te eten. Dit legde de rode loper uit voor de enorme stijging van insulineresistentie in de jaren die volgden.
+    </p>
+  </div>
+
+  <footer><p><a href="#" onclick="return goBackOrHome(event)">← Terug</a></p></footer>
+</main>
+
+<script>
+  function goBackOrHome(e) {
+    if (e) e.preventDefault();
+    const params = new URLSearchParams(window.location.search);
+    const from = params.get("from");
+    const origin = params.get("origin");
+    if (from && from !== "") { window.location.href = from; return false; }
+    if (origin && origin !== "") { window.location.href = origin; return false; }
+    window.location.href = "../index.html"; return false;
+  }
+</script>
+</body>
+</html>

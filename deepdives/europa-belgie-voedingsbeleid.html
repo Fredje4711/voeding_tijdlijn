@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hoe Amerikaans voedingsbeleid doorwerkte in Europa en België</title>
+  <style>
+    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:#0b0c10; color:#e9eef7; line-height:1.65; }
+    header{ padding:20px; background:#111; position:sticky; top:0; z-index:10; text-align:center; border-bottom:1px solid rgba(255,255,255,0.08); }
+    header h1{ margin:0 0 8px 0; font-size:20px; font-weight:700; }
+    nav{ font-size:14px; }
+    nav a{ color:#9bbcff; text-decoration:none; font-weight:600; }
+    main{ max-width:900px; margin:30px auto; padding:0 20px 60px; }
+    h2{ margin-top:34px; font-size:18px; color:#e9eef7; }
+    p{ margin:12px 0; color:#cfd6e6; }
+    .kader{ margin-top:18px; padding:14px 16px; background:#14161c; border-left:4px solid #6aa6ff; }
+    .kader strong{ color:#e9eef7; }
+    .accent-kader{ margin-top:18px; padding:14px 16px; background:#1a1d24; border-left:4px solid #62d6a7; }
+    .accent-kader strong{ color:#62d6a7; }
+    .leesmeer{ margin-top:26px; padding:15px; background:#14161c; border-left:4px solid #6aa6ff; }
+    .leesmeer h3{ margin:0 0 8px 0; font-size:16px; color:#e9eef7; }
+    .leesmeer a{ color:#6aa6ff; text-decoration:none; }
+    footer{ margin-top:28px; font-size:14px; text-align:center; }
+    footer a{ color:#9bbcff; text-decoration:none; font-weight:600; }
+    ul { color: #cfd6e6; }
+    li { margin-bottom: 8px; }
+  </style>
+</head>
+
+<body>
+<header>
+  <h1>De Amerikaanse schaduw over het Belgische bord</h1>
+  <nav><a href="#" onclick="return goBackOrHome(event)">← Terug naar tijdlijn</a></nav>
+</header>
+
+<main>
+  <p>
+    Voor veel Belgen en Vlamingen roept deze tijdlijn een vraag op: <em>"Waarom kijken we naar de Verenigde Staten als we hier in België wonen?"</em> Het antwoord is ontnuchterend: hoewel onze eetcultuur verschilt, is het **wetenschappelijke en politieke fundament** van ons voedingsadvies bijna een kopie van het Amerikaanse model.
+  </p>
+
+  <div class="kader">
+    <p style="margin:0;">
+      <strong>De export van een dogma:</strong><br/>
+      Wanneer de Amerikaanse overheid (USDA) of de Hartassociatie (AHA) een richtlijn publiceert, sijpelt dit via internationale medische vakbladen en congressen direct door naar Brussel. Onze eigen Hoge Gezondheidsraad baseert haar adviezen al decennialang op ditzelfde internationale onderzoek.
+    </p>
+  </div>
+
+  <h2>1. De institutionalisering in België</h2>
+  <p>
+    Vanaf de jaren '80 namen Belgische instanties de "vethypothese" integraal over. Artsen en diëtisten werden opgeleid met het idee dat verzadigd vet de hoofdoorzaak was van hart- en vaatziekten. Dit leidde tot een enorme verschuiving in de Belgische zorg:
+  </p>
+  <ul>
+    <li><strong>In het ziekenhuis:</strong> Patiënten die werden opgenomen kregen standaard "magere" maaltijden: confituur in plaats van kaas, margarine in plaats van boter, en veel wit brood of beschuiten.</li>
+    <li><strong>De diëtistenpraktijk:</strong> Het tellen van calorieën en het vermijden van vet werd de norm. Koolhydraten werden gezien als de "veilige" brandstof, zelfs voor diabetici.</li>
+  </ul>
+
+  <h2>2. De rol van de Europese industrie: Unilever en Margarine</h2>
+  <p>
+    Terwijl de VS hun maïs-industrie hadden, had Europa (en vooral België) **Unilever**. De opkomst van margarine als "hartgezond" alternatief voor boter is een van de meest succesvolle marketingoperaties in onze regio. 
+  </p>
+
+  <div class="accent-kader">
+    <strong>Specifiek voor diabetici:</strong><br/>
+    Het Belgische advies luidde jarenlang: "Eet veel complexe koolhydraten (brood, aardappelen) en wees matig met vet." Voor een diabeet betekent dit echter een constante stroom van glucose in het bloed, wat de noodzaak voor medicatie en insuline alleen maar verhoogde.
+  </div>
+
+  <h2>3. De Vlaamse Kentering (2017)</h2>
+  <p>
+    Het is belangrijk om te benoemen dat Vlaanderen in 2017 een moedige stap zette. Het **Vlaams Instituut Gezond Leven** draaide de driehoek om en plaatste de nadruk op <em>onbewerkte</em> voeding. Ze creëerden de "rode bol" buiten de driehoek voor ultra-bewerkte voeding (UPF). 
+  </p>
+
+  <div class="leesmeer">
+    <h3>Verdiepende thema's voor België & Europa</h3>
+    <ul>
+      <li><a href="belgische-broodcultuur-margarine.html">De Margarine-revolutie en de impact op de Belgische broodmaaltijd</a></li>
+      <li><a href="vlaamse-voedingsdriehoek-evolutie.html">Van de "Schijf van Vijf" naar de omgekeerde Driehoek van 2017</a></li>
+      <li><a href="medicatie-symptoombestrijding-vs-oorzaak.html">Medicatie-cultuur in de Belgische huisartsenpraktijk</a></li>
+    </ul>
+  </div>
+
+  <footer>
+    <p><a href="index.html">← Terug naar de hoofdpagina</a></p>
+  </footer>
+</main>
+
+<script>
+  function goBackOrHome(e) {
+    if (e) e.preventDefault();
+    const params = new URLSearchParams(window.location.search);
+    const from = params.get("from");
+    if (from && from !== "") { window.location.href = from; return false; }
+    window.location.href = "index.html"; return false;
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const backLink = "from=europa-belgie-voedingsbeleid.html";
+    const links = document.querySelectorAll(".leesmeer a");
+    links.forEach(function(link) {
+      const currentHref = link.getAttribute("href");
+      link.setAttribute("href", currentHref + "?" + backLink);
+    });
+  });
+</script>
+</body>
+</html>
