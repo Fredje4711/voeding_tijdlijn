@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Zaadoliën: Het Industriële Experiment</title>
+  <title>Dossier: De Waarheid over Zaadoliën</title>
   <style>
     body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:#0b0c10; color:#e9eef7; line-height:1.65; }
     header{ padding:20px; background:#111; position:sticky; top:0; z-index:10; text-align:center; border-bottom:1px solid rgba(255,255,255,0.08); }
@@ -11,112 +11,76 @@
     nav{ font-size:14px; }
     nav a{ color:#9bbcff; text-decoration:none; font-weight:600; }
     main{ max-width:900px; margin:30px auto; padding:0 20px 60px; }
-    h2{ margin-top:34px; font-size:18px; color:#e9eef7; }
-    p{ margin:12px 0; color:#cfd6e6; }
+    .intro-section { margin-bottom: 40px; }
+    h2 { color: #6aa6ff; font-size: 24px; margin-bottom: 15px; }
+    p { color: #cfd6e6; }
     
-    .statement-box {
-      margin-top: 18px;
-      padding: 20px;
-      background: rgba(255,180,84,0.05);
-      border: 1px solid #ffb454;
-      border-radius: 12px;
-      font-style: italic;
-      text-align: center;
-      font-size: 1.1em;
-      color: #ffb454;
-    }
+    .dossier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
+    .dossier-card { background: #14161c; border: 1px solid #273043; padding: 25px; border-radius: 16px; text-decoration: none; transition: all 0.3s ease; display: flex; flex-direction: column; }
+    .dossier-card:hover { border-color: #6aa6ff; transform: translateY(-5px); background: #1a1d24; }
+    .dossier-card h3 { margin: 0 0 10px 0; color: #6aa6ff; font-size: 1.3em; }
+    .dossier-card ul { margin: 10px 0; padding-left: 20px; color: #b7c0d1; font-size: 0.9em; }
+    .dossier-card li { margin-bottom: 5px; }
+    .dossier-card .read-more { margin-top: auto; color: #9bbcff; font-weight: bold; text-transform: uppercase; font-size: 0.8em; letter-spacing: 1px; padding-top: 15px; }
 
-    .choice-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .choice-card {
-      background: #14161c;
-      border: 1px solid #273043;
-      padding: 25px;
-      border-radius: 16px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .choice-card:hover {
-      border-color: #6aa6ff;
-      transform: translateY(-2px);
-      background: #1a1d24;
-    }
-
-    .choice-card h2 {
-      margin: 0 0 12px 0;
-      color: #6aa6ff;
-      font-size: 1.2em;
-      border: none;
-      padding: 0;
-    }
-
-    .choice-card p {
-      margin: 0;
-      font-size: 0.95em;
-      color: #cfd6e6;
-    }
-
-    .choice-card .action-text {
-      margin-top: auto;
-      padding-top: 15px;
-      color: #9bbcff;
-      font-weight: 600;
-      font-size: 0.85em;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+    .kader{ margin-top:30px; padding:20px; background: rgba(106,166,255,0.05); border: 1px solid rgba(106,166,255,0.2); border-radius: 12px; text-align: center; }
 
     footer{ margin-top:40px; font-size:14px; text-align:center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
-    footer a{ color:#9bbcff; text-decoration:none; font-weight:600; }
-
-    @media (max-width: 650px) {
-      .choice-container { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 700px) { .dossier-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 
 <body>
 <header>
   <h1>Dossier: Industriële Zaadoliën</h1>
-  <nav><a href="#" onclick="return goBackOrHome(event)">← Terug</a></nav>
+  <nav><a href="#" onclick="return goBackOrHome(event)">← Terug naar de Tijdlijn</a></nav>
 </header>
 
 <main>
-  <div class="statement-box">
-    "Er is op zich geen enkel probleem met de natuurproducten maïs, koolzaad of zonnebloempitten... als we ze in hun natuurlijke vorm eten. Het probleem ontstaat pas in de fabriek, bij de gewelddadige industriële verwerking van deze zaden tot vloeibare oliën."
+  <section class="intro-section">
+    <h2>De Onzichtbare Revolutie in ons Dieet</h2>
+    <p>
+      Sinds de jaren '60 is er een enorme verschuiving opgetreden in de vetten die we dagelijks consumeren. Wat begon als een technologische innovatie om afvalproducten uit de landbouw bruikbaar te maken, eindigde als een wereldwijd gezondheidsexperiment.
+    </p>
+    <p>
+      Mensen met diabetes type 2 krijgen vaak te horen dat ze "plantaardig" moeten eten, maar juist in die categorie schuilt de grootste misleiding van de moderne voedingsindustrie. Om dit stokpaardje van de voedingskritiek volledig te begrijpen, hebben we de informatie opgesplitst in twee hoofdstukken:
+    </p>
+  </section>
+
+  <div class="dossier-grid">
+    <!-- Hoofdstuk 1 -->
+    <a href="zaadolien-deel1-oorsprong-en-proces.html" class="dossier-card">
+      <h3>Hoofdstuk 1: De Fabriek</h3>
+      <p>Ontdek de technologische en commerciële kant van het verhaal:</p>
+      <ul>
+        <li>Het verschil tussen Vrucht en Zaad</li>
+        <li>De geschiedenis van Crisco (1911)</li>
+        <li>Het proces: Hexaan, hitte en bleekmiddel</li>
+      </ul>
+      <div class="read-more">Start met de historie →</div>
+    </a>
+
+    <!-- Hoofdstuk 2 -->
+    <a href="zaadolien-deel2-misleiding-en-biologie.html" class="dossier-card">
+      <h3>Hoofdstuk 2: De Biologie</h3>
+      <p>Wat gebeurt er in uw lichaam en in de winkel?</p>
+      <ul>
+        <li>De Boter-Illusie (Margarine/Minarine)</li>
+        <li>Omega-6, Oxidatie en Diabetes</li>
+        <li>Olijfolie-fraude en de Koopgids</li>
+      </ul>
+      <div class="read-more">Ontdek de impact →</div>
+    </a>
   </div>
 
-  <p style="margin-top: 25px;">
-    In de afgelopen 70 jaar zijn zaadoliën (vaak misleidend "plantaardige oliën" genoemd) de belangrijkste vetbron geworden in ons dieet. Ze zitten overal in: van margarines en frituurvet tot bijna elk pakje in de supermarkt. 
-  </p>
-  <p>
-    Om te begrijpen waarom dit een probleem is voor onze metabole gezondheid, moeten we twee kanten van het verhaal bekijken. Kies hieronder een dossier voor meer informatie:
-  </p>
-
-  <div class="choice-container">
-    <a href="zaadolien-proces-van-zaad-naar-vetstof.html" class="choice-card">
-      <h2>1. Het Industrieel Proces</h2>
-      <p>Hoe worden droge zaden omgevormd tot olie? Ontdek de wereld van hexaan-extractie, raffinage op hoge temperaturen en chemische ontgeuring.</p>
-      <div class="action-text">Bekijk het proces →</div>
-    </a>
-
-    <a href="zaadolien-impact-en-misleiding.html" class="choice-card">
-      <h2>2. Gezondheid & Misleiding</h2>
-      <p>Wat doet deze olie met uw cellen en insulinespiegel? Leer over Omega-6, oxidatie en de grote fraude in de olijfolie-industrie.</p>
-      <div class="action-text">Bekijk de impact →</div>
-    </a>
+  <div class="kader">
+    <p style="margin:0; font-style: italic;">
+      "Het begrijpen van zaadoliën is de sleutel tot het begrijpen van de moderne metabole crisis. Het is het verhaal van hoe we natuurlijke vetten inruilden voor een industrieel alternatief, met alle gevolgen van dien."
+    </p>
   </div>
 
   <footer>
-    <p><a href="../index.html">← Terug naar de tijdlijn</a></p>
+    <p><a href="../index.html">← Terug naar de Tijdlijn</a></p>
   </footer>
 </main>
 
@@ -125,25 +89,23 @@
     if (e) e.preventDefault();
     const params = new URLSearchParams(window.location.search);
     const from = params.get("from");
-    
-    if (from && from !== "") {
-      window.location.href = from; // Dit stuurt je terug naar ../timeline/1961-aha.html
-      return false;
-    }
-    window.location.href = "../index.html"; 
-    return false;
+    if (from && from !== "") { window.location.href = from; return false; }
+    window.location.href = "../index.html"; return false;
   }
 
-  // Dit script zorgt dat de dossiers weten dat ze naar DEZE hub terug moeten
+  // Zorgt dat de 'from' parameter wordt doorgegeven aan de hoofdstukken
   document.addEventListener("DOMContentLoaded", function() {
     const params = new URLSearchParams(window.location.search);
-    const fromTimeline = params.get("from") || ""; // Dit is de tijdlijn-link
+    const origin = params.get("from") || "";
+    const currentFile = "zaadolien-van-zaad-tot-industrieel-product.html";
 
-    const links = document.querySelectorAll(".choice-card");
+    const links = document.querySelectorAll(".dossier-card");
     links.forEach(link => {
-      const currentHref = link.getAttribute("href");
-      // We vertellen het dossier: "Als je terug wilt, ga naar de hub én onthou waar de hub daarna heen moet"
-      link.href = currentHref + "?from=zaadolien-van-zaad-tot-industrieel-product.html?from=" + fromTimeline;
+      const url = new URL(link.getAttribute("href"), window.location.href);
+      // We vertellen het hoofdstuk: "als je terug wilt, ga naar de Hub en onthou waar de Hub daarna heen moet"
+      if (origin) url.searchParams.set("from", currentFile + "?from=" + origin);
+      else url.searchParams.set("from", currentFile);
+      link.href = url.toString();
     });
   });
 </script>
