@@ -1,3635 +1,444 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
 <head>
-  
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-  <title>Diabetes Liga afdeling Midden-Limburg</title>
-  
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="icon" type="image/png" href="icon-192x192.png">
-  <meta name="theme-color" content="#23a9e4">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-
-  <META NAME="Keywords" CONTENT="diabetesligamiddenlimburg, diabetesligamiddenlimburg.be , Diabetes,  Diabetes Liga, Middden-Limburg, locale afdeling,">
-  <META NAME="Description" CONTENT="Diabetes Liga afdeling Midden-Limburg voor iedereen die met diabetes geconfronteerd wordt infosessie wandelinge voordrachten download presentaties">
-  <META NAME="Robots" CONTENT="index, follow, all"> 
-  <META NAME="Author" CONTENT="diabetes liga locale afdeling Midden-limburg">
-  <META NAME="Reply-to" CONTENT="diabetesliga.middenlimburg@gmail.com">
-  <META NAME="Identifier-URL" CONTENT="www.dlml.be">
-  
- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  
-  <link rel="stylesheet" type="text/css" href="site/mystylesheet.css?v=777">
-  <link rel="stylesheet" type="text/css" href="site/infosessie.css">
-  <link rel="stylesheet" type="text/css" href="site/fotosActiviteiten.css">
-  <link rel="stylesheet" type="text/css" href="site/informatie.css">
-  <link rel="stylesheet" type="text/css" href="site/download.css">
-  <link rel="stylesheet" type="text/css" href="site/contactgegevens.css">
-  
-  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-  
-<style>
-
-/* ========================================================== */
-/* ========= FINALE, GECORRIGEERDE CSS-CODE ============ */
-/* ========================================================== */
-
-#diabetes-clock-wrapper {
-    padding: 1px 10% 5px 10%; 
-    box-sizing: border-box;
-}
-
-.clock-container {
-    display: flex;
-    width: 100%;
-    padding: 12px 8px;
-    border-radius: 12px;
-    background: linear-gradient(270deg, #1b8cc5 0%, #23a9e4 100%);
-    background-size: 400% 400%;
-    animation: animatedGradient 15s ease infinite;
-    box-shadow: 0 0 12px rgba(35, 169, 228, 0.5); 
-    border: 2px solid #23a9e4;
-    box-sizing: border-box;
-}
-
-@keyframes animatedGradient { /* Blijft ongewijzigd */ }
-
-.clock-container {
-    flex-direction: column;
-    align-items: center;
-}
-
-.clock-info-group {
-    text-align: center;
-    order: 1;
-}
-
-.slogan-main {
-    font-size: 0.95rem;
-    font-weight: bold;
-    color: #ffffff;
-    line-height: 1.2;
-    margin: 0;
-}
-
-.slogan-sub {
-    font-size: 0.95rem;
-    font-weight: normal;
-    color: #ffffff;
-    margin: 4px 0 0 0;
-}
-
-#diabetes-counter {
-    font-size: 3.2rem;
-    font-weight: bold;
-    color: #d9534f;
-    margin: 8px 0 4px 0;
-    /* --- DE "GLOW" ANIMATIE IS HIER UITGESCHAKELD --- */
-    /* animation: numberOutline 2.5s ease-in-out infinite; */
-    transition: transform 0.2s ease-out;
-    order: 2;
-	
-	text-shadow:
-    -0.5px -0.5px 0 rgba(255,255,255,0.9),
-     0.5px -0.5px 0 rgba(255,255,255,0.9),
-    -0.5px  0.5px 0 rgba(255,255,255,0.9),
-     0.5px  0.5px 0 rgba(255,255,255,0.9);
-
-}
-
-#countdown-timer {
-    font-size: 1.3rem;
-	font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    color: #23a9e4;
-    background-color: #c5e9f8;
-    padding: 5px 10px;
-    border-radius: 5px;
-    /* --- DE ANIMATIE IS HIER UITGESCHAKELD --- */
-    /* animation: heartbeat 1.2s infinite; */
-    white-space: nowrap;
-    order: 3;
-    margin-bottom: -5px;
-}
-
-@media (min-width: 769px) {
-    .clock-container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voeding & Gezondheid — Tijdlijn</title>
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --card: #12141a;
+      --text: #e9eef7;
+      --muted: #b7c0d1;
+      --line: #273043;
+      --accent: #6aa6ff;
+      --accent2: #8ee6c5;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --max: 980px;
     }
 
-    .clock-info-group {
-        text-align: left;
-        order: 1;
-    }
-    
-    .slogan-main { font-size: 0.9rem; }
-    .slogan-sub { font-size: 0.8rem; font-weight: normal;}
-
-    #diabetes-counter {
-        font-size: 2.5rem;
-        margin: 0 15px;
-        order: 2;
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 20% 10%, rgba(106,166,255,.18), transparent 60%),
+                  radial-gradient(900px 600px at 80% 20%, rgba(142,230,197,.12), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.55;
     }
 
-    #countdown-timer {
-        font-size: 1rem;
-        order: 3;
+    header {
+      padding: 28px 18px 10px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      background: rgba(0,0,0,.25);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
+
+    .wrap { max-width: var(--max); margin: 0 auto; }
+
+    .topbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* centreert de titel als “middenanker” */
+  position: relative;
+  min-height: 28px;
 }
 
-@keyframes numberOutline {
-    0%   { text-shadow: 0 0 5px #23a9e4; }
-    50%  { text-shadow: 0 0 15px #23a9e4, 0 0 20px #23a9e4; }
-    100% { text-shadow: 0 0 5px #23a9e4; }
-}
-#diabetes-counter.updated { transform: scale(1.15); }
-@keyframes heartbeat {
-    0%   { transform: scale(1); }
-    10%  { transform: scale(1.08); }
-    20%  { transform: scale(1); }
-    30%  { transform: scale(1.08); }
-    40%  { transform: scale(1); }
-    100% { transform: scale(1); }
-}
-
-.cta-container {
-    padding: 15px 10%;
-    box-sizing: border-box;
-}
-.cta-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-.cta-button {
-    display: flex;
-    align-items: center;
-    padding: 12px 15px;
-    background-color: #f9fcff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,255,0.3);
-    color: #138ccc;
-    text-shadow: 0 1px 1px rgba(255,255,255,0.8),
-                 0 1px 3px rgba(0,0,0,0.25);
-    text-decoration: none !important;
-    transition: all 0.2s ease-in-out;
-}
-
-.cta-button:hover {
-    transform: translateY(-2px);
-    background-color: #23a9e4;              /* blauwe achtergrond bij hover */
-    color: #ffffff;                         /* witte tekst voor maximaal contrast */
-    box-shadow: 0 4px 12px rgba(35,169,228,0.4); /* blauwe gloed i.p.v. grijs */
-    text-shadow: none;                      /* schone tekst bij hover */
-}
-
-.cta-icon {
-    font-size: 1.2rem;
-    color: #23a9e4;
-    margin-right: 12px;
-    width: 24px;
-    text-align: center;
-}
-.cta-text {
-    flex-grow: 1;
-    font-weight: bold;
-    font-size: 1rem;
-}
-.cta-chevron {
-    font-size: 0.9rem;
-    color: #aaa;
-}
-@media (min-width: 769px) {
-    .cta-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-.cta-button i {
-    font-family: 'Font Awesome 5 Free' !important;
-    font-weight: 900 !important;
-}
-
-/* ========================================================== */
-/* == ALLERLAATSTE DEFINITIEVE FIX VOOR ONTBREKENDE ICONEN == */
-/* ========================================================== */
-
-/* Deze regel dwingt de browser om het juiste 'lettertype' voor de iconen te gebruiken */
-#MnuLst1 i, #MnuLst2 i {
-    font-family: 'Font Awesome 5 Free' !important;
-}
-
-/* Font Awesome 5 gebruikt verschillende 'gewichten' voor verschillende stijlen.
-   Deze regels zorgen ervoor dat zowel de 'solid' (fas) als de 'regular' (far) iconen correct worden getoond. */
-#MnuLst1 .fas, #MnuLst2 .fas {
-    font-weight: 900 !important;
-}
-#MnuLst1 .far, #MnuLst2 .far {
-    font-weight: 400 !important;
-}
-
-.inschrijf-btn {
-    display: inline-block;
-    padding: 8px 2px;
-    background-color: #23a9e4;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: 0.2s;
-}
-.inschrijf-btn:hover {
-    background-color: #23a9e4;
-}
-
-/* DLML - foto layout fix voor GSM (alleen voor de aangepaste rijen) */
-@media (max-width: 768px) {
-
-  /* Maak elke '2 naast elkaar' rij op GSM 1 kolom (alles onder elkaar) */
-  .dlmlRow2 > div{
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-  }
-
-  /* De '1 gecentreerd' rij ook volle breedte op GSM */
-  .dlmlRow1 > div{
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-  }
-
-  /* Zorg dat de foto's op GSM mooi centreren en niet te breed worden */
-  .dlmlRow2 img.fotoImg,
-  .dlmlRow1 img.fotoImg{
-    width: 100% !important;
-    max-width: 92vw !important;   /* past netjes in het scherm */
-    height: auto !important;
-    display: block !important;
-    margin: 0 auto !important;
-  }
-
-  /* Optioneel: iets minder ruimte tussen blokken op GSM */
-  .dlmlRow2{
-    gap: 14px !important;
-  }
-}
-
-/* Download-knoppen (werkt op desktop + gsm) */
-.containerDownloadImg a .dlBtn{
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 18px;
-  background-color: #0072b5;
-  color: #ffffff !important;
-  font-size: 0.95rem;
-  font-weight: 600;
-  border-radius: 6px;
+h1 {
+  font-size: 20px;
+  margin: 0;
+  letter-spacing: .2px;
   text-align: center;
-  min-width: 120px;
+}
+
+nav {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+nav a {
+  color: var(--muted);
   text-decoration: none;
+  margin-left: 12px;
+  font-size: 14px;
 }
 
-/* Hover (desktop) */
-.containerDownloadImg a:hover .dlBtn{
-  background-color: #005a8d;
+    nav a:hover { color: var(--text); }
+
+    main { padding: 22px 18px 5px; }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .intro h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+    .intro p { margin: 0 0 10px; color: var(--muted); }
+
+    .notice {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(106,166,255,.28);
+      background: rgba(106,166,255,.08);
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .section-title {
+      margin: 22px 2px 10px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--muted);
+    }
+
+    .timeline {
+  display: grid;
+  gap: 12px;
+  padding-bottom: 0px; /* nieuw: vangt de eindruimte netjes op */
 }
 
-/* Mobiel: iets groter en beter tappable */
-@media (max-width: 768px){
-  .containerDownloadImg a .dlBtn{
-    font-size: 1rem;
-    padding: 12px 20px;
-    min-width: 140px;
-  }
+
+    .tl-item a {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 14px;
+      padding: 14px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(18,20,26,.6);
+      text-decoration: none;
+      color: var(--text);
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+
+    .tl-item a:hover {
+      transform: translateY(-1px);
+      border-color: rgba(106,166,255,.45);
+      background: rgba(18,20,26,.9);
+    }
+
+    .year {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+
+    .tl-title {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .tl-desc {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+  padding: 18px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
 }
 
-/* Swipe-ready gallery items: zorgt dat <a> rond de foto geen layout/underline veroorzaakt */
-.activity-gallery-wrapper a.dlmlGalleryItem{
-  display: inline-block;
-  text-decoration: none;
-  color: inherit;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+    @media (max-width: 520px) {
+      .tl-item a { grid-template-columns: 72px 1fr; }
+      .year { font-size: 16px; }
+    }
+	
+	.context-link{
+  color:#9bbcff;
+  font-weight:600;
+  text-decoration:none;
 }
 
-/* Optioneel: duidelijke klik-indicatie */
-.activity-gallery-wrapper a.dlmlGalleryItem img.fotoImg{
-  cursor: pointer;
+.context-link:hover{
+  text-decoration:underline;
 }
 
-/* Zorgt dat de <a> rond de foto geen layout/underline issues geeft */
-.activity-gallery-wrapper a.dlmlGalleryItem{
-  display: inline-block;
-  text-decoration: none;
-  color: inherit;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-
-/* Helpt browsers met touch-gedrag op de lightbox-foto */
-.lightbox-image-display{
-  touch-action: pan-y;
-}
-
-/* Container voor de tijdlijn - Volledige schermvulling */
-#pgR {
-    display: none;
-    width: 100%;
-    /* Desktop hoogte */
-    height: 85vh; 
-    overflow: hidden;
-}
-
-.timeline-header {
-    background-color: #f8f9fa;
-    padding: 10px 15px;
-    border-bottom: 1px solid #23a9e4;
-    height: 35px;
-    box-sizing: border-box;
-}
-
-.timeline-external-link {
-    color: #23a9e4;
+footer {
+    padding: 25px 18px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    color: var(--muted);
     font-size: 13px;
-    font-weight: bold;
-    text-decoration: none;
+    text-align: center;
 }
 
-/* De iFrame zelf */
-#timelineFrame {
-    width: 100%;
-    height: calc(100% - 40px);
-    border: none;
-    display: block;
+.footer-credits {
+    margin-bottom: 10px;
+    color: #23a9e4; /* De blauwe themakleur */
+    font-size: 14px;
 }
 
-/* --- Mobiele aanpassing (GSM) --- */
-@media (max-width: 768px) {
-    #pgR {
-        /* We trekken veel minder af (60px i.p.v. 120px) om dieper te gaan */
-        height: calc(100dvh - 45px) !important;
-        margin-bottom: -20px; /* Trekt de container nog iets verder omlaag */
-    }
-    
-    #timelineFrame {
-        height: calc(100% - 40px) !important;
-    }
+.footer-disclaimer {
+    opacity: 0.7;
+    line-height: 1.4;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
- 
-</style>
+	
+  </style>
 </head>
 
 <body>
-  
-  <div id="wrapper">
-  
-    <div id="titelWebsite">
-      <img id="imgLogoV1" alt=".." src="site/image/webLogov1.png" >
-      <img id="imgLogoV2" alt=".." src="site/image/webLogov3.png" >
-	  <div id="btnMnu">MENU</div>
-      <div id="actieveMnu">Home</div>
+  <header>
+    <div class="wrap topbar">
+      <h1>De Grote Voedselommekeer — Een Tijdlijn van ons Metabolisme</h1>
+      
     </div>
+  </header>
 
-<div id="eventBanner">
-  <span>
-    🧒 Gezinsnamiddag voor kinderen met diabetes (21/03) —
-    <br class="mobileOnly">
-    een namiddag vol sport, avontuur en ontmoeting 🤸
-    <a href="#cultuur-ontspanning"><strong>Meer info ›</strong></a>
-  </span>
+  <main class="wrap">
+    <section class="card intro">
+      <h2>Wat u hier kunt verwachten</h2>
+      <p>
+  Welkom bij een kritische reis door 70 jaar voedingsgeschiedenis. Deze presentatie toont hoe internationale richtlijnen, politieke compromissen en de macht van de voedingsindustrie ons bord fundamenteel hebben veranderd — met de wereldwijde explosie van diabetes type 2 en metabole aandoeningen als gevolg.
+</p><p>We vertrekken bij de eerste vet-angst in 1955, trekken door de margarine-revolutie en de broodcultuur in België, om uiteindelijk aan te komen bij de Grote Reset van 2025.</p>
+
+<p>
+  Elk tijdlijnpunt is een "stopmoment": een korte pagina met context en nuance die blootlegt waar het misging, maar vooral toont hoe we via "Echt Eten" weer kunnen herstellen.</p>
+  <p>U kunt de tijdlijn chronologisch volgen, of gericht klikken op een onderwerp dat u interesseert.
+</p>
+
+<div class="notice">
+  <strong>Let op:</strong> Dit is informatieve duiding op basis van publieke bronnen.
+  Het is geen medisch advies en vervangt geen consultatie bij arts of diëtist.
 </div>
 
-
-
-<style>
-#eventBanner {
-  background: linear-gradient(90deg, #d7efff, #f0f8ff);
-  text-align: center;
-  padding: 10px 10px;
-  font-size: 1.05em;
-  border-bottom: 2px solid #99ccee;
-  font-family: Arial, sans-serif;
-  animation: fadeIn 2.5s ease-in;
-  color: #003366;
-}
-
-#eventBanner a {
-  color: #0078d7;
-  text-decoration: none;
-  font-weight: bold;
-  margin-left: 4px;
-}
-#eventBanner a:hover {
-  text-decoration: underline;
-}
-
-/* standaard: <br> niet tonen */
-.mobileOnly {
-  display: none;
-}
-
-/* enkel op desktop: tekst iets naar rechts, weg van menu */
-@media screen and (min-width: 901px) {
-  #eventBanner {
-    text-align: left;
-    padding-left: 25px; /* schuift tekst rechts van het menu */
-  }
-}
-
-/* enkel op gsm: <br> zichtbaar maken + minder witruimte */
-@media screen and (max-width: 600px) {
-  .mobileOnly {
-    display: inline;
-  }
-  #eventBanner {
-    font-size: 1em;
-    padding-top: 6px;   /* minder ruimte boven */
-    padding-bottom: 0px;/* minder ruimte onder */
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-  #eventBanner span {
-    display: inline-block;
-    max-width: 95%;
-    line-height: 1.4;
-  }
-}
-
-/* zachte fade-in met lichte opwaartse beweging */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(15px); /* begint iets lager */
-  }
-  60% {
-    opacity: 0.6;
-    transform: translateY(5px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-</style><
-
- 		
-<!-- ***********  Mnu 1 (links, desktop) - GECORRIGEERD  ************ -->
-<div id="Mnu1" class="colorLight">
-  <div id="MnuLst1">
-
-    <div id="MnuItm1A"><i class="fas fa-home"></i><label>Home</label></div>
-    <div class="MnuLine"></div>
-    
-    <div id="MnuItm1B"><i class="far fa-calendar-alt"></i><label>Infosessies</label></div>
-    <div id="MnuItm1C"><i class="far fa-smile"></i><label>Cultuur/ontspanning</label></div>
-	<div id="MnuItm1J"><i class="fas fa-walking"></i><label>Wekelijkse wandeling</label></div>  
-    <div class="MnuLine"></div>
-
-    <div id="MnuItm1D"><i class="fas fa-camera"></i><label>Foto's vorige activiteiten</label></div>
-    <div id="MnuItm1K"><i class="fas fa-images"></i><label>Fotogalerij</label></div>
-    <div id="MnuItm1L"><i class="fas fa-podcast"></i><label>Podcast Eddy</label></div>
-	<div id="MnuItm1R"><i class="fas fa-history"></i><label>Voedingstijdlijn <strong>(nieuw)</strong></label></div>
-    <div class="MnuLine"></div>
-
-    <div id="MnuItm1M"><i class="fas fa-comments"></i><label>Q&amp;A 100</label></div>
-    <div id="MnuItm1N"><i class="far fa-lightbulb"></i><label>Mythen &amp; Feiten</label></div>
-    <div id="MnuItm1O"><i class="far fa-id-card"></i><label>Rijbewijs &amp; Diabetes</label></div>
-    <div id="MnuItm1P"><i class="fas fa-medkit"></i><label>Mounjaro® &amp; terugbetaald</label></div>
-    <div id="MnuItm1Q" onclick="setActivePage('Q')">
-        <i class="fas fa-phone-alt"></i><label>Diabetes Infolijn</label>
-    </div>
-    <div class="MnuLine"></div>
-
-    <div id="MnuItm1E"><i class="fas fa-video"></i><label>Video's</label></div>
-    <div id="MnuItm1F"><i class="fas fa-info-circle"></i><label>Info Diabetes Liga</label></div>
-    <div id="MnuItm1G"><i class="fas fa-download"></i><label>Downloads</label></div>
-    <div id="MnuItm1H"><i class="fas fa-envelope"></i><label>Contact</label></div>
-
-  </div>
-</div>
-
-	
-<!-- ************  Mnu 2 (uitklap, mobiel/tablet) - GECORRIGEERD  *********** -->
-<div id="Mnu2" class="colorLight">
-  <div id="MnuFrame2">
-    <div id="MnuLst2">
-
-      <div id="MnuItm2A"><i class="fas fa-home"></i><label>Home</label></div>
-      <div class="MnuLine"></div>
-      
-      <div id="MnuItm2B"><i class="far fa-calendar-alt"></i><label>Infosessies</label></div>
-      <div id="MnuItm2C"><i class="far fa-smile"></i><label>Cultuur/ontspanning</label></div>
-	  <div id="MnuItm2J"><i class="fas fa-walking"></i><label>Wekelijkse wandeling</label></div>	
-      <div class="MnuLine"></div>
-
-      <div id="MnuItm2D"><i class="fas fa-camera"></i><label>Foto's vorige activiteiten</label></div>
-      <div id="MnuItm2K"><i class="fas fa-images"></i><label>Fotogalerij</label></div>
-      <div id="MnuItm2L"><i class="fas fa-podcast"></i><label>Podcast Eddy</label></div>
-	  <div id="MnuItm2R"><i class="fas fa-history"></i><label>Voedingstijdlijn <strong>(nieuw)</strong></label></div>
-      <div class="MnuLine"></div>
-
-      <div id="MnuItm2M"><i class="fas fa-comments"></i><label>Q&amp;A 100</label></div>
-      <div id="MnuItm2N"><i class="far fa-lightbulb"></i><label>Mythen &amp; Feiten</label></div>
-      <div id="MnuItm2O"><i class="far fa-id-card"></i><label>Rijbewijs &amp; Diabetes</label></div>
-      <div id="MnuItm2P"><i class="fas fa-medkit"></i><label>Mounjaro® &amp; terugbetaald</label></div>
-      <div id="MnuItm2Q" onclick="setActivePage('Q')">
-        <i class="fas fa-phone-alt"></i><label>Diabetes Infolijn</label>
-      </div>
-      <div class="MnuLine"></div>
-
-      <div id="MnuItm2E"><i class="fas fa-video"></i><label>Video's</label></div>
-      <div id="MnuItm2F"><i class="fas fa-info-circle"></i><label>Info Diabetes Liga</label></div>
-      <div id="MnuItm2G"><i class="fas fa-download"></i><label>Downloads</label></div>
-      <div id="MnuItm2H"><i class="fas fa-envelope"></i><label>Contact</label></div>
-
-    </div>
-  </div>
-</div>
-
-    <!-- ... de rest van uw HTML blijft hier ... -->
-
-      
-    <!-- ****** content website  * ****************   -->
-	  
-    <div  id="allPages" class="colorLight">
-   
-      
-    <!--   home pagina                                         --> 
-	 
-    <div class="pgContent" id="pgA" >
-    <!-- --> 
-
-<!-- ========================================================== -->
-<!-- ============ HIER BEGINT HET NIEUWE KLOK-DESIGN ============ -->
-<!-- ========================================================== -->
-<div id="diabetes-clock-wrapper">
-    <div class="clock-container">
-        <!-- De slogans worden nu apart gegroepeerd voor meer controle -->
-        <div class="clock-info-group">
-            <p class="slogan-main">Iedere 17 minuten krijgt iemand de diagnose diabetes.</p>
-            <p class="slogan-sub">Mensen met diabetes erbij sinds 1 januari 2026.</p>
-        </div>
-        <!-- Het getal -->
-        <div id="diabetes-counter">Laden...</div>
-        
-        <!-- NIEUWE WRAPPER voor de twee laatste tellers -->
-        <div id="today-and-countdown-wrapper">
-            <div id="diagnoses-today-counter"></div> <!-- Nieuw element voor de dagteller -->
-            <div id="countdown-timer">--:--</div> <!-- Bestaande countdown timer -->
-        </div>
-    </div>
-</div>
-<!-- ========================================================== -->
-<!-- ================== EINDE VAN HET KLOK-DESIGN =================== -->
-<!-- ========================================================== -->
-        
-	  <div style="width: 100%; height:auto; background-color:var(--pgBackColor);"> 
-        <img id="imgLogo" alt=".." src="site/image/DiabetesLigaICM.png" style="width:80%; height:auto; margin: 0 10%;" >
-        <br>
-	  </div>
- 
-<!-- Sociale media links onder blauwe afbeelding -->
-
-	   <div id="socIcons" style="display:block;">
-         <div id="socItm1" class="socItm">
-           <a href="https://www.diabetes.be/nl/midden.limburg" target="_blank">
-           <img alt="Diabetes" src="https://dlml.be/site/image/site.png" class="icon">
-           </a>
-		   <div class="tooltipTxt">www.diabetes.be/nl/midden.limburg</div>
-         </div>
-         
-		  <div id="socItm2" class="socItm">
-            <a href="https://www.facebook.com/p/Diabetes-Liga-Midden-Limburg-100091325418693/?locale=nl_NL" target="_blank">
-            <img alt="Facebook" src="https://dlml.be/site/image/facebook.png" class="icon">
-            </a>
-            <div class="tooltipTxt">Facebook</div>
-          </div>
-        
-		  <div id="socItm3" class="socItm">
-            <a href="mailto:midden.limburg@diabetes.be" target="_blank">
-            <img alt="Mail" src="https://dlml.be/site/image/mail.png" class="icon">
-            </a>
-            <div class="tooltipTxt">midden.limburg@diabetes.be</div>
-          </div>
-          
-		  <div id="socItm5" class="socItm">
-            <a href="https://www.youtube.com/@Diabetesligamiddenlimburg/xregexp" target="_blank">
-            <img alt="YouTube" src="https://dlml.be/site/image/youtube.png" class="icon">
-            </a>
-            <div class="tooltipTxt">YouTube</div>
-          </div>
-		  
-		  <div id="socItm6" class="socItm">
-            <a href="https://www.instagram.com/diabetes_liga_midden_limburg/" target="_blank">
-            <img alt="Instagram" src="site/image/instagram.png" class="icon">
-            </a>
-            <div class="tooltipTxt">Instagram</div>
-          </div>
-      
-	  </div>
-
-	  
-<!-- ========================================================== -->
-<!-- ============ NIEUW DESIGN CTA-KNOPPEN HIER ============= -->
-<!-- ========================================================== -->
-<div class="cta-container">
-  <div class="cta-grid">
-
-    <!-- CTA 1: All-in Holiday 
-<a href="#infosessies" class="cta-button">
-  <i class="fas fa-umbrella-beach cta-icon"></i>
-  <span class="cta-text">All-in Holiday – gezond op reis (09/12)</span>
-  <i class="fas fa-chevron-right cta-chevron"></i>
-</a> -->
-
-
-<!-- CTA 2: Bewegen en Diabetes -->
-<a href="#infosessies" class="cta-button">
-  <i class="fas fa-person-walking cta-icon"></i>
-  <span class="cta-text">
-    Bewegen en Diabetes (23/04)<br>
-    Ontdek hoe beweging helpt bij diabetes
-  </span>
-  <i class="fas fa-chevron-right cta-chevron"></i>
+<div class="notice" style="margin-top:12px;">
+  <strong>Context Europa & België:</strong><br>
+  Deze tijdlijn vertrekt vanuit de Verenigde Staten.
+  Wie wil begrijpen hoe dit voedingsverhaal zich vertaalt naar Europa en België,
+  vindt hier de nodige context.
+  <br><br>
+  <a class="context-link" href="europa-belgie-voedingsbeleid.html?from=index.html">
+  → Hoe Amerikaans voedingsbeleid doorwerkt in Europa en België
 </a>
 
-    
 
-  </div>
 </div>
 
-   
-<style>
-/* Compactere weergave van CTA-sectie */
-.cta-container {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
 
-/* verwijder extra witruimte in bovenliggende sectie (indien aanwezig) */
-.cta-grid {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
+    </section>
 
-/* compacte knoppen zelf */
-.cta-button {
-  padding: 2px 10px !important;
-  line-height: 1.2 !important;
-}
+    <div class="section-title">Tijdlijn (start)</div>
 
-/* mobiel nog compacter */
-@media (max-width: 600px) {
-  .cta-button {
-    padding: 5px 8px !important;
-    font-size: 0.9em !important;
-  }
-}
+    <section class="timeline" aria-label="Tijdlijn">
+  <div class="tl-item">
+    <a href="timeline/1955-eisenhower.html">
+      <div class="year">1955</div>
+      <div>
+        <p class="tl-title">Eisenhower’s hartaanval en de publieke doorbraak van “hartziekte”</p>
+        <p class="tl-desc">
+          Een vroeg kantelpunt in hoe media, geneeskunde en beleid naar voeding en hartgezondheid keken.
+        </p>
+      </div>
+    </a>
+  </div>
 
-</style>
-<!-- ========================================================== -->
-<!-- ============== EINDE NIEUW DESIGN CTA-KNOPPEN ============ -->
-<!-- ========================================================== -->
+  <div class="tl-item">
+    <a href="timeline/1961-aha.html">
+      <div class="year">1961</div>
+      <div>
+        <p class="tl-title">Hartziekte wordt vertaald naar voedingsadvies</p>
+        <p class="tl-desc">
+          Professionele aanbevelingen koppelen cholesterol en vetinname aan hart- en vaatziekten.
+          Het begin van institutioneel voedingsadvies.
+        </p>
+      </div>
+    </a>
+  </div>
+  
+    <div class="tl-item">
+    <a href="timeline/1977-mcgovern.html">
+      <div class="year">1977</div>
+      <div>
+        <p class="tl-title">Voedingsadvies wordt nationaal beleid</p>
+        <p class="tl-desc">
+          De “Dietary Goals for the United States” vertalen voedingshypothesen
+          naar officiële richtlijnen. Een cruciaal politiek kantelpunt.
+        </p>
+      </div>
+    </a>
+  </div>
 
+  <div class="tl-item">
+    <a href="timeline/1980-dga.html">
+      <div class="year">1980</div>
+      <div>
+        <p class="tl-title">Eerste “Dietary Guidelines for Americans”</p>
+        <p class="tl-desc">
+          Voedingsadvies wordt een herhaalbaar overheidsinstrument (USDA + HHS),
+          met grote impact op federale programma’s en publieke communicatie.
+        </p>
+      </div>
+    </a>
+  </div>
+  
+    <div class="tl-item">
+    <a href="timeline/1990-monitoring-act.html">
+      <div class="year">1990</div>
+      <div>
+        <p class="tl-title">Monitoring Act: 5-jaarlijkse richtlijnen worden wet</p>
+        <p class="tl-desc">
+          De Dietary Guidelines worden wettelijk verplicht en moeten door federale programma’s worden toegepast en gepromoot.
+        </p>
+      </div>
+    </a>
+  </div>
 
-	  
-	  	  <br>&nbsp;<br>
-		
-	 </div>
-
-			  
-      <!--      infosessies                                          -->  
-      <div class="pgContent" id="pgB">
-	  
-	
-		<!-- -->
-        <div id="scrollLedenfeest"></div>
-		
-		<div class="infosessie">
-      <label>
-	       BEWEGEN EN DIABETES
-         </label>
-         <label>&nbsp;</label>
-         <div class="infosessieImg"><img src="image/bewegen2026_site.png" alt="Bewegingsdriehoek" ></div>
-         <div>Datum/Tijd:</div>   <div>Donderdag 23 april 2026</div>
-        <div></div>              <div>20.00 u - 22.00 u</div>
-        <div>Locatie:</div>      <div>Aula Jessa Campus Salvator</div>
-        <div></div>              <div>Salvatorstraat 20, 3500 Hasselt</div>
-        <div>Spreker:</div>      <div>prof. dr. Dominique Handen</div>
-        <div>&nbsp;</div>        <div>Universiteit Hasselt</div>
-        <div>Spreker:</div>      <div>diëtiste Jessa Ziekenhuis</div>
-        <div class="msgAfgesloten"><div  style="display:none;">Afgesloten</div></div>  
-        <div>Prijs:</div>        <div>gratis</div>
-        <div>parking:</div>      <div>gratis (tickets)</div>
-        <div>Inlichtingen:</div> <div><a href="mailto:midden.limburg@diabetes.be">midden.limburg@diabetes.be</a></div>
-        <div>Inschrijven:</div>  <div><a href="https://www.dlml.be/bewegen/index.html">www.dlml.be/bewegen/</a></div>
-        </div>
-     
-    <div class="infosessie">
-      <label>
-	       SEKSUELE EN PSYCHOLOGISCHE<br> ASPECTEN VAN DIABETES
-         </label>
-         <label>&nbsp;</label>
-         <div class="infosessieImg"><img src="image/psycho2026_site.png" alt="Bewegingsdriehoek" ></div>
-         <div>Datum/Tijd:</div>   <div>Donderdag 18 juni 2026</div>
-        <div></div>              <div>20.00 u - 22.00 u</div>
-        <div>Locatie:</div>      <div>Aula Jessa Campus Salvator</div>
-        <div></div>              <div>Salvatorstraat 20, 3500 Hasselt</div>
-        <div>Spreker:</div>      <div>dr. Koenraad van renterghem</div>
-        <div>&nbsp;</div>        <div>Uroloog</div>
-        <div>Spreker:</div>      <div>Frank Vandereyt psycholoog</div>
-        <div class="msgAfgesloten"><div  style="display:none;">Afgesloten</div></div>  
-        <div>Prijs:</div>        <div>gratis</div>
-        <div>parking:</div>      <div>gratis (tickets)</div>
-        <div>Inlichtingen:</div> <div><a href="mailto:midden.limburg@diabetes.be">midden.limburg@diabetes.be</a></div>
-        <div>Inschrijven:</div>  <div><a href="https://www.dlml.be/leefstijl/index.html">www.dlml.be/leefstijl/</a></div>
-        </div>
-
-     <div class="infosessie">
-        <label>
-	       DIABETES BETER BEGRIJPEN
-         </label>
-         <label>&nbsp;</label>
-         <div class="infosessieImg"><img src="image/begrijpen2026_site.png" alt="Diabetes" ></div>
-         <div>Datum/Tijd:</div>   <div>Donderdag 19 nocember 2026</div>
-        <div></div>              <div>20.00 u - 22.00 u</div>
-        <div>Locatie:</div>      <div>Aula Jessa Campus Salvator</div>
-        <div></div>              <div>Salvatorstraat 20, 3500 Hasselt</div>
-        <div>Spreker:</div>      <div>diabeteseducatoren</div>
-        <div>Spreker:</div>      <div>Jessa Ziekenhuis</div>
-        <div class="msgAfgesloten"><div  style="display:none;">Afgesloten</div></div>  
-        <div>Prijs:</div>        <div>gratis</div>
-        <div>parking:</div>      <div>gratis (tickets)</div>
-        <div>Inlichtingen:</div> <div><a href="mailto:midden.limburg@diabetes.be">midden.limburg@diabetes.be</a></div>
-        <div>Inschrijven:</div>  <div><a href="https://www.dlml.be/diabetesbegrijpen/index.html">www.dlml.be/diabetesbegrijpen/</a></div>
-        </div>
-		
-		
-		<!--<div class="infosessie" id="holiday">
-		  <label>
-            
-            ALL-IN HOLIDAY
-          </label>
-          <label> </label>
-         <div class="infosessieImg"><img src="site/image/All-in en Diabetes.png" alt="Holiday" title="" ></div>
-          <div>Datum/Tijd:</div>   <div>9 december 2025</div>
-          <div> </div>        <div>19.00 u- 21.00 u</div>
-          <div>Locatie:</div>      <div>Personeelscafetaria az Vesalius</div>
-          <div></div>              <div>Hazelereik 51,3700 Tongeren</div>
-          <div>Spreker:</div>      <div>Diëtisten van de diabetesconventie</div>
-          <div class="msgAfgesloten"><div  style="display:none;">Afgesloten</div></div>  
-          <div></div>              <div>AZ Vesalius</div>
-          <div>Prijs:</div>        <div>gratis</div>
-          <div>parking:</div>      <div>gratis</div>
-          <div>Inlichtingen:</div> <div><a href="mailto:midden.limburg@diabetes.be">midden.limburg@diabetes.be</a></div>
-          <div>Inschrijven:</div>  <div><a href="inschrijvingen/holiday/index.html" class="inschrijf-btn">Naar het inschrijfformulier</a></div>
-          <div></div>              <div></div>
-          <div></div>              <div></div>
-          <div></div>              <div></div>
-        </div> -->
-        
-	   
-        <!-- -->
-        <div class="samenwerking">
-		  <div>
-            De Diabetes Liga afdeling Midden-Limburg kan rekenen<br>
-			op de samenwerking met het Jessa Ziekenhuis Hasselt<br>
-            en het Vesalius Ziekenhuis Tongeren.<br> <br>
-          </div>  
-          <img  alt=".."   src="https://dlml.be/site/image/CampusJessa.jpg" >
-          <img  alt=".."   src="https://dlml.be/site/image/CampusSalvator.jpg">
-          <img  alt=".."   src="https://dlml.be/site/image/CampusVesalius.jpg">
-        </div>   
-     
-	 </div>
-	  
-      
-      <!--    cultuur uitstap                                              -->  
-      <div class="pgContent" id="pgC">
-	  
-	  <div class="infosessie">
-         <label>
-            GEZINSNAMIDDAG VOOR KINDEREN<br> MET DIABETES EN HUN FAMILIE
-          </label>
-          <label><b>Een dag vol sport, spel en avontuur</b><br>&nbsp;<br></label>
-          <div class="infosessieImg"><img src="image/kattevenia2026_site.png" alt="gezinsdag" title="" ></div>
-          <div>Datum:</div>        <div>zaterdag 21 maart 2026</div>
-          <div>Tijd:</div>         <div>13.00 u - 17.30 u</div>
-          <div>Locatie:</div>      <div>domein Kattevenia</div>
-          <div></div>              <div>Kattevenne 15, 3600 Genk</div>
-          <div>Activitei:ten</div>  <div>shetlanderknuffeltocht, muurklimmen,</div>
-          <div>&nbsp;</div>  <div>boogschieten, dansinitiatie, tuben,</div>
-          <div>&nbsp;</div>        <div>mountainbike op pumptrack</div>
-          <div class="msgAfgesloten"><div  style="display:none;">Afgesloten</div></div>  
-          <div>Prijs</div>         <div>kinderen gratis </div>
-          <div>&nbsp;</div>        <div>ouders/begeleiders € 10,00 p.p.</div>
-          <div>parking:</div>      <div>gratis</div>
-          <div>Inlichtingen:</div> <div><a href="mailto:albert.schrooten.vanhoven@telenet.be">albert.schrooten.vanhoven@telenet.be</a></div>
-          <div>Inschrijving:</div>
-<div>
-  <a href="https://fredje4711.github.io/nieuwsbrief/gezinsdag_inschrijving.html">
-    www.diabetesligalimburg.be/<wbr>gezinsdag2026/
+  <div class="tl-item">
+    <a href="timeline/1992-pyramid.html">
+      <div class="year">1992</div>
+      <div>
+        <p class="tl-title">Food Guide Pyramid</p>
+        <p class="tl-desc">
+          Het beleid krijgt een krachtig visueel model voor het brede publiek:
+          granen als basis, vetten/zoet “spaarzaam”.
+        </p>
+      </div>
+    </a>
+  </div>
+  
+  <div class="tl-item">
+  <a href="timeline/2005-mypyramid.html">
+    <div class="year">2005</div>
+    <div>
+      <p class="tl-title">MyPyramid</p>
+      <p class="tl-desc">
+        Herontwerp van de voedselpiramide met nadruk op beweging en personalisatie,
+        maar zonder fundamentele koerswijziging.
+      </p>
+    </div>
   </a>
 </div>
 
-        </div>
-        
-
-      <div class="infosessie">
-        <label>
-            WANDELING BOLDERBERG & BEZOEK AAN DE KLUIS
-         </label>
-         <label>&nbsp;</label>
-          <div class="infosessieImg"><img src="image/wandeling bolderberg.png" alt="wandeling" title="" ></div>
-          <div>Datum:</div>        <div>zaterdag 9 mei 2026</div>
-          <div>Tijd:</div>         <div>14.00 u</div>
-          <div>Locatie:</div>      <div>parking nabij hotel Soete Wey</div>
-          <div></div>              <div>Kluisstraat 48, Heusden-Zolder</div>
-          <div>Gids:</div>         <div>ranger Jef Broux</div>
-          <div class="msgAfgesloten"><div  style="display:none;">Afgesloten</div></div>  
-          <div>Prijs wandeling</div> <div>€ 2,00 &#60; 12 j gratis</div>
-          <div>parking:</div>      <div>gratis</div>
-          <div>Etentje:</div>      <div>facultatief, ter plaatse te betalen</div>
-          <div>Inlichtingen:</div> <div><a href="mailto:midden.limburg@diabetes.be">midden.limburg@diabetes.be</a></div>
-          <div>Inschrijven:</div>  <div><a href="https://www.dlml.be/wandeling/index.html">www.dlml.be/wandeling/</a></div>
-        </div>
-        
-     
-      <div class="infosessie">
-        <label>
-          GEZELLIGE FIETSTOCHT
-        </label>
-        <label>&nbsp;</label>
-        <div class="infosessieImg"><img src="image/fietstocht2026_site.png" alt="fietstocht" ></div>
-        <div>Datum:</div>        <div>zaterdag 19 september 2026</div>
-        <div>Tijd:</div>         <div>14.00 u</div>
-        <div>Locatie:</div>      <div>om en rond Midden-Limburg</div>
-        <div>Afstand</div>       <div>± 33 km</div>
-        <div class="msgAfgesloten"><div  style="display:none;">Afgesloten</div></div>  
-        <div>Prijs:</div>        <div>gratis</div>
-        <div>Parking:</div>      <div>gratis</div>
-        <div>Etentje:</div>      <div>facultatief, ter plaatse te betalen</div>
-        <div>Inlichtingen:</div> <div><a href="mailto:midden.limburg@diabetes.be">midden.limburg@diabetes.be</a></div>
-        <div>Inschrijven:</div>  <div><a href="https://www.dlml.be/fietstocht/index.html">www.dlml.be/fietstocht/</a></div>
-      </div>  
-      
-
-      <div class="infosessie">
-        <label>
-          CULTURELE UITSTAP HASSELT
-        </label>
-        <label>&nbsp;</label>
-        <div class="infosessieImg"><img id="imgHasselt" src="image/uitstaphasselt2026_site.png"  alt="culturle uitstap"></div>
-        <div>Datum:</div>        <div>zaterdag 10 oktober 2026</div>
-        <div>Tijd:</div>         <div>14.00 u</div>
-        <div>Start locatie:</div><div>Bibliotheek  Hasselt</div>
-        <div>&nbsp;</div>       <div>Martelarenlaan 17, 3500 Hasselt</div>
-        <div>afstand:</div>     <div>± 5 km</div>
-        <div>Gids:</div>         <div>Alex Ghys</div>
-        <div class="msgAfgesloten"><div  style="display:none;">Afgesloten</div></div>  
-        <div>Prijs</div>         <div>wandeling + bezoek € 2,00 p.p.</div> 
-         <div>Etentje</div>       <div>facultatief, ter plaatse te betalen</div>
-        <div>Inlichtingen:</div> <div><a href="mailto:midden.limburg@diabetes.be">midden.limburg@diabetes.be</a></div>
-        <div>Inschrijven:</div>  <div><a href="uitstap/index.html">www.dlml.be/uitstap/</a></div>
-      </div> 
-      
-      
-       <div class="infosessie">
-        <label>
-          WANDELEVENEMENT
-        </label>
-        <label>
-          &nbsp;Wereld Diabetes Dag 2026<br>&nbsp;<br>
-        </label>
-        <div class="infosessieImg"><img src="image/wandelingWDD_2026.png" alt="wandeling WDD" ></div>
-        <div>Datum:</div>        <div>Zondag 15 november</div>
-        <div>Tijd:</div>         <div>9.00 u - 18.00 u</div>
-        <div>Locatie:</div>      <div>Natuurpunt Hasselt</div>
-        <div></div>              <div>Putvennestraat 112, 3500 Hasselt</div>
-        <div class="msgAfgesloten"><div style="display:none;">Afgesloten</div></div>  
-        <div>Wandeling met gids:</div><div>volwassenen € 2,00 p.p.</div>
-        <div></div>              <div>Kinderen gratis</div>
-        <div>Parking:</div>      <div>gratis</div>
-        <div>Inlichtingen:</div> <div><a href="mailto:midden.limburg@diabetes.be">midden.limburg@diabetes.be</a></div>
-        <div>Inschrijven:</div>  <div><a href="https://www.dlml.be/wandelingWDD/index.html">www.dlml.be/wandelingWDD</a></div>
-      </div>
-      
-       
-      <div class="infosessie" style="margin-bottom: 0px;">
-        <label>
-          LEDENFEEST 2026
-        </label>
-        <label>
-          &nbsp;
-          Geniet en ontspan in een aangename sfeer, <br>aan een democratische prijs<br>
-         	&nbsp;<br>
-        </label>
-        <div class="infosessieImg"><img src="image/ledenfeest2026_site.png" alt="ledenfeest" ></div>
-        <div>Datum:</div>        <div>datum nog te bepalen</div>
-        <div class="msgAfgesloten"><div  style="display:none;">Afgesloten</div></div>
-		<div>Menu:</div>         <div><a href="https://fredje4711.github.io/dlml/menu_ledenfeest_2026.html" style="color:#23a9e4; font-weight:bold;">Bekijk het menu</a></div>	
-        <div>Inlichtingen:</div> <div><a href="mailto:midden.limburg@diabetes.be">midden.limburg@diabetes.be</a></div>
-        <div style="overflow-x:visible;">meer informatie volgt</div>  <div></div>
-      </div>
-      
- 
-			
-		<!--  
-		<div class="infosessie" id="ledenfeest2025" style="margin-bottom:0;">
-	      <label>
-            LEDENFEEST 2025
-          </label>
-          <label>
-		     <br>
-			Geniet en ontspan in een aangename sfeer, <br>aan een democratische prijs<br>
-			 <br>
-		  </label>
-          <div class="infosessieImg"><img src="image/ledenfeest2026_site.png" alt="ledenfeest" ></div>
-          <div>Datum:</div>        <div>zaterdag 13 december</div>
-          <div>Tijd:</div>         <div>11.30 u</div>
-          <div>Locatie:</div>      <div>zaal De Ploeg</div>
-          <div></div>              <div>Steenweg 184, 3590 Diepenbeek</div>
-          <div>Parking</div>       <div>gratis</div>
-		  <div>Menu:</div>         <div><a href="Menu_Ledenfeest_2025.html" style="color:#23a9e4; font-weight:bold;">Bekijk het menu</a></div>	
-          <div class="msgAfgesloten"><div  style="display:none;">Afgesloten</div></div>  
-          <div>Prijs:</div>        <div>€ 45.00 p.p.</div>
-          <div>Inlichtingen:</div> <div><a href="mailto:midden.limburg@diabetes.be">midden.limburg@diabetes.be</a></div>
-		  <div>Inschrijven:</div>  <div><a href="inschrijvingen/ledenfeest/index_3.html" class="inschrijf-btn">Naar het inschrijfformulier</a></div>
-          <div> </div>        <div> </div>
-          <div> </div>        <div> </div>
-          <div> </div>        <div> </div>
-        </div> -->
-		
-	     <!-- -->
-        <br><br><div class="infosessie" id="wekelijkse_wandeling">
-	      <label>
-            WEKELIJJKSE WANDELING
-          </label>
-          <label> </label>
-          <div class="infosessieImg"><img src="image/wekelijkse_wandeling.png" alt="Nieraandoeningen" title="" ></div>
-          <div>Datum:</div>         <div>ieder zondag</div>
-          <div>Tijd:</div>         <div>9.30 u - 11.30 u</div>
-          <div>Locatie:</div>      <div>Putvennestraat 110, Kiewit - Hasselt</div>
-          <div>Afstand:</div>      <div>Kiewit - Bokrijk - Kiewit (4 of 8 km)</div>
-          <div>M.m.v.</div>        <div> onze gids Jan Pierco</div>
-          <div class="msgAfgesloten"><div  style="display:none;">Afgesloten</div></div>  
-          <div>Prijs:</div>        <div>gratis</div>
-          <div>parking:</div>      <div>gratis</div>
-          <div>Inlichtingen:</div> <div><a href="mailto:midden.limburg@diabetes.be">midden.limburg@diabetes.be</a></div>
-          <div>Inschrijven:</div>  <div>niet verplicht</div>
-		  <div>Meer uitleg:</div>  <div><a href="https://fredje4711.github.io/dlml/wekelijkse_wandeling.html" style="color:#23a9e4; font-weight:bold;">Meer uitleg</a></div>	
-          <div></div>              <div></div>
-          <div></div>              <div></div>
-          <div></div>              <div></div>
-          <div></div>              <div></div>
-        </div>
-    
-		
-      
-       
-      </div>		 
-
- <!--     foto's                                                                -->
-<div class="pgContent" id="pgD">
-<div class="fotoGroupPerActiviteit activity-gallery-wrapper">
-<div class="titelFotoGrp">
-<label>
-      NIEUWE TECHNIEKEN - NIEUWE MEDICATIE
-    </label>
-</div>
-<!-- Rij 1: 2 foto's naast elkaar (desktop), op GSM automatisch onder elkaar -->
-<div class="fotoGroup Grp02 dlmlRow2" style="display:flex; gap:24px; justify-content:center; align-items:flex-start; flex-wrap:wrap;">
-<div style="flex:0 0 48%; max-width:48%; position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/NieuweTechnieken2025_1.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/NieuweTechnieken2025_1.png" style="width:100%; height:auto; display:block;"/></a>
-<p class="fotoDatum">27 november 2025</p>
-</div>
-<div style="flex:0 0 48%; max-width:48%;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/NieuweTechnieken2025_2.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/NieuweTechnieken2025_2.png" style="width:100%; height:auto; display:block;"/></a>
-</div>
-</div>
-<!-- Rij 2: 1 foto (desktop gecentreerd), op GSM ook netjes gecentreerd -->
-<div class="fotoGroup Grp01 dlmlRow1" style="display:flex; justify-content:center; align-items:flex-start;">
-<div style="flex:0 0 48%; max-width:48%;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/NieuweTechnieken2025_3.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/NieuweTechnieken2025_3.png" style="width:100%; height:auto; display:block;"/></a>
-</div>
-</div>
-</div>
-<div class="fotoGroupPerActiviteit activity-gallery-wrapper">
-<div class="titelFotoGrp">
-<label>
-      CULTURELE UITSTAP HERKENRODE
-    </label>
-</div>
-<!-- Bovenste 2 foto's: zoals u aangaf waren die goed -->
-<div class="fotoGroup Grp03">
-<div>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/cultureleuitstap20250927_1.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/cultureleuitstap20250927_1.png" style="aspect-ratio: 1 / 1;"/></a>
-</div>
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/cultureleuitstap20250927_3.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/cultureleuitstap20250927_3.png" style="aspect-ratio: 2 / 1;"/></a>
-<p class="fotoDatum">27 september 2025</p>
-</div>
-</div>
-<!-- Onderste reeks: 2 naast elkaar + 1 gecentreerd (desktop), op GSM onder elkaar -->
-<div class="fotoGroup Grp02 dlmlRow2" style="display:flex; gap:24px; justify-content:center; align-items:flex-start; flex-wrap:wrap;">
-<div style="flex:0 0 48%; max-width:48%;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/cultureleuitstap20250927_2.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/cultureleuitstap20250927_2.png" style="width:100%; height:auto; display:block;"/></a>
-</div>
-<div style="flex:0 0 48%; max-width:48%;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/cultureleuitstap20250927_4.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/cultureleuitstap20250927_4.png" style="width:100%; height:auto; display:block;"/></a>
-</div>
-</div>
-<div class="fotoGroup Grp01 dlmlRow1" style="display:flex; justify-content:center; align-items:flex-start;">
-<div style="flex:0 0 48%; max-width:48%;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/cultureleuitstap20250927_5.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/cultureleuitstap20250927_5.png" style="width:100%; height:auto; display:block;"/></a>
-</div>
-</div>
-</div>
-<!-- ================================================================= -->
-<!-- START DEFINITIEVE VERSIE: TONGEREN 2-BOVEN-1-ONDER + GSM FIX -->
-<!-- ================================================================= -->
-<style>
-  /* --- DESKTOP INSTELLINGEN (PC) --- */
-  @media only screen and (min-width: 768px) {
-    /* De twee kleine foto's naast elkaar */
-    #wdd-sectie-final .wdd-foto-tongeren-klein { 
-      width: 48% !important; 
-    }
-    /* De grote foto daaronder gecentreerd */
-    #wdd-sectie-final .wdd-foto-tongeren-groot { 
-      width: 50% !important; 
-      margin-top: 20px !important; 
-    }
-    #wdd-sectie-final .wdd-foto-hasselt { width: 50% !important; max-width: 650px !important; }
-    #wdd-sectie-final .wdd-titel-hoofd { font-size: 2.4vw !important; }
-    #wdd-sectie-final .wdd-titel-sub { font-size: 1.8vw !important; }
-  }
-
-  /* --- GSM INSTELLINGEN (MOBIEL) --- */
-  @media only screen and (max-width: 767px) {
-    #wdd-sectie-final .fotoGroup { 
-      flex-direction: column !important; 
-      align-items: center !important; 
-      gap: 15px !important; 
-      width: 100% !important;
-      margin: 0 !important;
-      flex-wrap: nowrap !important;
-    }
-    #wdd-sectie-final .wdd-foto-tongeren-klein, 
-    #wdd-sectie-final .wdd-foto-tongeren-groot, 
-    #wdd-sectie-final .wdd-foto-hasselt { 
-      width: 92% !important; 
-      max-width: 92% !important; 
-      margin: 0 auto !important;
-    }
-    #wdd-sectie-final .wdd-titel-hoofd { font-size: 5.2vw !important; }
-    #wdd-sectie-final .wdd-titel-sub { font-size: 4.2vw !important; }
-    #wdd-sectie-final .wdd-titel-container { margin: 0 !important; width: 100% !important; }
-  }
-</style>
-<div class="fotoGroupPerActiviteit activity-gallery-wrapper" id="wdd-sectie-final" style="margin-top: 5vw !important; width: 100% !important; display: block !important; padding-top: 10px;">
-<!-- TITEL SECTIE 1: TONGEREN -->
-<div class="wdd-titel-container" style="text-align: center; margin-bottom: 20px; width: 100%;">
-<label class="wdd-titel-hoofd" style="display: block; font-weight: bold; color: #d9534f; margin: 0; line-height: 1.2;">
-      INFOSTAND WERELD DIABETES DAG
-    </label>
-<div class="wdd-titel-sub" style="display: block; font-weight: normal; color: #d9534f; text-transform: uppercase; margin-top: 5px;">
-      AZ VESALIUS ZIEKENHUIS TONGEREN
+<div class="tl-item">
+  <a href="timeline/2011-myplate.html">
+    <div class="year">2011</div>
+    <div>
+      <p class="tl-title">MyPlate</p>
+      <p class="tl-desc">
+        De piramide verdwijnt als publieksicoon en wordt vervangen door een bordmodel:
+        eenvoud, porties en maaltijdcontext.
+      </p>
     </div>
+  </a>
 </div>
-<!-- FOTO GROEP 1: TONGEREN (Desktop: 2 kleine boven, 1 grote onder) -->
-<div class="fotoGroup" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 2%; width: 86%; margin: 0 auto;">
-<!-- De twee kleine foto's eerst -->
-<div class="wdd-foto-tongeren-klein">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/InfostandWDD2025_1.jpg"><img class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/InfostandWDD2025_1.jpg" style="width: 100%; height: auto; display: block;"/></a>
-</div>
-<div class="wdd-foto-tongeren-klein">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/InfostandWDD2025_2.jpg"><img class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/InfostandWDD2025_2.jpg" style="width: 100%; height: auto; display: block;"/></a>
-</div>
-<!-- De grote foto als derde (komt op desktop op de nieuwe regel) -->
-<div class="wdd-foto-tongeren-groot">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/InfostandWDD2025_3.jpg"><img class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/InfostandWDD2025_3.jpg" style="width: 100%; height: auto; display: block;"/></a>
-</div>
-</div>
-<!-- TITEL SECTIE 2: HASSELT -->
-<div class="wdd-titel-container" style="text-align: center; margin: 35px 0 15px 0; width: 100%;">
-<div class="wdd-titel-sub" style="display: block; font-weight: normal; color: #d9534f; text-transform: uppercase;">
-      JESSA ZIEKENHUIS CAMPUS SALVATOR
+
+<div class="tl-item">
+  <a href="timeline/2015-dga.html">
+    <div class="year">2015</div>
+    <div>
+      <p class="tl-title">DGA 2015–2020: meetbare limieten en “eetpatronen”</p>
+      <p class="tl-desc">
+        Toegevoegde suikers &lt;10% kcal, verzadigd vet &lt;10% kcal, natrium &lt;2300 mg.
+        Het beleid verschuift naar “eetpatronen”, met belangrijke nuances rond vervanging.
+      </p>
     </div>
-</div>
-<!-- FOTO GROEP 2: HASSELT -->
-<div class="fotoGroup" style="display: flex; justify-content: center; width: 100%; margin-bottom: 5vw;">
-<div class="wdd-foto-hasselt">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/WDD2024Hasselt.jpg"><img class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/WDD2024Hasselt.jpg" style="width: 100%; height: auto; display: block;"/></a>
-</div>
-</div>
-</div>
-<!-- EINDE DEFINITIEVE VERSIE -->
-<div class="fotoGroupPerActiviteit activity-gallery-wrapper">
-<div class="titelFotoGrp">
-<label>
-      GEEF DARMKANKER GEEN KANS
-    </label><br/>
-<div class="fotoGroup Grp02">
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/Darmkanker20250915_5.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/Darmkanker20250915_5.png"/></a>
-<p class="fotoDatum">15 septrmber 2025</p>
-</div>
-<div>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/Darmkanker20250915_6.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/Darmkanker20250915_6.png"/></a>
-</div>
-</div>
-<div class="fotoGroup Grp09">
-<div>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/Darmkanker20250915_1.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/Darmkanker20250915_1.png"/></a>
-</div>
-<div>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/Darmkanker20250915_2.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/Darmkanker20250915_2.png"/></a>
-</div>
-<div>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/Darmkanker20250915_4.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/Darmkanker20250915_4.png"/></a>
-</div>
-</div>
-</div>
-</div>
-<div class="activity-gallery-wrapper"> <!-- WRAPPER START: WANDELING TERHILLS RESORT -->
-<div class="titelFotoGrp">
-<label>
-              
-               WANDELING TERHILLS RESORT
-            </label>
-</div>
-<div class="fotoGroup Grp09">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/TerHills02.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/TerHills02.png"/></a></div>
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/TerHills01.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/TerHills01.png"/></a>
-<p class="fotoDatum"><i aria-hidden="true" class="fa fa-calendar"></i> 17 mei 2025</p>
-</div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/TerHills03.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/TerHills03.png"/></a></div>
-</div>
-<div class="fotoGroup Grp09">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/TerHills04.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/TerHills04.png"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/TerHills09.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/TerHills09.png"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/TerHills05.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/TerHills05.png"/></a></div>
-</div>
-<div class="fotoGroup Grp02">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/TerHills07.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/TerHills07.png"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/TerHills08.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/TerHills08.png"/></a></div>
-</div>
-</div> <!-- WRAPPER EINDE: WANDELING TERHILLS RESORT -->
-<div class="activity-gallery-wrapper">
-<div class="titelFotoGrp">
-<label>
-            
-             LUXUEUS MOEDERDAG ONTBIJT
-      	  </label>
-</div>
-<div class="fotoGroup Grp01">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/ontbijt20250511_1.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/ontbijt20250511_1.jpg"/></a></div>
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_02.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_02.jpg"/></a>
-<p class="fotoDatum"><i aria-hidden="true" class="fa fa-calendar"></i> 11 mei 2025</p>
-</div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/ontbijt20250511_2.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/ontbijt20250511_2.jpg"/></a></div>
-</div>
-<div class="fotoGroup Grp02">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/ontbijt20250511_3.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/ontbijt20250511_3.jpg"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/ontbijt20250511_4.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/ontbijt20250511_4.jpg"/></a></div>
-</div>
-</div>
-<div class="activity-gallery-wrapper"> <!-- WRAPPER START: CARDIOLOGISCHE -->
-<div class="titelFotoGrp">
-<label>
-                
-                NIEUWE CARDIOLOGISCHE<br/>BENADERINGEN VOOR DIABETICI
-              </label>
-</div>
-<div class="fotoGroup Grp02">
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/Cardiologie20250313_1.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/Cardiologie20250313_1.jpg"/></a>
-<p class="fotoDatum"><i aria-hidden="true" class="fa fa-calendar"></i> 13 maart 2025</p>
-</div>
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/Cardiologie20250313_2.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/Cardiologie20250313_2.jpg"/></a>
-</div>
-</div>
-</div> <!-- WRAPPER EINDE: CARDIOLOGISCHE -->
-<div class="activity-gallery-wrapper"> <!-- WRAPPER START: INFOSTANDEN WDD -->
-<div class="titelFotoGrp">
-<label>
-                
-                INFOSTANDEN WERELD DIABETES DAG 2024
-              </label>
-</div>
-<div class="fotoGroup Grp02">
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/WDD2024Tongeren.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/WDD2024Tongeren.jpg"/></a>
-<p class="fotoDatum"> az Vesalius Tongeren</p>
-</div>
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/WDD2024Hasselt.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/WDD2024Hasselt.jpg"/></a>
-<p class="fotoDatum"> Jessa Ziekenhuis<br/> campus Salvator Hasselt</p>
-</div>
-</div>
-</div> <!-- WRAPPER EINDE: INFOSTANDEN WDD -->
-<div class="activity-gallery-wrapper"> <!-- WRAPPER START: TRAPPEN EN STAPPEN -->
-<div class="titelFotoGrp">
-<label>
-                
-                TRAPPEN EN STAPPEN 2024
-              </label>
-</div>
-<div class="fotoGroup Grp04">
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/FietstochtMaastricht01.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/FietstochtMaastricht01.jpg"/></a>
-<p class="fotoDatum"><i aria-hidden="true" class="fa fa-calendar"></i> 21 September 2024</p>
-</div>
-</div>
-<div class="fotoGroup Grp02">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/FietstochtMaastricht02.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/FietstochtMaastricht02.jpg"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/FietstochtMaastricht03.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/FietstochtMaastricht03.jpg"/></a></div>
-</div>
-</div> <!-- WRAPPER EINDE: TRAPPEN EN STAPPEN -->
-<div class="activity-gallery-wrapper"> <!-- WRAPPER START: PLATWIJERS -->
-<div class="titelFotoGrp">
-<label>
-                
-                WANDELING PLATWIJERS ZONHOVEN
-                </label>
-</div>
-<div class="fotoGroup Grp01">
-<div>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/platwijers01.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/platwijers01.jpg"/></a>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/platwijers03.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/platwijers03.jpg"/></a>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/platwijers04.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/platwijers04.jpg"/></a>
-</div>
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/platwijers02.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/platwijers02.jpg"/></a>
-<p class="fotoDatum"><i aria-hidden="true" class="fa fa-calendar"></i> 25 mei 2024</p>
-</div>
-<div>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/platwijers05.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/platwijers05.jpg"/></a>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/platwijers06.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/platwijers06.jpg"/></a>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/platwijers07.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/platwijers07.jpg"/></a>
-</div>
-</div>
-</div> <!-- WRAPPER EINDE: PLATWIJERS -->
-<div class="activity-gallery-wrapper"> <!-- WRAPPER START: MOEDERDAG ONTBIJT -->
-<div class="titelFotoGrp">
-<label>
-                
-                 LUXUEUS MOEDERDAG ONTBIJT
-              </label>
-</div>
-<div class="fotoGroup Grp01">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/Ontbijt2024_07.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/Ontbijt2024_07.jpg"/></a></div>
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_02.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_02.jpg"/></a>
-<p class="fotoDatum"><i aria-hidden="true" class="fa fa-calendar"></i> 12 mei 2024</p>
-</div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/Ontbijt2024_02.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/Ontbijt2024_02.jpg"/></a></div>
-</div>
-<div class="fotoGroup Grp09">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/Ontbijt2024_03.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/Ontbijt2024_03.jpg"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/Ontbijt2024_04.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/Ontbijt2024_04.jpg"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/Ontbijt2024_05.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/Ontbijt2024_05.jpg"/></a></div>
-</div>
-<div class="fotoGroup Grp02">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/Ontbijt2024_06.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/Ontbijt2024_06.jpg"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/Ontbijt2024_01.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/Ontbijt2024_01.jpg"/></a></div>
-</div>
-</div> <!-- WRAPPER EINDE: MOEDERDAG ONTBIJT -->
-<div class="activity-gallery-wrapper"> <!-- WRAPPER START: NIERAANDOENINGEN -->
-<div class="titelFotoGrp">
-<label>
-                
-                NIERAANDOENINGEN BIJ DIABETICI
-              </label>
-</div>
-<div class="fotoGroup Grp03">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/nieraandoeningen01.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/nieraandoeningen01.jpg" style="aspect-ratio: 1280/1440;"/></a></div>
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/nieraandoeningen02.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/nieraandoeningen02.jpg" style="aspect-ratio: 2560/1440;"/></a>
-<p class="fotoDatum"><i aria-hidden="true" class="fa fa-calendar"></i> 8 february 2024</p> </div>
-</div>
-</div> <!-- WRAPPER EINDE: NIERAANDOENINGEN -->
-<div class="activity-gallery-wrapper"> <!-- WRAPPER START: 40 JAAR -->
-<div class="titelFotoGrp">
-<label>
-                
-                40 JAAR DIABETES LIGA <br/>AFDELING MIDDEN-LIMBURG
-               </label>
-</div>
-<div class="fotoGroup Grp09">
-<div>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/jubileum40jaar01.png"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/jubileum40jaar01.png"/></a>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/jubileum40jaar04.png"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/jubileum40jaar04.png"/></a>
-</div>
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/jubileum40jaar02.png"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/jubileum40jaar02.png"/></a>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/jubileum40jaar05.png"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/jubileum40jaar05.png"/></a>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/jubileum40jaar07.png"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/jubileum40jaar07.png"/></a>
-<p class="fotoDatum"><i aria-hidden="true" class="fa fa-calendar">16 december 2023</i></p>
-</div>
-<div>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/jubileum40jaar03.png"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/jubileum40jaar03.png"/></a>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/jubileum40jaar06.png"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/jubileum40jaar06.png"/></a>
-</div>
-</div>
-<div class="fotoGroup Grp06">
-<div>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/jubileum40jaar08.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/jubileum40jaar08.png"/></a>
-</div>
-<div>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/film01.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/film01.png"/></a>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/film02.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/film02.png"/></a>
-</div>
-</div>
-<div class="fotoGroup Grp05">
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/jubileum40jaar09.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/jubileum40jaar09.png"/></a>
-<p class="fotoDatum"><i aria-hidden="true" class="fa fa-calendar"></i> 16 december 2023</p>
-</div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/jubileum40jaar10.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/jubileum40jaar10.png"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/jubileum40jaar11.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/jubileum40jaar11.png"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/jubileum40jaar12.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/jubileum40jaar12.png"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/jubileum40jaar13.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/jubileum40jaar13.png"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/jubileum40jaar14.png"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/jubileum40jaar14.png"/></a></div>
-</div>
-</div> <!-- WRAPPER EINDE: 40 JAAR -->
-<div class="activity-gallery-wrapper"> <!-- WRAPPER START: DIABETES BEKEKEN -->
-<div class="titelFotoGrp">
-<label>
-                
-                DIABETES BEKEKEN DOOR DE BRIL<br/>VAN EEN DIËTISTE EN EEN PSYCHOLOOG
-                </label>
-</div>
-<div class="fotoGroup Grp07">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/diabetesandersbekeken01.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/diabetesandersbekeken01.jpg"/></a></div>
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/diabetesandersbekeken03.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/diabetesandersbekeken03.jpg"/></a>
-<p class="fotoDatum"><i aria-hidden="true" class="fa fa-calendar"></i> 25 oktober 2023</p>
-</div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/diabetesandersbekeken02.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/diabetesandersbekeken02.jpg"/></a></div>
-</div>
-</div> <!-- WRAPPER EINDE: DIABETES BEKEKEN -->
-<div class="activity-gallery-wrapper"> <!-- WRAPPER START: PATIENT EMPOWERMENT -->
-<div class="titelFotoGrp">
-<label>
-                
-                PATIENT EMPOWERMENT
-                </label>
-</div>
-<div class="fotoGroup Grp09">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/PatientEmpowerment01.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/PatientEmpowerment01.jpg"/></a></div>
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/PatientEmpowerment02.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/PatientEmpowerment02.jpg"/></a>
-<p class="fotoDatum"><i aria-hidden="true" class="fa fa-calendar"></i> 12 oktober 2023</p>
-</div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/PatientEmpowerment03.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/PatientEmpowerment03.jpg"/></a></div>
-</div>
-<div class="fotoGroup Grp09">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/PatientEmpowerment04.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/PatientEmpowerment04.jpg"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/PatientEmpowerment05.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/PatientEmpowerment05.jpg"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/PatientEmpowerment06.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/PatientEmpowerment06.jpg"/></a></div>
-</div>
-</div> <!-- WRAPPER EINDE: PATIENT EMPOWERMENT -->
-<div class="activity-gallery-wrapper"> <!-- WRAPPER START: GEZINSDAG 2023 -->
-<div class="titelFotoGrp">
-<label>
-                
-                GEZINSDAG 2023 KATTEVENIA
-              </label>
-</div>
-<div class="fotoGroup Grp02">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_01.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_01.jpg"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_06.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_06.jpg"/></a></div>
-</div>
-<div class="fotoGroup Grp09">
-<div>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_10.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_10.jpg"/></a>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_03.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_03.jpg"/></a>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_04.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_04.jpg"/></a>
-</div>
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_07.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_07.jpg"/></a>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_02.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_02.jpg"/></a>
-<p class="fotoDatum"><i aria-hidden="true" class="fa fa-calendar"></i> 30 september 2023</p>
-</div>
-<div>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_09.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_09.jpg"/></a>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_08.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_08.jpg"/></a>
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_05.jpg"><img alt=".." class="fotoImg" src="https://dlml.be/site/fotosActiviteiten/gezinsdag2023_05.jpg"/></a>
-</div>
-</div>
-</div> <!-- WRAPPER EINDE: GEZINSDAG 2023 -->
-<!-- Herhaal de .activity-gallery-wrapper structuur voor ALLE volgende foto-activiteiten -->
-<!-- Voorbeeld voor DE TEUT -->
-<div class="activity-gallery-wrapper">
-<div class="titelFotoGrp">
-<label>
-                
-                NATUURWANDELING 'DE TEUT'
-              </label>
-</div>
-<div class="fotoGroup Grp01">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/DeTeut2.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/DeTeut2.jpg"/></a></div>
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/DeTeut1.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/DeTeut1.jpg"/></a>
-<p class="fotoDatum"><i aria-hidden="true" class="fa fa-calendar"></i> 3 juni 2023</p>
-</div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/DeTeut3.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/DeTeut3.jpg"/></a></div>
-</div>
-<div class="fotoGroup Grp02">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/DeTeut4.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/DeTeut4.jpg"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/DeTeut5.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/DeTeut5.jpg"/></a></div>
-</div>
-</div> <!-- EINDE DE TEUT -->
-<!-- Voorbeeld voor DE WROETER -->
-<div class="activity-gallery-wrapper">
-<div class="titelFotoGrp">
-<label>
-                
-                CULTURELE UITSTAP 'DE WROETER'
-              </label>
-</div>
-<div class="fotoGroup Grp01">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/dewroeter3.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/dewroeter3.jpg"/></a></div>
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/dewroeter2.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/dewroeter2.jpg"/></a>
-<p class="fotoDatum"><i aria-hidden="true" class="fa fa-calendar"></i> 26 mei 2023</p>
-</div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/dewroeter1.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/dewroeter1.jpg"/></a></div>
-</div>
-</div> <!-- EINDE DE WROETER -->
-<!-- GA ZO DOOR VOOR ALLE VOLGENDE FOTOBLOKKEN TOT HET EINDE VAN PG_D -->
-<!-- Zorg ervoor dat elke logische "activiteit" (titel + bijbehorende foto's,
-             ook al zijn die foto's verdeeld over meerdere .fotoGroup divs)
-             binnen één .activity-gallery-wrapper valt. -->
-<!-- Voorbeeld MOEDERDAG LUXUEUS ONTBIJT (2023) -->
-<div class="activity-gallery-wrapper">
-<div class="titelFotoGrp">
-<label>
-                
-                 MOEDERDAG LUXUEUS ONTBIJT
-              </label>
-</div>
-<div class="fotoGroup Grp01">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_01.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_01.jpg"/></a></div>
-<div style="position:relative;">
-<a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_02.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_02.jpg"/></a>
-<p class="fotoDatum"><i aria-hidden="true" class="fa fa-calendar"></i> 14 mei 2023</p>
-</div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_03.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_03.jpg"/></a></div>
-</div>
-<div class="fotoGroup Grp09">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_04.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_04.jpg"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_05.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_05.jpg"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_06.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_06.jpg"/></a></div>
-</div>
-<div class="fotoGroup Grp02">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_07.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_07.jpg"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_08.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_08.jpg"/></a></div>
-</div>
-<div class="fotoGroup Grp02">
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_09.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_09.jpg"/></a></div>
-<div><a class="dlmlGalleryItem" href="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_10.jpg"><img alt=".." class="fotoImg" loading="lazy" src="https://dlml.be/site/fotosActiviteiten/ontbijt14052023_10.jpg"/></a></div>
-</div>
-</div> <!-- EINDE MOEDERDAG 2023 -->
-<div style="display:block; width:100%; height:8vw;"></div> <!-- Deze spacer blijft buiten de wrappers -->
+  </a>
 </div>
 
+<div class="tl-item">
+  <a href="timeline/2020-dga.html">
+    <div class="year">2020</div>
+    <div>
+      <p class="tl-title">DGA 2020–2025: levensfasen centraal, met strengere regels voor jonge kinderen</p>
+<p class="tl-desc">
+  Voeding wordt bekeken over de hele levensloop: van baby’s en peuters tot ouderen.
+  Opvallend is het expliciete advies om toegevoegde suikers te vermijden bij kinderen jonger dan 2 jaar,
+  naast blijvende grenzen voor suiker, vet en zout.
+</p>
 
-	        <!-- START NIEUWE CONTENT DIV VOOR WEKELIJKSE WANDELING -->
-<div class="pgContent" id="pgJ" style="display: none;"> 
-    <iframe src="https://fredje4711.github.io/dlml/wekelijkse_wandeling.html" 
-            style="width:100%; height:100%; border:none;" /* Start met 100% hoogte/breedte */
-            frameborder="0" 
-            scrolling="yes" 
-            title="Wekelijkse_wandeling">
-    </iframe>
-</div>    	  
-	  
-	  		<!-- START NIEUWE CONTENT DIV VOOR FOTOGALERIJ -->
-<div class="pgContent" id="pgK" style="display: none;"> 
-    <iframe src="https://fredje4711.github.io/fotogalerij/" 
-            style="width:100%; height:100%; border:none;" /* Start met 100% hoogte/breedte */
-            frameborder="0" 
-            scrolling="yes" 
-            title="Fotogalerij">
-    </iframe>
-</div>
-
-	  		<!-- START NIEUWE CONTENT DIV VOOR PODCAST -->
-<div class="pgContent" id="pgL" style="display: none;"> 
-    <iframe src="https://fredje4711.github.io/podcast-insuline-als-sleutel/" 
-            style="width:100%; height:100%; border:none;" /* Start met 100% hoogte/breedte */
-            frameborder="0" 
-            scrolling="yes" 
-            title="Podcast">
-    </iframe>
-</div>
-
-<!-- START NIEUWE CONTENT DIV VOOR VOEDINGSTIJDLIJN -->
-<div class="pgContent" id="pgR" style="display: none;"> 
-    
-    <div class="timeline-header">
-        <a href="https://fredje4711.github.io/voeding_tijdlijn/" target="_blank" class="timeline-external-link">
-            <i class="fas fa-expand-arrows-alt"></i> Open op volledig scherm
-        </a>
     </div>
-
-    <iframe id="timelineFrame" 
-            src="https://fredje4711.github.io/voeding_tijdlijn/" 
-            frameborder="0" 
-            scrolling="yes"
-            style="width: 100%; height: calc(100% - 40px); border: none;">
-    </iframe>
+  </a>
 </div>
 
-	  		<!-- START NIEUWE CONTENT DIV VOOR Q-A 100 -->
-<div class="pgContent" id="pgM" style="display: none;"> 
-    <iframe src="https://fredje4711.github.io/Q-A_Diabetes_100/" 
-            style="width:100%; height:100%; border:none;" /* Start met 100% hoogte/breedte */
-            frameborder="0" 
-            scrolling="yes" 
-            title="Q-A_100">
-    </iframe>
+<div class="tl-item">
+  <a href="timeline/2025-dga.html">
+    <div class="year">2025</div>
+    <div>
+      <p class="tl-title">DGA 2025–2030: “Eat Real Food” en reset</p>
+      <p class="tl-desc">
+        Nieuwe framing richting whole/real food, meer nadruk op eiwit en minder ultra-bewerkt.
+        Alcoholadvies zonder vaste 1–2 limieten (communicatief opvallend).
+      </p>
+    </div>
+  </a>
 </div>
 
-	  		<!-- START NIEUWE CONTENT DIV VOOR MYTHEN EN FEITEN -->
-<div class="pgContent" id="pgN" style="display: none;"> 
-    <iframe src="https://fredje4711.github.io/flashkaarten/" 
-            style="width:100%; height:100%; border:none;" /* Start met 100% hoogte/breedte */
-            frameborder="0" 
-            scrolling="yes" 
-            title="Mythen_Feiten">
-    </iframe>
+<div class="tl-item">
+  <a href="timeline/2024-dgac-report.html">
+    <div class="year">2025</div>
+    <div>
+      <p class="tl-title">DGAC Scientific Report (basis voor 2025–2030)</p>
+      <p class="tl-desc">
+        Wetenschappelijke advieslaag: DGAC-rapport (dec 2024) met publieke commentaarperiode
+        (11 dec 2024 t/m 10 feb 2025). Brug tussen wetenschap en beleid.
+      </p>
+    </div>
+  </a>
 </div>
 
-	  		<!-- START NIEUWE CONTENT DIV VOOR RIJBEWIJS EN DIABETES -->
-<div class="pgContent" id="pgO" style="display: none;"> 
-    <iframe src="https://fredje4711.github.io/rijbewijs/" 
-            style="width:100%; height:100%; border:none;" /* Start met 100% hoogte/breedte */
-            frameborder="0" 
-            scrolling="yes" 
-            title="Rijbewijs_Diabetes">
-    </iframe>
-</div>
+<!-- VOEG DIT TOE ONDER DE TIMELINE SECTIE IN index.html -->
 
-	  		<!-- START NIEUWE CONTENT DIV VOOR Mounjaro terugbetaald -->
-<div class="pgContent" id="pgP" style="display: none;"> 
-    <iframe src="https://fredje4711.github.io/rijbewijs/Mounjaro.html" 
-            style="width:100%; height:100%; border:none;" /* Start met 100% hoogte/breedte */
-            frameborder="0" 
-            scrolling="yes" 
-            title="Mounjaro terugbetaald">
-    </iframe>
-</div>
-
-<!-- START NIEUWE PAGINA: DIABETES INFOLIJN -->
-<div class="pgContent" id="pgQ" style="display:none;">
-
-  <!-- Header-afbeelding Infolijn -->
-  <div class="infolijn-header-img">
-    <img src="site/image/Header Infolijn.png" alt="Diabetes Infolijn" />
-  </div>
-
-  <!-- Belangrijk nummer -->
-  <div class="infolijn-highlight">
-    <h2>Bel gratis: 0800 96 333</h2>
-    <p>Elke werkdag bereikbaar van 9u tot 16u<br>(behalve dinsdagvoormiddag)</p>
-  </div>
-
-  <!-- Kernpunten -->
-  <div class="infolijn-kernpunten">
-    <div class="kernpunt">✅ Gratis nummer</div>
-    <div class="kernpunt">✅ Discreet en anoniem</div>
-    <div class="kernpunt">✅ Voor iedereen met vragen</div>
-  </div>
-
-  <!-- Voorbeelden van vragen -->
-  <div class="infolijn-vragen">
-    <h3>Waarvoor kan je terecht?</h3>
-    <ul>
-      <li>Praktische vragen over leven met diabetes</li>
-      <li>Informatie over voeding, beweging en behandeling</li>
-      <li>Hoe praten over diabetes met je omgeving</li>
-      <li>Doorverwijzing naar gespecialiseerde diensten</li>
-    </ul>
-  </div>
-
-  <!-- Call to action -->
-  <div class="infolijn-cta">
-    <a href="tel:080096333" class="ctaBtn">📞 Bel nu gratis 0800 96 333</a>
-  </div>
-
-  <!-- Extra optie -->
-  <div class="infolijn-extra">
-    Liever schriftelijk? Mail naar <a href="mailto:infolijn@diabetes.be">infolijn@diabetes.be</a>
-  </div>
-
-</div>
-<!-- EINDE PAGINA: DIABETES INFOLIJN -->
-
-<!--     video's      -->
-<div class="pgContent" id="pgE">
-
-  <div class="titelFotoGrp">
-    <label>
-      <img class="LogoSize2" alt=".." src="site/image/LogoDLwt.png">
-      1921 - 2021<br>100 JAAR INSULINE
-    </label>
-  </div>
- 
-  <div class="fotoGroup Grp10">
-    <!-- Video thumbnails als clickable previews -->
-    <div class="video-wrapper" data-video-id="IF94eV8wwL4">
-      <img src="site/image/zoektocht_naar_oplossingen_thumbnail.png" alt="Zoektocht Oplossing Diabetes">
-      <div class="play-button"></div>
-    </div>
-    <div class="video-wrapper" data-video-id="vQxh7_iMFpI">
-      <img src="site/image/ontdekking_dierlijke_insuline_thumbnail.png" alt="Ontdekking Dierlijke Insuline">
-      <div class="play-button"></div>
-    </div>
-    <div class="video-wrapper" data-video-id="MsSAmdC68LY">
-      <img src="site/image/dierlijke_naar_synthetische_insuline_thumbnail.png" alt="Dierlijke Naar Synthetische Insuline">
-      <div class="play-button"></div>
-    </div>
-    <div class="video-wrapper" data-video-id="ZuzT9TBh90c">
-      <img src="site/image/synthetische_tot_analoge_insuline_thumbnail.png" alt="Synthetische Tot Analoge Insuline">
-      <div class="play-button"></div>
-    </div>
-    <div class="video-wrapper" data-video-id="0qK751-G2dc" style="grid-column: 1;">
-      <img src="site/image/insuline_de_sleutel_thumbnail.png" alt="Insuline Als Sleutel">
-      <div class="play-button"></div>
-    </div>
-  </div>
-
-  <div style="display:block; width:100%; height:8vw;"></div>
-
-</div> <!-- sluit pgContent E correct af -->
- 
-      <!--     Info    -->
-      <div class="pgContent" id="pgF">
-                
-        <!-- -->
-        <div class="informatie tblSize1">
-		  <label>
-            
-            DIABETES LIGA VLAANDEREN
-          </label>
-          <label>
-            <br>• informeert   • connecteert   • mobiliseert<br>&nbsp;<br>
-          </label>
-          <div class="informatieImg">
-            <img  alt=".." src="site/image/DiabetesLigaICM.png">  
-          </div>   
-             
-        </div>
-        
-        <!-- -->
-        <div class="informatie tblSize2">
-		  <label>
-            
-            LEKKER KOKEN MET DIABETES
-          </label>
-          <label>&nbsp;</label>
-          <div class="informatieImg">
-            <img  alt=".." src="https://dlml.be/site/image/kookboek.jpg">
-          </div>
-          <div></div> <div>Prijs niet leden: € 35,00</div>
-          <div></div> <div>Prijs leden: € 30.00</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div></div> <div>Maak kennis met het gloednieuw kookboek</div>
-          <div></div> <div>Lekker koken met diabetes</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div></div> <div>In deze <b>318 blz</b>. tellende <b>culinaire bijbel vind je, naast</b></div>
-          <div></div> <div>de nieuwste informatie over voeding, 200 gezonde en</div>
-          <div></div> <div>lekkere recepten samengesteld door voedingsexperts</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div></div> <div>Bestellen kan via:&nbsp;<a href="http://shop.diabetes.be" target="_blank" >http://shop.diabetes.be</a></div>
-          <div></div> <div>(gratis levering aan huis).</div>
-          <div></div> <div></div>
-          <div></div> <div></div>
-        </div>
-        
-        
-       <!-- -->
-        <div class="informatie tblSize4" >
-		      <label>
-            
-            WE ZIJN ACTIEF IS DE REGIO<br>MIDDEN-LIMBURG
-          </label>
-          <label>&nbsp;</label>
-          <div class="informatieImg">
-            <img  alt=".." src="https://dlml.be/site/image/KaartLimburgBig.png">
-          </div>
-          <div></div> <div style="line-height: 1.6">Alken</div>
-          <div></div> <div style="line-height: 1.6">Bilzen</div>
-          <div></div> <div style="line-height: 1.6">Borgloon</div>
-          <div></div> <div style="line-height: 1.6">Diepenbeek</div>
-          <div></div> <div style="line-height: 1.6">Hasselt</div>
-          <div></div> <div style="line-height: 1.6">Herk-De-Stad</div>
-          <div></div> <div style="line-height: 1.6">Herstappen</div>
-          <div></div> <div style="line-height: 1.6">Hoeselt</div>
-          <div></div> <div style="line-height: 1.6">Kortessem</div>
-          <div></div> <div style="line-height: 1.6">Tongeren</div>
-          <div></div> <div style="line-height: 1.6">Wellen</div>
-          <div></div> <div style="line-height: 1.6">Zonhoven</div>
-          <div></div> <div></div>
-          <div></div> <div></div>
-        </div>
-		
-		<!-- -->
-        <div class="informatie tblSize1">
-		  <label>
-            
-            JAARPROGRAMMA
-          </label>
-          <label>
-            <br>Een gevarieerd jaarprogramma met activiteiten voordrachten, informatie, wandelingen, ledenfeest, contactpersonen<br>
-          </label>
-          <div style="text-align:center;">
-		    <img src="https://dlml.be/site/downloadPDF/folderJP2025_1.jpg" alt="" title="" style="margin: 20px 8% 0 0;  width:22.5%; height:auto;" >
-            <img src="https://dlml.be/site/downloadPDF/folderJP2025_2.jpg" alt="" title="" style="margin: 34px 0 0 0;  width:60%; height:auto;"  >
-          </div><br> 
-		  <div style="width:100%; text-align: center; padding:20px 0px; ">
-		     <a href="https://dlml.be/site/downloadPDF/jaarprogramma2025.pdf" target="_blank">download jaarprogramma 2025</a>
-		  </div>  
-             
-        </div>
-
-		
-
-                
-        <!-- -->
-        <div class="informatie tblSize3">
-		  <label>
-            
-            INFOLIJN DIABETES LIGA
-          </label>
-          <label><br>Infokanaal voor iedereen met vragen over diabetes<br>&nbsp;<br></label>
-          <div class="informatieImg">
-            <img  alt=".." src="https://dlml.be/site/image/Infolijn.png">
-          </div>
-          <div>•</div> <div>Gratis</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div>•</div> <div>Initiatief opgericht in 1996</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div>•</div> <div>Meer dan 75.000 vragen</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div>•</div> <div>Laagdrempelig en anoniem</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div>•</div> <div>Telefonisch 0800/96 333 of</div>
-          <div></div> <div>mail: infolijn@diabetes.be</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div>•</div> <div>Dagelijks bereikbaar behalve op</div>
-          <div></div> <div>dinsdag voormiddag</div>
-          <div></div> <div></div>
-        </div>
-		
-        <!-- -->
-        <div class="informatie tblSize2">
-		      <label>
-            
-            LID WORDEN
-          </label>
-          <label><br>
-            U kan lid worden voor 39 € per jaar.<br>
-            Daarnaast kan je als lid genieten van heel wat voordelen:<br>
-            Infokanaal voor iedereen met vragen over diabetes<br>
-            &nbsp;<br>
-          </label>
-          <div class="informatieImg">
-            <img  alt=".." src="https://dlml.be/site/image/Lidworden.png">
-          </div>
-          <div>•</div> <div>Tweemaandelijks magazine ‘Diabetes Info’</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div>•</div> <div>20 procent prijskorting op diabetes-materiaal</div>
-          <div></div> <div>via onze webshop.</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div>•</div> <div>Gratis infofolders, dagboekje en boodschappenkaartje.</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div>•</div> <div>Tips en nieuws via onze maandelijkse nieuwsbrief</div>
-          <div></div> <div>in je mailbox.</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div>•</div> <div>Diverse kortingen en voordelen van allerlei partners</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div>•</div> <div>Lokaal contactpunt voor (potentiële) leden.</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div>•</div> <div>Toegang tot alle activiteiten:</div>
-          <div></div> <div>voordrachten, bewegingsactiviteiten, </div>
-          <div></div> <div>ontspanningsmomenten, feestelijke momenten.</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div></div> <div>Alle info over de ledenvoordelen:</div>
-          <div></div> <div>
-            <a href="https://www.diabetes.be/nl/steun-ons/word-lid" target="_blank">
-            https://www.diabetes.be/nl/steun-ons/word-lid</a><br>
-          </div>
-        </div>  
-        
-        <!-- -->
-        <div class="informatie tblSize2">
-		      <label>
-            
-            WEBSHOP
-          </label>
-          <label>&nbsp;</label>
-          <div class="informatieImg">
-            <img  alt=".." src="https://dlml.be/site/image/shop.png">
-          </div>
-          <div>•</div> <div>Toegankelijk voor iedereen (leden en niet-leden)</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-           <div>•</div> <div>Ledenkorting: VIPS</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div>•</div> <div>Snelle levering aan huis of op een andere locatie</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div>•</div> <div>Webshop gespecialiseerd in diabetes</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div>•</div> <div>Aanbod voor iedereen met diabetes</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div>•</div> <div>Zelfzorgmateriaal</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div>•</div> <div>	Publicaties/informatiemateriaal</div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div>•</div> <div>
-            <a href="site/downloadPDF/webshop.pdf" target="_blank">
-            hoe een account aanmaken, hoe een bestelling plaatsen.
-            </a>  
-          </div>
-          <div></div> <div class="smallLine">&nbsp;</div>
-          <div>•</div> 
-          <div>
-            webshop:&nbsp;<a href="http://shop.diabetes.be" target="_blank" >http://shop.diabetes.be</a>
-          </div>
-          <div></div> <div></div>
-          <div></div> <div></div>
-          <div></div> <div></div>
-        </div>  
-        
-	      </div> 
-
-       <!--   downloads                                                                     -->
-       <div class="pgContent" id="pgG">  
-	   
-	      <div class="containerDownload">
-        <label>
-          Nieuwe technieken
-		    </label>
-			<label> </label>
-        <div class="containerDownloadImg">
-		      <a href="https://www.dlml.be/site/downloadPDF/Diabetesliga_november_2025.pdf" target="_blank">
-          <img alt=".." src="image/nieuwe technieken.png" style="height:auto;">
-          <span class="dlBtn">Download</span>
-          </a>
-        </div>
-        <div class="containerDownloadTxt"> 
-          <div>Nieuwe technieken</div>
-          <div>
-			     Dr. Annelies<br>en het diabetesteam Jessa zh
-          </div> 
-          <div>27 november 2025</div>
-        </div> 
-      </div>
-
-     
-      <div class="containerDownload">
-        <label>
-          Nieuwe medicatie
-		    </label>
-			<label> </label>
-        <div class="containerDownloadImg">
-		      <a href="https://www.dlml.be/site/downloadPDF/NieuweMedicatie27112025.pdf" target="_blank">
-          <img alt=".." src="image/nieuwe medicatie.png" style="height:auto;">
-          <span class="dlBtn">Download</span>
-          </a>
-        </div>
-        <div class="containerDownloadTxt"> 
-          <div>Nieuwe medicatie</div>
-          <div>
-			      Apotheker Eddy Foulon
-          </div> 
-          <div>27 november 2025</div>
-        </div> 
-      </div> 
-
-	      <div class="containerDownload">
-          <label>
-            
-            Orthopedische behandelingen<br>en diabetesvoet
-		  </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-		  <a href="https://dlml.be/site/downloadPDF/OrthopedischeBehandelingEnDiabetesVoet.pdf" target="_blank">
-          <img alt=".." src="https://www.dlml.be/site/downloadPDF/OrthopedischeBehandelingenEnDiabetesVoet.png" style="height:auto;">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>Orthopedische behandelingen<br>en diabetesvoet</div>
-            <div>
-			  Dr. Verena Wijnen,<br> ortopedisch chirurg Jessa Ziekenhuis
-            </div> 
-            <div>8 mei 2025</div>
-          </div> 
-        </div>
-      
-          <div class="containerDownload">
-          <label>
-            
-            Nieuwe cardiologische<br>benaderingen voor Diabetici
-		  </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-		  <a href="https://dlml.be/site/downloadPDF/Hartenbloedvaten20250313.pdf" target="_blank">
-          <img alt=".." src="https://dlml.be/site/downloadPDF/Hartenbloedvaten20250313.png" style="height:auto;">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>Nieuwe cardiologische<br>benaderingen voor Diabetici</div>
-            <div>
-			  Dr. Philippe Timmermans,<br> cardioloog Jessa Ziekenhuis
-            </div> 
-            <div>13 maart 2025</div>
-          </div> 
-        </div>
-		
-		 <div class="containerDownload">
-          <label>
-            
-           Proost chique zonder glycemie piek
-		  </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-		  <a href="https://dlml.be/site/downloadPDF/diabetes_en_de_feestdagen.pdf" target="_blank">
-          <img alt=".." src="https://dlml.be/site/downloadPDF/diabetes_en_de_feestdagen.png" style="height:auto;">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>Diabetes en de feestdagen</div>
-            <div>
-			  Dr. Limmie Liu, endocrinoloog-diabetoloog<br>
-              Hanne Roelen, diëtist-educator
-            </div> 
-            <div>26 november 2024</div>
-          </div> 
-        </div>
-
-		 <div class="containerDownload">
-          <label>
-            
-            DIABETES JE ADMINISTRATIE OP ORDE!
-		  </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-		  <a href="https://dlml.be/site/downloadPDF/DiabetesMaatschappelijkeAspecten.pdf" target="_blank">
-          <img alt=".." src="https://dlml.be/site/downloadPDF/DiabetesMaatschappelijkeAspecten.jpg" style="height:auto;">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>Maatschappelijke aspecten bij diabetes</div>
-            <div>
-              Lien Dierckd<br> Kenniscentrum en Infolijn Diabetes Liga
-            </div> 
-            <div>8 oktober 2024</div>
-          </div> 
-        </div>
-		
-		<div class="containerDownload">
-          <label>
-            
-            EEN WAARDIG LEVENSEINDE
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/WaardigLevenseinde.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/WaardigLevenseinde.png" style="height:auto;">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>Een waardig levenseinde</div>
-            <div>
-              Prof. Wim Distelmans<br>
-			  leerstoel ‘Waardig Levenseinde’<br>
-              Van de Mens VUB. 
-            </div> 
-            <div>18 april 2024</div>
-          </div> 
-        </div>
-		
-		<div class="containerDownload">
-          <label>
-            
-            EEN WAARDIG LEVENSEINDE
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Wildgroei.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Wildgroei.png" style="height:auto;">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>Wildgroei vzw<br>Lotgenotenvereniging voor<br>leukemie- en lymfomenpatiënten</div>
-            <div>
-              Willy Schepers
-            </div> 
-            <div>18 april 2024v</div>
-          </div> 
-        </div>
-		
-		<div class="containerDownload">
-          <label>
-            
-            EEN WAARDIG LEVENSEINDE
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/WerkingELZ_Herkenrode.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/WerkingELZ_Herkenrode.png" style="height:auto;">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>Werking ELZ Herkenrode</div>
-            <div>
-              Inez Beys
-            </div> 
-            <div>18 april 2024</div>
-          </div> 
-        </div>
-		
-     <div class="containerDownload">
-          <label>
-            
-            NIERAANDOENINGEN BIJ DIABETICI
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/nieraandoeningen_bij_diabetes.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/nieraandoeningen_bij_diabetes.jpg" style="height:auto;">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>Nieraandoeningen bij diabetici</div>
-            <div>
-              Dr. Tom Dejagere nefroloog
-            </div> 
-            <div>8 februari 2024</div>
-          </div> 
-        </div>
-
-        
-        <div class="containerDownload">
-          <label>
-            
-            PATIENT EMPOWERMENT<br>DE PATIËNT AAN HET STUUR
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/DiabetesLiga_Roadshow_Hasselt_KORT.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/PatientEmpowerment.png" style="height:auto;">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>De patiënt als eigenaar van zijn<br>zorgproces, in wederzijds respect.</div>
-            <div>
-              Prof. Edgard Eecman Patient Empowerment
-            </div> 
-            <div>12 oktober 2023</div>
-          </div> 
-        </div>
-           
-           
-        <div class="containerDownload">
-          <label>
-            
-            PATIENT EMPOWERMENT<br>DE PATIËNT AAN HET STUUR
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://www.dlml.be/site/downloadPDF/maak_kennis_met_de_8_patiëntenrechten.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/PatientEmpowerment.png" style="height:auto;">
-             <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>Wat zijn mijn rechten als patiënt?</div>
-            <div>
-              Annet Wauters Vlaams Patiëntenplatform
-            </div> 
-            <div>12 oktober 2023</div>
-          </div> 
-        </div>
-           
-        <div class="containerDownload">
-          <label style="font-size: 80%;">
-            
-            FINANCIËLE TEGEMOETKOMINGEN VOOR PATIËNTEN<br>MET CHRONISCHE ZIEKTEN EN GEHANDICAPTEN
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/FinancieleTegemoetkomingen.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/FinancieleTegemoetkomingen.jpg" style="height:auto;">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>Finantiële tegenmoetkomingen</div>
-            <div>
-              Marit Mellaerts & Kristien Dierckx<br>Vlaams patiëntenplatform
-            </div> 
-            <div>28 februari 2023</div>
-          </div> 
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-          
-           TANDVERZORGING BIJ DIABETICI
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/tandverzorging09022023.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/tandverzorging09022023.jpg" style="height:auto;">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>Tandverzorging bij diabetici</div>
-            <div>
-              Dr. Eric Thevissen parodontoloog<br>
-            </div> 
-            <div>9 februari 2023</div>
-          </div> 
-        </div>
-        
-        <div class="containerDownload">
-          <label>
-            
-            ALTERNATIEVE VERSUS KLASSIEKE DIËTEN
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/dieten_JessaZH_door_Liesbeth_Jelena_Joke.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/dieten_JessaZH_door_Liesbeth_Jelena_Joke.jpg" style="height:auto;">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>Alternatieve versus klassieke diëten</div>
-            <div>
-              Het diabetes team jessa Ziekenhuis<br>
-              Jelena Dekens - Liesbeth Reekmans - Joke Vrijsen
-            </div> 
-            <div>24 november 2022</div>
-          </div> 
-        </div>
-             
-        <div class="containerDownload">
-          <label>
-            
-            NIEUWE TECHNIEKEN EN MEDICATIE<br>VOOR DIABETICI
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Nieuwe_technieken_Diabetes_Liga20220519.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Nieuwe_technieken_Diabetes_Liga20220519.jpg" style="height:auto;">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>Nieuwe technieken en medicatie<br>voor diabetici</div>
-            <div>Het diabetes team jessa Ziekenhuis</div> 
-            <div>19 mei 2022</div>
-          </div> 
-        </div>
-         
-          
-        <div class="containerDownload">
-          <label>
-           
-           DE DIABETISCHE VOET
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/De_diabetische_voet.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/De_diabetische_voet.jpg" style="height:auto;">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>De diabetische voet</div>
-            <div>
-              Dr. Hanny Brussaard endocrinoloog<br>
-              Yanicka De Coster wondzorgingverpleegkundige<br>
-              AZ Vesalius Ziekenhuis
-            </div> 
-            <div>24 maart 2022</div>
-          </div>
-        </div>
-        
-        <div class="containerDownload">
-          <label>
-            
-            LEVEN MET DIABETES TYPE 1 en TYPE 2
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/UHasselt_voorstellingDL_2022.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/UHasselt_voorstellingDL_2022.jpg" style="height:auto;">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>Voorstelling<br>Diabetes Liga afdeling MiddenLimburg</div>
-            <div>GuidoSmets<br>Diabetes Liga afdeling MiddenLimburg</div> 
-            <div>6 maart 2022</div>
-          </div>
-        </div>
-                 
-        <div class="containerDownload">
-          <label>
-            
-            LEVEN MET DIABETES TYPE 1 en TYPE 2
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/UHasselt_getuigenis_type1.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/UHasselt_getuigenis_type1.jpg" style="height:auto;">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>Getuigenis type 1</div>
-            <div>GuidoSmets<br>Diabetes Liga afdeling MiddenLimburg</div>
-            <div>6 maart 2022</div>
-          </div>
-        </div>
-            
-        <div class="containerDownload">
-          <label>
-            
-            LEVEN MET DIABETES TYPE 1 en TYPE 2
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/UHasselt_getuigenis_type2.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/UHasselt_getuigenis_type2.jpg" style="height:auto;">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>Getuigenis type 2</div>
-            <div>Roger Nickmans<br>Diabetes Liga afdeling MiddenLimburg</div> 
-            <div>6 maart 2022</div>
-          </div>
-        </div>
-        
-        <div class="containerDownload">
-          <label>
-            
-            SLAAPAPNEU EN DIABETES
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/slaapapneu.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/slaapapneu.jpg">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>Obstructieve slaapapneu en diabetes</div>
-            <div>Dr. Simona Ciordas,<br>pneumoloog Jessa Ziekenhuis Hasselt</div> 
-            <div>21 oktober 2021</div>
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-             
-             NIERFUNCTIEVERVANGENDE THERAPIE
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/nierfunctievervangendeTherapie.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/nierfunctievervangendeTherapie.jpg">
-            <span class="dlBtn">Download</span>
-            </a>
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>Hemodialyse, peritoneale dialyse, transplantatie.</div> 
-            <div>Dr. Tom Dejagere,<br>nefroloog Jessa Ziekenhuis Hasselt</div>
-            <div>21 november 2019</div>
-          </div>
-        </div>
-         
-        <div class="containerDownload">
-          <label>
-           
-           DIABETES@SCHOOL 2019
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/DiabetesatSchool2019.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/DiabetesatSchool2019.jpg">
-            <span class="dlBtn">Download</span> 
-             </a>
-         </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Praktische tips en vaardigheden</div> 
-            <div>Spreker: dr. Guy Massa<br>Kinderendocrinollg Jessa Ziekenhuis</div>
-            <div>3 oktober 2019</div>
-          </div>
-          </div>
-           
-        <div class="containerDownload">
-          <label>
-            
-            NIEUWE TECHNIEKEN VOOR DIABETICI
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/nieuweMedicatieInDeBehandelingVanType2.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/nieuweMedicatieInDeBehandelingVanType2.jpg"> 
-             <span class="dlBtn">Download</span> 
-            </a>
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div> Nieuwe technieken in de<br>
-               behandeling van type 2 diabetes<br>
-            </div> 
-            <div>Dr Mortzos Nikolaos<br>Jessa Ziekenhuis</div>
-            <div>9 mei 2019</div> 
-          </div>
-        </div>
-        
-        <div class="containerDownload">
-          <label>
-            
-            LEEFSTIJL VOOR DIABETICI
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Voeding_en_diabetes.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Voeding_en_diabetes.jpg"> 
-             <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Leefstijl voor diabetici: voeding</div> 
-            <div>Claudia Fripont,<br>diëtiste Jessa Ziekenhuis Hasselt</div>
-            <div>29 november 2018</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-            
-            LEEFSTIJL VOOR DIABETICI
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Rookstop.pdf" target="_blank">
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Rookstop.jpg" style="width:100%"> 
-               <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Leefstijl voor diabetici: rookstop</div> 
-            <div>Dr. Frank Vandereyt,<br>psycholoog Jessa Zienhuis Hasselt</div>
-            <div>29 november 2018</div> 
-          </div>
-        </div>
-      
-        <div class="containerDownload">
-          <label>
-            
-            LEEFSTIJL VOOR DIABETICI
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/beweging_en_diabetes.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/beweging_en_diabetes.jpg"> 
-               <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Leefstijl voor diabetici: beweging en diabetes</div> 
-            <div>Prof. dr. Dominique Hansen,<br>Universiteit Hasselt</div>
-            <div>29 november 2018</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           DIABETES EN NIERZIEKTE
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Diabetes_en_nierziekte.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Diabetes_en_nierziekte.jpg" style="width:100%"> 
-            <span class="dlBtn">Download</span>
-            </a>
-          </div> 
-          <div class="containerDownloadTxt"> 
-          <div>
-           De nieren bij de diabetespatiënten<br>
-           Diabetes bij nierpatiënten
-          </div> 
-          <div>Dr. Tom Dejagere,<br>nefroloog Jessa Ziekenhuis Hasselt</div>
-          <div>18 oktober 2018</div> 
-          </div>
-          </div> 
-           
-        <div class="containerDownload">
-          <label>
-             
-             Gastric Bypass een reddingslijn voor diabetes?
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Obesitas.pdf" target="_blank"> 
-          <img alt=".." src="https://dlml.be/site/downloadPDF/Obesitas.jpg" style="width:100%"> 
-             <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-           
-          <div>Een reddingslijn voor diabetes?</div> 
-          <div>Spreker: dr. Wim Bouckaert<br>abdominaal chirurg Jessa Ziekenhuis</div>
-          <div>22 oktober 2014</div> 
-          </div>
-          </div>
-        <div class="containerDownload">
-          <label>
-            
-            DAGELIJKSE BESLOMMERINGEN VAN EEN DIABEET
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/dagelijkse_beslommeringen.pdf" target="_blank"> 
-             <img alt=".." src="https://dlml.be/site/downloadPDF/dagelijkse_beslommeringen.jpg" style="width:100%"> 
-             <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-           
-          <div>Reizen, uitstapjes, ziekte, sport, feestjes, etentje...</div> 
-          <div>
-           Guido Smets,<br>Diabetes Liga afdeling MiddenLimburg<br>
-           Lily Quintiens, diabeteseducator<br>Jessa Ziekenhuis Hasselt
-          </div> 
-          <div>17 mei 2018</div> 
-          </div>
-          </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           DIABETESMEDICATIE OPTIMALISEREN
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/diabetesmedicatie_optimaliseren.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/diabetesmedicatie_optimaliseren.jpg" > 
-             <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div >
-              Hoe diabetesmedicatie verbeteren en optimaliseren?
-            </div> 
-            <div>
-              Spreker: apotheker Eddy Foulon<br>
-              Medisch adviseur Diabetes Liga afd. MiddenLimburg
-            </div> 
-            <div>15 maart 2018</div> 
-          </div>
-          </div> 
-           
-        <div class="containerDownload">
-          <label>
-           
-           DIABETES NEUROPATHIE
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Neuropathie.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Neuropathie.jpg" > 
-            <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div> Zenuwpijn</div> 
-            <div>Spreker: dr. Sylvia Hermans<br>Jessa Ziekenhuis</div>
-            <div>18 oktober 2017</div>
-          </div>
-        </div> 
-           
-        <div class="containerDownload">
-          <label>
-           
-           DIABETES RETINOPATHIE
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Retinopathie.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Retinopathie.jpg" style="width:100%"> 
-             <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Diabetes en de ogen</div> 
-            <div>Spreker: dr. Guy Missotten<br>Oftalmoloog Jessa Ziekenhuis</div>
-            <div>18 oktober 2017</div>
-          </div>
-        </div>
-          
-        <div class="containerDownload">
-          <label>
-           
-           DIABETES EN STRESS
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://www.dlml.be/site/downloadPDF/diabetes_en_stress.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/diabetes_en_stress.jpg" style="width:100%"> 
-            <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Omgaan met stress</div> 
-            <div>Spreker: dr. Frank Vandereyt<br>psycholoog Jessa Ziekenhuis</div>
-            <div>31 mei 2017</div>
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           HART EN VAATZIEKTEN BIJ DIABETES
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Hart_en_vaatziekte.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Hart_en_vaatziekte.jpg" style="width:100%"> 
-            <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-           
-          <div >
-           Cardiovasculaire aandoeningen en preventie
-          </div> 
-          <div>Spreker: dr. Mulleners<br>hartcentrum jessa Ziekenhuis</div>
-          <div>21 februari 2017</div>
-          </div>
-          </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           VOEDING EN DIABETES
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Diabetes_en_vetten.pdf" target="_blank"> 
-          <img alt=".." src="https://dlml.be/site/downloadPDF/Diabetes_en_vetten.jpg" style="width:100%"> 
-             <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-          <div >
-           Voeding in functie van hart en vaatziekten
-          </div> 
-          <div>Spreker: diëtisten Jessa Ziekenhuis<br></div>
-          <div>21 februari 2017</div> 
-          </div>
-          </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           ERFELIJKHEID EN DIABETES
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Diabetesregister.pdf" target="_blank"> 
-          <img alt=".." src="https://dlml.be/site/downloadPDF/Diabetesregister.jpg" style="width:100%"> 
-             <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-          <div>Belang van het diabetesregister</div> 
-          <div>Spreker: dr. Costa olivier UZ Brussel<br></div>
-          <div> 9 november 2016</div> 
-          </div>
-          </div>
-        <div class="containerDownload">
-          <label>
-           
-           DIABETESQUIZ
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Diabetesquiz.pdf" target="_blank"> 
-          <img alt=".." src="https://dlml.be/site/downloadPDF/Diabetesquiz.jpg" style="width:100%"> 
-             <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-          <div>Diabetesquiz</div> 
-          <div>Diëtisten Jessa Ziekenhuis<br>Claudi Fripont, Lisbeth Reekmans<br>en Joke Vrijsen</div>
-          <div>5 oktober 2016</div> 
-          </div>
-          </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           GEZOND SNOEPEN EN DESSERTEN
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Gezond_snoepen.pdf" target="_blank"> 
-          <img alt=".." src="https://dlml.be/site/downloadPDF/Gezond_snoepen.jpg" style="width:100%"> 
-             <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-           <div>Wat ligt er op ons bord?</div> 
-          <div> Spreker: Rita Olaerts<br> Manager voedingsdienst Jessa Ziekenhuis</div>
-          <div>5 oktober 2016</div> 
-          </div>
-          </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           TANDVERZORGING
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Paradontologie.pdf" target="_blank"> 
-          <img alt=".." src="https://dlml.be/site/downloadPDF/Paradontologie.jpg" style="width:100%"> 
-             <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-          <div>Het belang van tandverzorging bij diabetici.</div> 
-          <div>Spreker: prof. dr. Eric Thevissen<br>Parodontoloog Hasselt</div>
-          <div>11 mei 2016</div>
-          </div>
-          </div>
-           
-        <div class="containerDownload">
-          <label>
-            
-            VOETVERZORGING BIJ DIABETICI
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Voetverzorging.jpg" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Voetverzorging.jpg" style="width:100%"> 
-            <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-           <div >Twee voeten met vijf tenen, een kostbaar bezit.</div> 
-            <div>Spreker: Veerle Santermans,<br>podoloog Jessa Ziekenhuis</div>
-            <div>11 mei 2016</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           DIABETES EN OVERGEWICHT
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Metabool_syndroom.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Metabool_syndroom.jpg" style="width:100%"> 
-             <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-              <div>Metabool syndroom</div> 
-            <div>Spreker: prof. dr. Mertens Ann,<br>endocrinoloog UZ Leuven<br></div>
-            <div>16 maart 2016</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-             DIABETES EN SPORT
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Diabetes_en_sport.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Diabetes_en_sport.jpg" style="width:100%"> 
-             <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Sport en diabetes: waarom? hoe?</div> 
-            <div>Spreker: dr. Dominique Hansen<br> onderzoeksteam Universitair Ziekenhuis Maastricht</div>
-            <div>26 november 2015</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           DIABETES@SCHOOL 2015
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Diabetesatschool2015.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Diabetesatschool2015.jpg" style="width:100%"> 
-             <span class="dlBtn">Download</span>
-			</a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Praktische tips en vaardigheden</div> 
-            <div>Spreker: dr. Guy Massa<br>Kinderen endocrinologie Jessa Ziekenhuis</div>
-            <div>22 oktober 2015</div> 
-          </div>
-        </div>
-        
-        <div class="containerDownload">
-          <label>
-            
-            SOCIALE ASPECTEN M.B.T. DIABETES
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Sociale_items.pdf" target="_blank"> 
-            <img alt=".." src="site/image/Sociale_items.jpg" style="width:100%"> 
-               <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div >
-              Toegang tot de gezondheidszorg,<br>
-              diabetesconventie, diabetespas, zorgtraject
-            </div> 
-            <div>Spreker: Christine Vander Sype<br> medewerker Diabetes Infolijn, diabeteseducator</div>
-            <div>6 mei 2015</div>
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           DIABETES EN MEDICATIE
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Diabetes_medicatie.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Diabetes_medicatie.jpg" style="width:100%"> 
-            <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Medicatiegebruik bij diabetes beter begrijpen.</div> 
-            <div>Spreker: apotheker Eddy Foulon<br>medisch adviseur Diabetes Liga afd. MiddenLimburg</div>
-            <div>25 februari2015</div> 
-          </div>
-        </div>
-        <div class="containerDownload">
-          <label>
-           
-           GASTRIC BYPASS
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Obesitas.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Obesitas.jpg" style="width:100%"> 
-               <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-              <div>Een reddingslijn voor diabetes?</div> 
-             <div>Spreker: dr. Wim Bouckaert<br>abdominaal chirurg Jessa Ziekenhuis</div>
-             <div>22 oktober 2014</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           DIABETESZORG RECHTEN EN PLICHTEN
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Kinderconventie.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Kinderconventie.jpg" style="width:100%"> 
-               <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Kinderen en jongeren</div> 
-            <div>Spreker: dr. Guy Massa<br>kinderendocrinoloog Jessa Ziekenhuis</div>
-            <div>25 september 2014</div> 
-          </div>
-        </div>
-        
-        
-        <div class="containerDownload">
-          <label>
-           
-           DIABETESZORG RECHTEN EN PLICHTEN
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Zorgtraject.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Zorgtraject.jpg" style="width:100%"> 
-               <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-             <div>Zorgtraject</div> 
-            <div>Spreker: Mevr. Hilde Vannoppen<br>Herkenrodehuisartsenkring Hasselt</div>
-            <div>25 september 2014</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           Diabeteszorg Rechten en plichten
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Diabetesconventie.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Diabetesconventie.jpg" style="width:100%"> 
-               <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Diabetes conventie</div> 
-            <div>Spreker: Lily Quintiens<br>diabetesverpleegkundige</div>
-            <div>25 september 2014</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           DE GENEZINGSKANSEN VOOR DIABETES
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Genezingskansen2014.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Genezingskansen2014.jpg" style="width:100%"> 
-               <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Een toekomst zonder diabetes?<br> </div> 
-            <div>Spreker: prof Chantal Mathieu<br>Clinical and Experimental Endocrinology</div>
-            <div>21 mei 2014</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           STEVIA ALS SUIKERALTERNATIEF
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Stevia.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Stevia.jpg" style="width:100%"> 
-               <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Te goed om waar te zijn?</div> 
-            <div>Een suikervervangend wondermiddel?<br>Spreker: prof. Jan M.C. Geuns KU Leuven</div>
-            <div>16 december 2013</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-            
-            DIABETES@SCHOOL
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Diabetesatschool2013.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Diabetesatschool2013.jpg" style="width:100%"> 
-               <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Praktische tips en vaardigheden</div> 
-            <div>Spreker: dr. Guy Massa<br>Kinderendocrinoloog Jessa Ziekenhuis</div>
-            <div>24 oktober 2013</div> 
-          </div>
-          </div>
-           
-        <div class="containerDownload">
-          <label>
-            
-            DIABETES EN SEKSUALITEIT
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Diabetes_en_intimiteit.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Diabetes_en_intimiteit.jpg" style="width:100%"> 
-               <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-           <div>Horen, zien en zwijgen !?<br> </div> 
-            <div>Spreker: Johan van Dyck<br>uroloog UZ Leuven</div>
-            <div>24 september 2013</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           DIABETES EN SEKSUALITEIT
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Diabetes_en_seks.pdf" target="_blank"> 
-            <img alt=" " src="https://dlml.be/site/downloadPDF/Diabetes_en_seks.jpg" style="width:100%; height:auto;"> 
-               <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Horen, zien en zwijgen!?</div> 
-            <div>Spreker: prof. P. Enzlin<br>psycholoog KU leuven</div>
-            <div>24 september 2013</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           PSYCHOSOCIALE IMPACT VAN TYPE1 DIABETES
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Psychosociale_impact.pdf" target="_blank"> 
-            <img alt=" " src="https://dlml.be/site/downloadPDF/Psychosociale_impact.jpg" style="width:100%; height:auto;"> 
-               <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-             <div>Bij kinderen/jongeren en hun ouders.</div> 
-            <div>Spreker: Kelly Faust<br>psychologe kinderdiabetesconventie</div>
-            <div>24 april 2013</div> 
-          </div>
-          </div>
-           
-        <div class="containerDownload">
-          <label>
-          
-           OMGAAN MET DIABETES
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/omgaan_met_diabetes.pdf" target="_blank"> 
-            <img alt=" " src="https://dlml.be/site/downloadPDF/omgaan_met_diabetes.jpg" style="width:100%; height:auto;"> 
-               <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Diabetes wat nu?</div> 
-            <div>Spreker: dr. Frank Vandereyt<br>psycholoog Jessa Ziekenhuis</div>
-            <div>24 april 2013</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           DIABETES EN DE OGEN
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Diabetes_en_de_ogen.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Diabetes_en_de_ogen.jpg" style="width:100%; height:auto;"> 
-               <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Beter voorkomen dan genezen</div> 
-            <div>Spreker: dr. Guy Missotten<br>oftalmoloog Jessa Ziekenhuis</div>
-            <div>11 februari 2013</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-            DIABETES EN DE NIEREN
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Diabetes_en_de_nieren.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Diabetes_en_de_nieren.jpg" style="width:100%; height:auto;"> 
-            <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Beter voorkomen dan genezen</div> 
-            <div>Spreker: dr. Tom Dejagere<br>nefroloog Jessa Ziekenhuis</div>
-            <div>11 februari 2013</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           ETIKETTEN LEZEN
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Etiketten_lezen.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Etiketten_lezen.jpg" style="width:100%; height:auto;"> 
-            <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div> Diabetes en voeding, uw dieet anders bekeken</div> 
-            <div>Spreker: Joke Vrijsen<br>diëtiste diabeteseducator Jessa Ziekenhuis</div>
-            <div>17 oktober 2012</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-          
-            Vetten in de voeding
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/vetten_in_de_voeding.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/vetten_in_de_voeding.jpg" style="width:100%; height:auto;"> 
-            <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Diabetes en voeding, uw dieet anders bekeken</div> 
-            <div>Spreker: Inge Gielen<br>diëtiste diabeteseducator Jessa Ziekenhuis</div>
-            <div>17 oktober 2012</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           SUIKER EN ZOETSTOFFEN
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/suiker_zoetstoffen.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/suiker_zoetstoffen.jpg" style="width:100%; height:auto;"> 
-            <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Diabetes en voeding, uw dieet anders bekeken</div> 
-            <div>Spreker: Claudia Fripont<br>diëtiste diabeteseducator Jessa Ziekenhuis</div>
-            <div>17 oktober 2012</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-            
-            VOETVERZORGING BIJ DIABETICI
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Diabetes_en_de_voeten.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Diabetes_en_de_voeten.jpg" style="width:100%; height:auto;"> 
-            <span class="dlBtn">Download</span>
-            </a> 
-          </div>
-          <div class="containerDownloadTxt"> 
-            <div>
-              Twee voeten met vijf tenen, een kostbaar bezit.
-            </div>
-            <div>Spreker: Veerle Santermans,<br>podoloog Jessa Ziekenhuis</div>
-            <div>29 maart 2012</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-            
-             HET BELANG VAN DE DIABETESEDUCATOR
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Diabeteseducatoren.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Diabeteseducatoren.jpg" style="width:100%; height:auto;"> 
-             <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-             <div>Taak van de diabeteseducator.</div> 
-            <div>Spreker: Martine Vantichelen<br>diabeteseducator Jessa Ziekenhuis</div>
-            <div>29 maart 2012</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-            
-            DIABETES EN BEWEGING
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Diabetes_en_beweging.pdf" style="color:#ffffff; " target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Diabetes_en_beweging.jpg" style="width:100%; height:auto;"> 
-            <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Diabetes en beweging.</div> 
-            <div>Spreker: dr. Annelies Mullens<br>endocrinoloog Jessa Ziekenhuis</div>
-            <div>29 februari 2012</div> 
-          </div>
-        </div>
-           
-        <div class="containerDownload">
-          <label>
-           
-           (TOP)SPORT EN DIABETES
-          </label>
-          <label> </label>
-          <div class="containerDownloadImg">
-            <a href="https://dlml.be/site/downloadPDF/Topsport.pdf" target="_blank"> 
-            <img alt=".." src="https://dlml.be/site/downloadPDF/Topsport.jpg" style="width:100%; height:auto;"> 
-            <span class="dlBtn">Download</span> 
-            </a> 
-          </div> 
-          <div class="containerDownloadTxt"> 
-            <div>Ervaringen rond topsport en diabetes.</div> 
-            <div>Spreker: Kim Nulens<br>Topsportster Duatlon</div>
-            <div>29 februari 2012</div> 
-          </div>
-        </div> 
-      
-      </div>      
- 
-       <!--   contact                                                                   -->
-     <div class="pgContent" id="pgH">   
-   
-     
-	    <div class="contactItm">
-       
-         <div class="contactImg"><img  alt=".." src="https://dlml.be/site/image/imgGuido.png"></div>
-        <div class="contactTxt">
-	      <div>Covoorzitter</div>
-          <div>Penningmeester</div>
-          <div><b>Guido Smets</b></div>
-	      <div><a href="mailto:guido.smets4@telenet.be">guido.smets4@telenet.be</a></div>		
-          <div>0474 32 44 14</div>
-	    </div>        
-      
-        <div class="contactImg"><img  alt=".." src="https://dlml.be/site/image/imgEddy.png"></div>
-        <div class="contactTxt">
-	      <div>Covoorzitter</div>
-	      <div>Medisch adviseur</div>
-	      <div><b>Foulon Eddy</b></div>
-	      <div><a href="mailto:eddy.foulon@telenet.be">eddy.foulon@telenet.be</a></div>	
-	      <div>0472 37 98 50</div>
-	    </div>        
-		
-
-        <div class="contactImg"><img  alt=".." src="site/image/imgAndre.png"></div>
-        <div class="contactTxt">
-	      <div>Webmaster</div>
-	      <div>Bestuurslid</div>
-	      <div><b>André latet</b></div>
-	      <div><a href="mailto:andre.latet@telenet.be">andre.latet@telenet.be</a></div>
-	      <div>0474 27 56 62</div>
-	    </div>        
-      
-   		<div class="contactImg"><img  alt=".." src="https://dlml.be/site/image/imgMarita.png"></div>
-        <div class="contactTxt">
-	      <div>Diabeteseducator</div>
-	      <div>Bestuurslid</div>
-	      <div><b>Marita Baerten</b></div>
-	      <div><a href="mailto:marita.baerten@telenet.be">marita.baerten@telenet.be</a></div>	
-	      <div>0498 44 13 50</div>
-	    </div>        
-      
-        <div class="contactImg"><img  alt=".." src="https://dlml.be/site/image/imgTheo.png"></div>
-        <div class="contactTxt">
-	      <div>Bestuurslid:</div>
-	      <div><b>Theo Hustings</b></div>
-	      <div><a href="mailto:theohustings@scarlet.be">theohustings@scarlet.be</a></div>
-	      <div>0479 89 21 15</div>
-	    </div>        
-      
-        <div class="contactImg"><img  alt=".." src="https://dlml.be/site/image/imgFreddy.png"></div>
-        <div class="contactTxt">
-	      <div>Bestuurslid:</div>
-	      <div><b>Freddy Sleeuwaert</b></div>
-	      <div><a href="mailto:fredje_s@skynet.be">fredje_s@skynet.be</a></div>
-	      <div>0479 85 09 97</div> 
-	     </div>        
-        
-		<div class="contactImg"><img  alt=".." src="site/image/imgGreta.png"></div>
-        <div class="contactTxt">
-	      <div>Bestuurslid:</div>
-	      <div><b>Greta Paesmans</b></div>
-	      <div><a href="mailto:etienne.greta@gmail.com">etienne.greta@gmail.com</a></div>
-	      <div>0496 95 80 62</div> 
-	     </div>        
-        
-		<div class="contactImg"><img  alt=".." src="site/image/imgLaurent.png"></div>
-        <div class="contactTxt">
-	      <div>Bestuurslid:</div>
-	      <div><b>Laurent Delbroek</b></div>
-	      <div><a href="mailto:laurentdelbroek@gmail.com">laurentdelbroek@gmail.com</a></div>
-	      <div>0473 89 00 46</div> 
-	    </div> 
-</div>		
-        
-		 <!-- SOCIALE MEDIA CONTACTEN - FLEX OPBOUW (OPTIE 1) -->
-<div style="margin: 30px 0;">
-
-  <div style="display:flex; align-items:center; margin-bottom: 1.5vw;">
-    <img src="https://dlml.be/site/image/site.png" alt="Website" style="width:36px; height:36px; margin-right:15px;">
-    <a href="https://www.diabetes.be" target="_blank" style="font-size:1.2em; color:#000; text-decoration:underline;">www.diabetes.be</a>
-  </div>
-
-  <div style="display:flex; align-items:center; margin-bottom: 1.5vw;">
-    <img src="https://dlml.be/site/image/facebook.png" alt="Facebook" style="width:36px; height:36px; margin-right:15px;">
-    <a href="https://m.facebook.com/people/Diabetes-Liga-Midden-Limburg/100091325418693/" target="_blank" style="font-size:1.2em; color:#000; text-decoration:underline;">Facebook</a>
-  </div>
-
-  <div style="display:flex; align-items:center; margin-bottom: 1.5vw;">
-    <img src="https://dlml.be/site/image/mail.png" alt="Mail" style="width:36px; height:36px; margin-right:15px;">
-    <a href="mailto:midden.limburg@diabetes.be" style="font-size:1.2em; color:#000; text-decoration:underline;">midden.limburg@diabetes.be</a>
-  </div>
-
-  <div style="display:flex; align-items:center; margin-bottom: 1.5vw;">
-    <img src="https://dlml.be/site/image/youtube.png" alt="YouTube" style="width:36px; height:36px; margin-right:15px;">
-    <a href="https://www.youtube.com/@Diabetesligamiddenlimburg/xregexp" target="_blank" style="font-size:1.2em; color:#000; text-decoration:underline;">YouTube</a>
-  </div>
-
-  <div style="display:flex; align-items:center; margin-bottom: 1.5vw;">
-    <img src="site/image/instagram.png" alt="Instagram" style="width:36px; height:36px; margin-right:15px;">
-    <a href="https://www.instagram.com/diabetes_liga_midden_limburg/" target="_blank" style="font-size:1.2em; color:#000; text-decoration:underline;">Instagram</a>
-  </div>
-
-</div>
-
-<!-- EINDE NIEUWE CONTENT DIV -->	
-    
-		  
-	  </div>
-	  
-    </div> 
-		
-         
-    </div><!--     end all pages                         -->  
- 
-      
-	</div><!-- end wrapper                     -->
-      
-  	
-    <!--     ************************************    -->
-    <!--     ** **    end   *******    -->
-    <!--     ************************************    -->
-	
-<!-- Lightbox Structuur HIER PLAATSEN, buiten #wrapper -->
-    <div id="imageLightbox" class="lightbox-overlay-hidden">
-        <div class="lightbox-content-wrapper">
-            <span class="lightbox-close-btn">×</span>
-            <img class="lightbox-image-display" src="#" alt="Vergrote afbeelding">
-            <a class="lightbox-prev-btn">❮</a>
-            <a class="lightbox-next-btn">❯</a>
-        </div>
-    </div>
-
-<script>
-// Maak setActivePage GLOBAAL beschikbaar
-function setActivePage(id) {
-  console.log("setActivePage aangeroepen met id:", id); // ✅ TESTREGEL
-
-  const pages = document.querySelectorAll(".pgContent");
-  const menuItems1 = document.querySelectorAll("#MnuLst1 > div:not(.MnuLine)");
-  const menuItems2 = document.querySelectorAll("#MnuLst2 > div:not(.MnuLine)");
-
-  // Verberg alle pagina's
-  pages.forEach(p => p.style.display = "none");
-
-  // Toon gewenste pagina
-  const page = document.getElementById("pg" + id);
-  if (page) page.style.display = "block";
-
-  // Menu activeren
-  menuItems1.forEach(i => i.classList.remove("activeMnuItem"));
-  menuItems2.forEach(i => i.classList.remove("activeMnuItem"));
-
-  const itm1 = document.getElementById("MnuItm1" + id);
-  const itm2 = document.getElementById("MnuItm2" + id);
-  if (itm1) itm1.classList.add("activeMnuItem");
-  if (itm2) itm2.classList.add("activeMnuItem");
-
-  // Opslaan in localStorage
-  localStorage.setItem("activePage", id);
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  const menuItems1 = document.querySelectorAll("#MnuLst1 > div:not(.MnuLine)");
-  const menuItems2 = document.querySelectorAll("#MnuLst2 > div:not(.MnuLine)");
-
-  // Voeg click-events toe aan menu
-  [...menuItems1, ...menuItems2].forEach(item => {
-    item.addEventListener("click", function () {
-      const id = this.id.replace("MnuItm1", "").replace("MnuItm2", "");
-      setActivePage(id);
-    });
-  });
-
-  // CTA-knop van Infolijn op Home laten werken
-  const extraCTA = document.querySelector('.ctaBox a[href="#pgInfolijn"]');
-  console.log("extraCTA gevonden?", !!extraCTA); // ✅ TESTREGEL
-  if (extraCTA) {
-    extraCTA.addEventListener("click", function (e) {
-      e.preventDefault();
-      console.log("CTA knop geklikt"); // ✅ TESTREGEL
-      setActivePage("Q"); // Let op: de ID is "pgQ", dus geef "Q" door
-    });
-  }
-
-  // Laatst bezochte pagina herstellen
-  setActivePage("A");
-});
-</script>
-
-<!-- De HTML-structuur voor de chatbot met de correcte volgorde 
-  <div id="chatbot-button">💬</div>
-  <div id="chatbot-container" style="display:none;">
-    <div id="chatbot-header">Hulp & Info Diabetes</div>
-    <div id="chat-box"></div> -->
-
-    <!-- HELP-POPUP BEGIN 
-    <div id="chatbot-help-container">
-      <div id="chatbot-help-popup" class="hidden">
-        <strong>ℹ️ Wat kan je vragen?</strong><br>
-        • Activiteiten van DLML (zoals infosessies, wandelingen, uitstappen…)<br>
-        • Contactgegevens van bestuursleden<br>
-        • Vragen over diabetes, voeding, rijbewijs, medicatie…<br>
-        📁 Onder het invoerveld vind je een lijst met presentaties die je kunt openen of downloaden.<br>
-        🤖 Antwoorden zijn informatief en geen vervanging voor medisch advies.<br>
-        🌐 De chatbot heeft geen live toegang tot het internet.<br>
-        <button id="chatbot-help-close">Sluiten</button>
-      </div>
-    </div> -->
-    <!-- HELP-POPUP EINDE -->
-
-    <!-- ZORG DAT DE STRUCTUUR ZO IS:
-    <div id="chatbot-input-area">
-      <input type="text" id="chat-input" placeholder="Typ je vraag..." />
-      <button id="chatbot-help-icon">?</button>
-      <button id="chatbot-send" onclick="sendMessage()">▶</button>  -->
-      
-      <!-- De reset-knop staat BINNEN de input-area 
-      <div id="chatbot-reset-area">
-        <button id="reset-button">♻️ Reset</button>
-      </div>
-    </div> -->
-
-    <!-- DE AFROLLIJST 
-    <div id="chatbot-downloads-area">
-      <label for="downloads-select">Of selecteer een presentatie:</label>
-      <select id="downloads-select">
-        <option value="">-- Kies een download --</option>
-      </select>
-    </div>
-    
-  </div> -->
-
-  <!-- De link naar de chatbot-logica (één keer) 
+<section class="card intro" style="margin-top: 30px; border-left: 4px solid #62d6a7;">
+  <h2>Besluit: De Cirkel is Rond</h2>
+  <p>
+    Na 70 jaar van experimenteren met vetarme dogma's en de opkomst van ultra-bewerkte voeding, staan we in 2025 op een historisch kruispunt. De wetenschap keert terug naar de basis: <strong>Real Food</strong>. 
+  </p>
+  <p>
+    Hoewel de VS het epicentrum was van de voedingscrisis, zien we nu dat de ommekeer daar de weg vrijmaakt voor de rest van de wereld. Ook voor ons in België en Europa is dit het moment om onze eetcultuur te herwaarderen en de strijd tegen diabetes type 2 echt aan te gaan.
+  </p>
   
+  <div style="margin-top: 20px;">
+    <a class="context-link" href="deepdives/global-impact-europe-belgium.html" style="color: #62d6a7; font-size: 16px;">
+      → De impact op België en Europa: Waarom wij een voorsprong hebben
+    </a>
+    <br><br>
+    <a class="context-link" href="deepdives/toekomstvisie-metabole-gezondheid.html" style="color: #62d6a7; font-size: 16px;">
+      → Toekomstvisie: Hoe we diabetes type 2 definitief kunnen keren
+    </a>
+  </div>
+</section>
+
+
+
   
-  <script src="chatbot.js"></script> -->
-  
-  
-  <!-- Het script om de knoppen en de afrollijst te laten werken (één keer, en robuust) -->
+</section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    
-    // --- LOGICA VOOR DE AFROLLIJST ---
-    async function populateDownloads() {
-      try {
-        const response = await fetch('downloads_menu.json');
-        const downloads = await response.json();
-        const selectElement = document.getElementById('downloads-select');
-        downloads.forEach(download => {
-          const option = document.createElement('option');
-          option.value = download.link;
-          option.textContent = download.title;
-          selectElement.appendChild(option);
-        });
-        selectElement.addEventListener('change', function() {
-          if (this.value) { window.open(this.value, '_blank'); this.selectedIndex = 0; }
-        });
-      } catch (error) { console.error('Fout bij het laden van de downloads:', error); }
-    }
-    populateDownloads();
+  </main>
 
-    // --- LOGICA VOOR DE CHATBOT KNOP (OPEN/SLUIT) ---
-    document.getElementById("chatbot-button").addEventListener("click", function () {
-      const venster = document.getElementById("chatbot-container");
-      venster.style.display = venster.style.display === "none" ? "flex" : "none";
-    });
-
-    // --- LOGICA VOOR VERZENDEN MET ENTER ---
-    document.getElementById("chat-input").addEventListener("keydown", function (e) {
-      if (e.key === "Enter") sendMessage();
-    });
-
-    // --- NIEUW: LOGICA VOOR DE HELP-POPUP ---
-    document.getElementById("chatbot-help-icon").addEventListener("click", () => {
-      const popup = document.getElementById("chatbot-help-popup");
-      popup.classList.toggle("hidden");
-    });
-
-    document.getElementById("chatbot-help-close").addEventListener("click", () => {
-      document.getElementById("chatbot-help-popup").classList.add("hidden");
-    });
-
-    // --- NIEUW: LOGICA VOOR DE RESET-KNOP ---
-    document.getElementById("reset-button").addEventListener("click", () => {
-      // Wis de chatgeschiedenis
-      const messages = document.getElementById("chat-box");
-      if (messages) messages.innerHTML = "";
-
-      // Wis het invoerveld
-      const input = document.getElementById("chat-input");
-      if (input) input.value = "";
-
-      // Zet dropdown terug naar standaardwaarde
-      const dropdown = document.getElementById("downloads-select");
-      if (dropdown) dropdown.selectedIndex = 0;
-    });
-  });
-</script>
-
-<!-- =============================================================== -->
-<!-- ============ JAVASCRIPT VOOR DE DIABETES KLOK HIER ============ -->
-<!-- =============================================================== -->
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-      const INITIAL_COUNT = 0;
-      const COUNT_FIXED_TIMESTAMP = new Date(2026, 0, 1, 0, 0, 0); // 01/01/2026 00:00 lokaal
-
-      
-      const intervalMillis = 17 * 60 * 1000;
-      const counterElement = document.getElementById('diabetes-counter');
-      const countdownElement = document.getElementById('countdown-timer');
-      const todayCounterElement = document.getElementById('diagnoses-today-counter'); // Nieuw element
-      
-      let lastKnownTotalCount = 0;
-
-      function updateCounterAndCountdown() {
-          if (!counterElement || !countdownElement || !todayCounterElement) {
-              return;
-          }
-
-          const now = new Date();
-          const diffSinceFix = now - COUNT_FIXED_TIMESTAMP;
-
-          if (diffSinceFix < 0) {
-              counterElement.textContent = INITIAL_COUNT.toLocaleString('nl-BE');
-              // ... (bestaande logica voor start)
-              return;
-          }
-
-          // Bestaande logica voor totaaltelling
-          const additionalIntervals = Math.floor(diffSinceFix / intervalMillis);
-          const totalCount = INITIAL_COUNT + additionalIntervals;
-          
-          if (totalCount !== lastKnownTotalCount && lastKnownTotalCount !== 0) {
-              counterElement.textContent = totalCount.toLocaleString('nl-BE');
-              counterElement.classList.add('updated');
-              
-              setTimeout(() => {
-                  counterElement.classList.remove('updated');
-                  counterElement.style.transform = 'scale(1)'; 
-              }, 200);
-          } else if (lastKnownTotalCount === 0) {
-              counterElement.textContent = totalCount.toLocaleString('nl-BE');
-          }
-          lastKnownTotalCount = totalCount;
-
-          // *** NIEUWE LOGICA VOOR TELLER VANDAAG ***
-          const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()); // Middernacht
-          const diffSinceMidnight = now - todayStart;
-          const diagnosesToday = Math.floor(diffSinceMidnight / intervalMillis);
-          todayCounterElement.innerHTML = `Nieuwe diagnoses vandaag: <span class="today-count-number">${diagnosesToday}</span>`;
-          // *** EINDE NIEUWE LOGICA ***
-
-          // Bestaande logica voor countdown
-          const millisIntoCurrentInterval = diffSinceFix % intervalMillis;
-          const remainingMillis = intervalMillis - millisIntoCurrentInterval;
-          const remainingSecondsTotal = Math.floor(remainingMillis / 1000);
-          const minutes = Math.floor(remainingSecondsTotal / 60);
-          const seconds = remainingSecondsTotal % 60;
-          const formattedSeconds = String(seconds).padStart(2, '0');
-          countdownElement.textContent = `Volgende diagnose over: ${minutes}:${formattedSeconds}`;
-      }
-
-      updateCounterAndCountdown();
-      setInterval(updateCounterAndCountdown, 1000);
-  });
-</script>
-
-<!-- =============================================================== -->
-<!-- ================= EINDE JAVASCRIPT VOOR DE KLOK =============== -->
-<!-- =============================================================== -->
-
-<!-- jQuery-bibliotheek -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<!-- Eerst uw hoofdbestand -->
-<script src="site/myjavascript.js"></script>
-
-
-<script>
-/* ================================
-   Automatisch scrollen naar anker (#)
-   Verbeterde scroll: vloeiend en precies
-   ================================= */
-function scrollToHashTarget() {
-  const hash = window.location.hash;
-  if (!hash) return;
-
-  const target = document.querySelector(hash);
-  if (!target) {
-    console.log("Geen element gevonden voor", hash);
-    return;
-  }
-
-  const parentPage = target.closest(".pgContent");
-  if (parentPage) parentPage.style.display = "block";
-
-  setTimeout(() => {
-    const headerOffset = 70;
-    const elementTop = target.getBoundingClientRect().top + window.scrollY;
-    const elementHeight = target.offsetHeight;
-
-    // 🎯 Doelpositie
-    let offsetPosition = elementTop - headerOffset;
-
-    // ⛔ Boven- en onderlimieten instellen
-    const maxScroll = document.body.scrollHeight - window.innerHeight;
-    const minScroll = 0;
-    offsetPosition = Math.max(minScroll, Math.min(offsetPosition, maxScroll - elementHeight / 3));
-
-    // 🕊️ Vloeiend scrollen
-    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-
-    console.log("Nauwkeurig gescrold naar", hash);
-  }, 300);
-}
-
-window.addEventListener("load", scrollToHashTarget);
-window.addEventListener("hashchange", scrollToHashTarget);
-</script>
-
-
-
+ <footer>
+  <div class="wrap">
+    <div class="footer-credits">
+      Inhoud & realisatie: <strong>Freddy Sleeuwaert</strong>
+    </div>
+    <div class="footer-disclaimer">
+      Disclaimer: deze website is bedoeld voor algemene informatie en educatie. 
+      Bij gezondheidsvragen: bespreek persoonlijke keuzes steeds met uw arts of diëtist.
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
-
-
