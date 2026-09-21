@@ -1,0 +1,12 @@
+{
+  "name": "voeding-tijdlijn",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node site/bouw.mjs",
+    "test": "node site/controle.mjs"
+  },
+  "devDependencies": {
+    "linkedom": "0.18.12"
+  }
+}
